@@ -1,0 +1,65 @@
+OBJECTID,GroupID,GroupName,StatsRun,StatsName,Notes
+1,1,Accipitriformes_Falconiformes,0,,
+2,2,Aechmophorus,0,,
+3,3,Alcedinidae,0,,
+4,4,Alcidae,1,Alcids,Alcidae
+5,5,AllMarineBirdSpecies,0,,
+6,6,AllMarineMinusDabblers,0,,
+7,7,Anatidae,1,All Waterfowl,Anatidae
+8,8,Anatinae,1,Dabbling Ducks,Anatinae
+9,9,Anserinae,1,Geese and Swans,Anserinae
+10,10,Anserini,1,Swans,Anserini
+11,11,Ardeidae,0,,
+12,12,Arenaria,0,,
+13,13,Aves,0,,
+14,14,AythyaSpecies,1,Scaup,Aythya affinis & A. marila
+15,15,Aythyinae,0,,
+16,16,Aythyinae_Merginae,0,,
+17,17,Aythyinae_Merginae_Oxyurinae,1,Diving Ducks and Sea Ducks,
+18,18,Aythyinae_Oxyurinae,1,Diving Ducks,
+19,19,Breed_SalishSea,0,,
+20,20,BreedingEvaluated,0,,
+21,21,BucephalaSpecies,0,,
+22,22,Charadriidae,0,,
+23,23,Charadriiformes,0,,
+24,24,Corvidae,0,,
+25,25,Cygnini,0,,
+26,26,Diomedeidae,0,,
+27,27,ForagingEvaluated,0,,
+28,28,Fratercula,0,,
+29,29,Gaviiformes,1,Loons,Gaviiformes
+30,30,GoldeneyeSpecies,1,Goldeneyes,
+31,31,Haematopodidae,0,,
+32,32,Lari,0,,
+33,33,Laridae,1,Gulls,
+34,34,Laridae_and_Sternidae2,0,,
+35,35,Laridae_Sternidae_Stercorariidae,0,,
+36,36,MarineAssociatedBirds,1,Marine Birds,
+37,37,Melanitta,1,Scoters,
+38,38,Merginae,1,Sea Ducks,
+39,39,Mergus,1,Mergansers,Mergus spp.
+40,40,MurreletSpecies,1,Murrelets,Synthliboramphus antiquus & Brachyramphus marmoratus
+41,41,MurreSpecies,1,Murres,Uria spp.
+42,42,Oxyurinae,0,,
+43,43,Pelecaniformes,0,,
+44,44,Pelecaniformes2,0,,
+45,45,PFS_Dabbling,0,,
+46,46,PFS_Diving,1,Dive Feeding,
+47,47,PFS_IntertidalForaging,0,,
+48,48,PFS_Scavenging,0,,
+49,49,PFS_SurfaceSeizing,1,Surface Seizing,
+50,50,Phalacrocoracidae,1,Cormorants,Phalacrocoracidae
+51,51,Podiceps,0,,
+52,52,Podiceps_Aechmophorus,1,Grebes,
+53,53,Podicipediformes,0,,
+54,54,Procellariidae,0,,
+55,55,Procellariiformes,0,,
+56,56,Pterodroma,0,,
+57,57,Scolopacidae,0,,
+58,58,ShorebirdSpecies,1,Shorebirds,
+59,59,Stercorariidae,0,,
+60,60,Sterninae,0,,
+61,61,TealSpecies,1,Teal,Spatuala spp. & Anas crecca
+62,62,CormorantsExcludingDCCO,1,Cormorants Excluding DCCO,
+63,63,DivingForageFishSpecialists,1,Diving Forage Fish Specialists,
+64,64,ForageFishSpecialists,1,ForageFishSpecialists,

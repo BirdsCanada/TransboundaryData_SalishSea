@@ -1,0 +1,175 @@
+OBJECTID,TaxoNameID,PSEMP_SpeciesCode,Description,TaxoDbHierarchy,PSEMP_CommonName,PSEMP_SciName1,PSEMP_SciName2,TaxoSppCode,TaxoCommonName,TaxoScientificName,TaxoClassName
+1,,ULSD,"Shorebirds, unidentified large",,"Sea bird, unidentified",Unclassified Sea Bird Species,(Old: Charadriiformes) Ciconiiformes,,,,
+2,,UMSD,"Shorebirds, unidentified medium",,"Sea bird, unidentified",Unclassified Sea Bird Species,(Old: Charadriiformes) Ciconiiformes,,,,
+3,,UNSB,"Sea bird, unidentified",,"Sea bird, unidentified",Unclassified Sea Bird Species,(Old: Charadriiformes) Ciconiiformes,,,,
+4,,USSD,"Shorebirds, unidentified small",,"Sea bird, unidentified",Unclassified Sea Bird Species,(Old: Charadriiformes) Ciconiiformes,,,,
+5,,ULGR,"Grebe, unidentified large",,"Grebe, unidentified",Unclassified Podicipediformes Species,Podicipediformes,,,,
+6,,UNGR,"Grebe, unidentified",,"Grebe, unidentified",Unclassified Podicipediformes Species,Podicipediformes,,,,
+7,,USGR,"Grebe, unidentified small",,"Grebe, unidentified",Unclassified Podicipediformes Species,Podicipediformes,,,,
+8,,UNTB,"Tubenose, unidentified",,"Tubenose, unidentified",Unclassified Procellariiformes Species,Procellariiformes,,,,
+9,,UNDD,"Diving Duck, Unid.",,"Diving Duck, unidentified",Unclassified Diving Duck and Sea Duck,Anatidae,,,,
+10,,UNDU,"Duck, unidentifed",,"Diving Duck, unidentified",Unclassified Diving Duck and Sea Duck,Anatidae,,,,
+11,,UNPD,"Duck, unidentified dabbling/pond",,"Diving Duck, unidentified",Unclassified Diving Duck and Sea Duck,Anatidae,,,,
+12,,UNSD,"Sandpiper, unidentified",,"Sandpiper, unidentified",Unclassified Scolopacidae Species,Scolopacidae,,,,
+13,,ULAC,"Alcid, unidentified large",,"Alcid, unidentified",Unclassified Alcidae Species,Alcidae,,,,
+14,,UMAC,"Alcid, unidentified medium",,"Alcid, unidentified",Unclassified Alcidae Species,Alcidae,,,,
+15,,UNAC,"Alcid, unidentified",,"Alcid, unidentified",Unclassified Alcidae Species,Alcidae,,,,
+16,,UNML,"Murrelet, unidentified",,"Alcid, unidentified",Unclassified Alcidae Species,Alcidae,,,,
+17,,USAC,"Alcid, unidentified small",,"Alcid, unidentified",Unclassified Alcidae Species,Alcidae,,,,
+18,,UBWG,"Gull, unidentified black-wing tip",,"Gull, unidentified",Unclassified Laridae Species,Laridae,,,,
+19,,ULGU,"Gull, unidentified large",,"Gull, unidentified",Unclassified Laridae Species,Laridae,,,,
+20,,UNGU,"Gull, Unid.",,"Gull, unidentified",Unclassified Laridae Species,Laridae,,,,
+21,,USGU,"Gull, unidentified small",,"Gull, unidentified",Unclassified Laridae Species,Laridae,,,,
+22,,UNCO,"Cormorant, Unid.",,"Cormorant, unidentified",Unclassified Phalacrocoracidae Spp.,Phalacrocoracidae,,,,
+23,,UNAL,"Albatross, unidentified",,"Albatross, unidentified",Unclassified Diomedeidae Species,Diomedeidae,,,,
+24,,UNPT,"Pterodoma, unidentified",,"Pterodroma, unidentified",Unclassified Pterodama (Petrel) Species,Pterodama,,,,
+25,,UNSP,"Storm-petrel, unidentified",,"Pterodroma, unidentified",Unclassified Pterodama (Petrel) Species,Pterodama,,,,
+26,,UDSH,"Shearwater, unidentified dark",,"Shearwater, unidentified",Unclassified Procellariidae Species,Procellariidae,,,,
+27,,UNSH,"Shearwater, unidentified",,"Shearwater, unidentified",Unclassified Procellariidae Species,Procellariidae,,,,
+28,,TEAL,"Teal, Unid.",,"Teal, unidentified",Unclassified Teal Species,Anas,,,,
+29,,SCAU,Scaup,,"Scaup, unidentified",Unclassified Scaup (Aythya marila or A. affinis),Aythya,,,,
+30,,UNSW,"Swan, unidentified",,"Swan, unidentified",Unclassified Cygnus Species,Cygnus,,,,
+31,,UNSC,"Scoter , Unid.",,"Scoter , unidentified",Unclassified Melanitta Species,Melanitta,,,,
+32,,UNME,"Merganser, Unid",,"Merganser, unidentified",Unclassified Merganser Species (Mergus),Merganser,,,,
+33,,TURN,"Turnstone, unidentified",,"Turnstone, unidentified",Unclassified Arenaria Species,Arenaria,,,,
+34,,UNDO,"Dowitcher, unidentified",,"Dowitcher, unidentified",Unclassified Limnodromus Species,Limnodromus,,,,
+35,,UNPH,"Phalarope, unidentified",,"Phalarope, unidentified",Unclassified Phalaropus Species,Phalaropus,,,,
+36,,UNYE,"Yellowlegs, unidentified",,"Yellowlegs, unidentified",Unclassified Tringa Species,Tringa,,,,
+37,,BRMU,"Murrelet, unidentifed Brachyramphus",,"Murrelet, unidentified Brachyramphus",Unclassified Brachyramphus Species,Brachyramphus,,,,
+38,,UNPU,"Puffin, unidentified",,"Puffin, unidentified",Unclassified Fratercula Species,Fratercula,,,,
+39,,UNMU,"Murre, Unid.",,"Murre, unidentidied",Unclassified Murre Species,Murre,,,,
+40,,UNKI,"Kittiwake, unidentified",,"Kittiwake, unidentified",Unclassified Rissa Species,Rissa,,,,
+41,,UNJA,"Jaeger, unidentified",,"Jaeger, unidentified",Unclassified Stercorarius Species,Stercorarius,,,,
+42,,UNTE,"Tern, unidentified",,"Tern, unidentified",Unclassified Sternidae Species,Sterna,,,,
+43,,UNLO,"Loon, Unid.",,"Loon, unidentified",Unclassified Gaviiformes Spp.,Gaviiformes,,,,
+44,4319,NOPI,"Pintail, northern",Species,"Pintail, northern",Anas acuta,Anas acuta,ANAC,Northern pintail,Anas acuta,Aves
+45,4320,AMWI,"Wigeon, American",Species,"Wigeon, American",Anas americana,Anas americana,ANAM,American wigeon,Anas americana,Aves
+46,4321,NOSH,"Shoveler, northern",Species,"Shoveler, northern",Anas clypeata,Anas clypeata,ANCL,Northern shoveler,Anas clypeata,Aves
+47,4322,GWTE,"Teal, green-winged",Species,"Teal, green-winged",Anas crecca,Anas crecca,ANCR,Green-winged teal,Anas crecca,Aves
+48,4323,CITE,"Teal, cinnamon",Species,"Teal, cinnamon",Anas cyanoptera,Anas cyanoptera,ANCY,Cinnamon teal,Anas cyanoptera,Aves
+49,4324,BWTE,"Teal, blue-winged",Species,"Teal, blue-winged",Anas discors,Anas discors,ANDI,Blue-winged teal,Anas discors,Aves
+50,4327,MALL,Mallard,Species,Mallard,Anas platyrhynchos,Anas platyrhynchos,ANPL,Mallard,Anas platyrhynchos,Aves
+51,4330,GADW,Gadwall,Species,Gadwall,Anas strepera,Anas strepera,ANST,Gadwall,Anas strepera,Aves
+52,4331,WFGO,"Goose, white-fronted",Species,"Goose, white-fronted",Anser albifrons,Anser albifrons,ANAL,Greater white-fronted goose,Anser albifrons,Aves
+53,4332,LESC,"Scaup, lesser",Species,"Scaup, lesser",Aythya affinis,Aythya affinis,AYAF,Lesser scaup,Aythya affinis,Aves
+54,4334,RNDU,"Duck, ring-necked",Species,"Duck, ring-necked",Aythya collaris,Aythya collaris,AYCO,Ring-necked duck,Aythya collaris,Aves
+55,4336,GRSC,"Scaup, greater",Species,"Scaup, greater",Aythya marila,Aythya marila,AYMA,Greater scaup,Aythya marila,Aves
+56,4337,CANV,Canvasback,Species,Canvasback,Aythya valisineria,Aythya valisineria,AYVA,Canvasback,Aythya valisineria,Aves
+57,4338,BLBR,"Brant, black",Species,Brant,Branta bernicla,Branta bernicla,BRBE,Western High Arctic Brandt,Branta bernicla,Aves
+58,4339,CAGO,"Goose, Canada",Species,"Goose, Canada",Branta canadensis,Branta canadensis,BRCA,Canada goose,Branta canadensis,Aves
+59,4340,BUFF,Bufflehead,Species,Bufflehead,Bucephala albeola,Bucephala albeola,BUAL,Bufflehead,Bucephala albeola,Aves
+60,4341,COGO,"Goldeneye, Common",Species,"Goldeneye, common",Bucephala clangula,Bucephala clangula,BUCL,Common goldeneye,Bucephala clangula,Aves
+61,,UNGO,"Goldeneye, Unid.",,"Goldeneye, common",Bucephala clangula,Bucephala clangula,,,,
+62,4342,BAGO,"Goldeneye, Barrow's",Species,"Goldeneye, Barrow's",Bucephala islandica,Bucephala islandica,BUIS,Barrow's goldeneye,Bucephala islandica,Aves
+63,4343,SNGO,"Goose, snow",Species,"Goose, snow",Anser caerulescens,(Old: Anser) Chen caerulescens,CHCA,Snow goose,Chen caerulescens,Aves
+64,4346,LTDU,Long-tailed Duck,Species,"Duck, long-tailed",Clangula hyemalis,Clangula hyemalis,CLHY,Long-tailed duck,Clangula hyemalis,Aves
+65,4347,TRSW,"Swan, trumpeter",Species,"Swan, trumpeter",Cygnus buccinator,Cygnus buccinator,CYBU,Trumpeter swan,Cygnus buccinator,Aves
+66,4348,TUSW,"Swan, tundra",Species,"Swan, tundra",Cygnus columbianus,Cygnus columbianus,CYCO,Tundra swan,Cygnus columbianus,Aves
+67,4350,HADU,Harlequin duck,Species,"Duck, harlequin",Histrionicus histrionicus,Histrionicus histrionicus,HIHI,Harlequin duck,Histrionicus histrionicus,Aves
+68,4351,HOME,"Merganser, hooded",Species,"Merganser, hooded",Lophodytes cucullatus,Lophodytes cucullatus,LOCO,Hooded merganser,Lophodytes cucullatus,Aves
+69,4352,WWSC,White-winged Scoter,Species,"Scoter, white-winged",Melanitta deglandi,(Old: Melanitta) Fusca deglandi,MEFU,White-winged scoter,Melanitta fusca,Aves
+70,4353,BLSC,"Scoter, Black",Species,"Scoter, black",Melanitta americana,Melanitta americana,MEAM,American (Black) Scoter,Melanitta americana,Aves
+71,4354,SUSC,Surf Scoter,Species,"Scoter, surf",Melanitta perspicillata,Melanitta perspicillata,MEPE,Surf scoter,Melanitta perspicillata,Aves
+72,4356,COME,"Merganser, common",Species,"Merganser, common",Mergus merganser,Mergus merganser,MEMER,Common merganser,Mergus merganser,Aves
+73,4357,RBME,"Merganser, red-breasted",Species,"Merganser, red-breasted",Mergus serrator,Mergus serrator,MESE,Red-breasted merganser,Mergus serrator,Aves
+74,4358,RUDU,Ruddy Duck,Species,"Duck, ruddy",Oxyura jamaicensis,Oxyura jamaicensis,OXJA,Ruddy duck,Oxyura jamaicensis,Aves
+75,4372,SPSA,Spotted Sandpiper,Species,"Sandpiper, spotted",Actitis macularius,(Old: Actitis) Macularia macularius,ACMA,Spotted sandpiper,Actitis macularia,Aves
+76,4373,SURF,Surfbird,Species,Surfbird,Aphriza virgata,(Old: Aphriza) Calidrus virgata,APVI,Surfbird,Calidrus virgata,Aves
+77,4374,RUTU,"Turnstone, ruddy",Species,"Turnstone, ruddy",Arenaria interpres,Arenaria interpres,ARIN,Ruddy turnstone,Arenaria interpres,Aves
+78,4375,BLTU,"Turnstone, black",Species,"Turnstone, black",Arenaria melanocephala,Arenaria melanocephala,ARME,Black turnstone,Arenaria melanocephala,Aves
+79,4378,SAND,Sanderling,Species,Sanderling,Calidris alba,Calidris alba,CAAL,Sanderling,Calidris alba,Aves
+80,4379,DUNL,Dunlin,Species,Dunlin,Calidris alpina,Calidris alpina,CAALP,Dunlin,Calidris alpina,Aves
+81,4385,WESA,"Sandpiper, western",Species,"Sandpiper, western",Calidris mauri,Calidris mauri,CAMA,Western sandpiper,Calidris mauri,Aves
+82,4387,LESA,"Sandpiper, least",Species,"Sandpiper, least",Calidris minutilla,Calidris minutilla,CAMI,Least sandpiper,Calidris minutilla,Aves
+83,4388,ROSA,"Sandpiper, rock",Species,"Sandpiper, rock",Calidris ptilocnemis,Calidris ptilocnemis,CAPT,Rock sandpiper,Calidris ptilocnemis,Aves
+84,4390,WILL,Willet (sandpiper),Species,Willet,Tringa semipalmata,Tringa semipalmata,CASE,Willet,Catoptrophorus semipalmatus,Aves
+85,4393,WATA,"Tattler, wandering",Species,"Tattler, wandering",Tringa incana,(Old: Tringa) Heteroscelus incana,,Wandering tattler,Heteroscelus incanus,Aves
+86,4394,SBDO,"Dowitcher, short-billed",Species,"Dowitcher, short-billed",Limnodromus griseus,Limnodromus griseus,LIGR,Short-billed dowitcher,Limnodromus griseus,Aves
+87,4395,LBDO,"Dowitcher, long-billed",Species,"Dowitcher, long-billed",Limnodromus scolopaceus,Limnodromus scolopaceus,LISC,Long-billed dowitcher,Limnodromus scolopaceus,Aves
+88,4396,MAGO,"Godwit, marbled",Species,"Godwit, marbled",Limosa fedoa,Limosa fedoa,LIFE,Marbled godwit,Limosa fedoa,Aves
+89,4400,WHIM,Whimbrel,Species,Whimbrel,Numenius phaeopus,Numenius phaeopus,NUPH,Whimbrel,Numenius phaeopus,Aves
+90,4402,REPH,"Phalarope, red",Species,"Phalarope, red",Phalaropus fulicarius,Phalaropus fulicarius,PHFU,Red phalarope,Phalaropus fulicaria,Aves
+91,4403,RNPH,"Phalarope, red-necked",Species,"Phalarope, red-necked",Phalaropus lobatus,Phalaropus lobatus,PHLO,Red-necked phalarope,Phalaropus lobatus,Aves
+92,4406,LEYE,"Yellowlegs, lesser",Species,"Yellowlegs, lesser",Tringa flavipes,Tringa flavipes,TRFL,Lesser yellowlegs,Tringa flavipes,Aves
+93,4407,GRYE,"Yellowlegs, greater",Species,"Yellowlegs, greater",Tringa melanoleuca,Tringa melanoleuca,TRME,Greater yellowlegs,Tringa melanoleuca,Aves
+94,4411,PAAU,"Auklet, parakeet",Species,"Auklet, parakeet",Aethia psittacula,Aethia psittacula,,,,
+95,4413,MAMU,"Murrelet, marbled",Species,"Murrelet, marbled",Brachyramphus marmoratus,Brachyramphus marmoratus,BRMA,Marbled murrelet,Brachyramphus marmoratus,Aves
+96,4414,PIGU,Pigeon Guillemot,Species,"Guillemot, pigeon",Cepphus columba,Cepphus columba,CECO,Pigeon guillemot,Cepphus columba,Aves
+97,4415,RHAU,Rhinoceros Auklet,Species,"Auklet, rhinoceros",Cerorhinca monocerata,Cerorhinca monocerata,CEMO,Rhinoceros auklet,Cerorhinca monocerata,Aves
+98,4416,TUPU,"Puffin, tufted",Species,"Puffin, tufted",Fratercula cirrhata,Fratercula cirrhata,FRCI,Tufted puffin,Fratercula cirrhata,Aves
+99,4417,HOPU,"Puffin, horned",Species,"Puffin, horned",Fratercula corniculata,Fratercula corniculata,,,,
+100,4418,CAAU,"Auklet, cassin's",Species,"Auklet, Cassin's",Ptychoramphus aleuticus,Ptychoramphus aleuticus,PTAL,Cassin's auklet,Ptychoramphus aleuticus,Aves
+101,4419,ANMU,"Murrelet, ancient",Species,"Murrelet, ancient",Synthliboramphus antiquus,Synthliboramphus antiquus,SYAN,Ancient murrelet,Synthliboramphus antiquus,Aves
+102,4421,COMU,Common Murre,Species,"Murre, common",Uria aalge,Uria aalge,URAA,Common murre,Uria aalge,Aves
+103,4422,TBMU,"Murre, thick-billed",Species,"Murre, thick-billed",Uria lomvia,Uria lomvia,,,,
+104,4424,GBHE,"Heron, Great Blue",Species,"Heron, great blue",Ardea herodias,Ardea herodias,ARHE,Great blue heron,Ardea herodias,Aves
+105,4433,TUVU,Turkey Vulture,Species,"Vulture, turkey",Cathartes aura,Cathartes aura,CAAUR,Turkey vulture,Cathartes aura,Aves
+106,4438,SEPL,"Plover, semi-palmated",Species,"Plover, semipalmated",Charadrius semipalmatus,Charadrius semipalmatus,CHSE,Semipalmated plover,Charadrius semipalmatus,Aves
+107,4439,KILL,Killdeer,Species,Killdeer,Charadrius vociferus,Charadrius vociferus,CHVO,Killdeer,Charadrius vociferus,Aves
+108,4440,GOPL,"Plover, golden",Species,"Plover, American golden",Pluvialis dominica,Pluvialis dominica,PLDO,American golden-plover,Pluvialis dominica,Aves
+109,4442,BBPL,"Plover, black-bellied",Species,"Plover, black-bellied",Pluvialis squatarola,Pluvialis squatarola,PLSQ,Black-bellied plover,Pluvialis squatarola,Aves
+110,4443,BLOY,Black Oystercatcher,Species,"Oystercatcher, black",Haematopus bachmani,Haematopus bachmani,HABA,Black oystercatcher,Haematopus bachmani,Aves
+111,4447,HEGU,Herring Gull,Species,"Gull, herring",Larus argentatus,Larus argentatus,LAAR,Herring gull,Larus argentatus,Aves
+112,4449,CAGU,"Gull, California",Species,"Gull, California",Larus californicus,Larus californicus,LACA,California gull,Larus californicus,Aves
+113,4450,MEGU,"Gull, mew",Species,"Gull, mew",Larus canus,Larus canus,LACAN,Mew gull,Larus canus,Aves
+114,4451,RBGU,"Gull, ring-billed",Species,"Gull, ring-billed",Larus delawarensis,Larus delawarensis,LADE,Ring-billed gull,Larus delawarensis,Aves
+115,4452,GWGU,"Gull, Glaucous-winged",Species,"Gull, glaucous-winged",Larus glaucescens,Larus glaucescens,LAGL,Glaucous-winged gull,Larus glaucescens,Aves
+116,,WGGU,"Gull, western x glaucous winged",,"Gull, glaucous-winged",Larus glaucescens,Larus glaucescens,,,,
+117,4454,HRGU,Heerman's gull,Species,"Gull, Heermann's",Larus heermanni,Larus heermanni,LAHE,Heermann's gull,Larus heermanni,Aves
+118,4457,WEGU,"Gull, Western",Species,"Gull, western",Larus occidentalis,Larus occidentalis,LAOC,Western gull,Larus occidentalis,Aves
+119,4458,BOGU,"Gull, bonaparte's",Species,"Gull, Bonaparte's",Chroicocephalus philadelphia,(Old: Chroicocephalus) Larus philadelphia,LAPH,Bonaparte's gull,Larus philadelphia,Aves
+120,4462,THGU,"Gull, thayer's",Species,"Gull, Thayer's",Larus thayeri,Larus thayeri,LATH,Thayer's gull,Larus thayeri,Aves
+121,4465,BLKI,"Kittiwake, black-legged",Species,"Kittiwake, black-legged",Rissa tridactyla,Rissa tridactyla,RITR,Black-legged kittiwake,Rissa tridactyla,Aves
+122,4466,LTJA,"Jaeger, long-tailed",Species,"Jaeger, long-tailed",Stercorarius longicaudus,Stercorarius longicaudus,,,,
+123,4467,SPSK,"Skua, south polar",Species,"Skua, south polar",Stercorarius maccormicki,Stercorarius maccormicki,,,,
+124,4468,PAJA,"Jaeger, parasitic",Species,"Jaeger, parasitic",Stercorarius parasiticus,Stercorarius parasiticus,STPA,Parasitic jaeger,Stercorarius parasiticus,Aves
+125,4469,POJA,"Jaeger, pomarine",Species,"Jaeger, pomarine",Stercorarius pomarinus,Stercorarius pomarinus,STPO,Pomarine jaeger,Stercorarius pomarinus,Aves
+126,4471,CATE,"Tern, caspian",Species,"Tern, Caspian",Hydroprogne caspia,(Old: Hydroprogne)  Sterna caspia,STCA,Caspian tern,Sterna caspia,Aves
+127,4472,ELTE,"Tern, elegant",Species,"Tern, elegant",Thalasseus elegans,(Old: Thalasseus)  Sterna elegans,,,,
+128,4473,FOTE,"Tern, forster's",Species,"Tern, Forster's",Sterna forsteri,Sterna forsteri,STFO,Forster's tern,Sterna forsteri,Aves
+129,4474,COTE,"Tern, common",Species,"Tern, common",Sterna hirundo,Sterna hirundo,STHI,Common tern,Sterna hirundo,Aves
+130,4475,ARTE,"Tern, arctic",Species,"Tern, arctic",Sterna paradisaea,Sterna paradisaea,STPAR,Arctic tern,Sterna paradisaea,Aves
+131,4476,SAGU,"Gull, sabine's",Species,"Gull, Sabine's",Xema sabini,Xema sabini,,,,
+132,4478,BTPI,Band-tailed Pigeon,Species,"Pigeon, Band-tailed",Patagioenas fasciata,(Old: Patagioenas) Columba fasciata,COFA,Band-tailed pigeon,Columba fasciata,Aves
+133,4479,RODO,Rock Dove,Species,"Dove, rock",Columba livia,Columba livia,COLI,Rock dove,Columba livia,Aves
+134,4481,BEKI,"Kingfisher, belted",Species,"Kingfisher, belted",Megaceryle alcyon,(old: Megaceryle) Ceryle alcyon,CEAL,Belted kingfisher,Ceryle alcyon,Aves
+135,4487,GOEA,"Eagle, golden",Species,"Eagle, golden",Aquila chrysaetos,Aquila chrysaetos,AQCH,Golden eagle,Aquila chrysaetos,Aves
+136,4488,RTHA,"Hawk, red-tailed",Species,"Hawk, red-tailed",Buteo jamaicensis,Buteo jamaicensis,BUJA,Red-tailed hawk,Buteo jamaicensis,Aves
+137,4489,RLHA,"Hawk, rough-legged",Species,"Hawk, rough-legged",Buteo lagopus,Buteo lagopus,BULA,Rough-legged hawk,Buteo lagopus,Aves
+138,4494,NOHA,"Harrier, northern",Species,"Harrier, northern",Circus cyaneus,Circus cyaneus,CICY,Northern harrier,Circus cyaneus,Aves
+139,4497,BAEA,"Eagle, bald",Species,"Eagle, bald",Haliaeetus leucocephalus,Haliaeetus leucocephalus,HALE,Bald eagle,Haliaeetus leucocephalus,Aves
+140,4498,OSPR,Osprey,Species,Osprey,Pandion haliaetus,Pandion haliaetus,PAHA,Osprey,Pandion haliaetus,Aves
+141,4501,PEFA,"Falcon, peregrine",Species,"Falcon, peregrine",Falco peregrinus,Falco peregrinus,FAPE,Peregrine falcon,Falco peregrinus,Aves
+142,4518,YBLO,"Loon, yellow-billed",Species,"Loon, yellow-billed",Gavia adamsii,Gavia adamsii,GAAD,Yellow-billed loon,Gavia adamsii,Aves
+143,4519,COLO,"Loon, Common",Species,"Loon, common",Gavia immer,Gavia immer,GAIM,Common loon,Gavia immer,Aves
+144,4520,PALO,"Loon, Pacific",Species,"Loon, Pacific",Gavia pacifica,Gavia pacifica,GAPA,Pacific loon,Gavia pacifica,Aves
+145,4521,RTLO,"Loon, Red-throated",Species,"Loon, red-throated",Gavia stellata,Gavia stellata,GAST,Red-throated loon,Gavia stellata,Aves
+146,4524,AMCO,"Coot, American",Species,"Coot, American",Fulica americana,Fulica americana,FUAM,American coot,Fulica americana,Aves
+147,4541,NWCR,"Crow, northwestern",Species,"Crow, northwestern",Corvus caurinus,Corvus caurinus,COCA,Northwestern crow,Corvus caurinus,Aves
+148,4542,CORA,"Raven, common",Species,"Raven, common",Corvus corax,Corvus corax,COCO,Common raven,Corvus corax,Aves
+149,4715,WHPE,"Pelican, white",Species,"Pelican, American white",Pelecanus erythrorhynchos,Pelecanus erythrorhynchos,PEER,American white pelican,Pelecanus erythrorhynchos,Aves
+150,4716,BRPE,"Pelican, brown",Species,"Pelican, brown",Pelecanus occidentalis,Pelecanus occidentalis,PEOC,Brown pelican,Pelecanus occidentalis,Aves
+151,4717,DCCO,"Cormorant, double-crested",Species,"Cormorant, double-crested",Phalacrocorax auritus,Phalacrocorax auritus,PHAU,Double-crested cormorant,Phalacrocorax auritus,Aves
+152,4718,PECO,"Cormorant, pelagic",Species,"Cormorant, pelagic",Phalacrocorax pelagicus,Phalacrocorax pelagicus,PHPE,Pelagic cormorant,Phalacrocorax pelagicus,Aves
+153,4719,BRCO,"Cormorant, brandt's",Species,"Cormorant, Brandt's",Phalacrocorax penicillatus,Phalacrocorax penicillatus,PHPEN,Brandt's cormorant,Phalacrocorax penicillatus,Aves
+154,4721,NOFL,"Flicker, northern",Species,"Flicker, northern",Colaptes auratus,Colaptes auratus,COAU,Northern flicker,Colaptes auratus,Aves
+155,4736,WEGR,Western Grebe,Species,"Grebe, western",Aechmophorus occidentalis,Aechmophorus occidentalis,AEOC,Western grebe,Aechmophorus occidentalis,Aves
+156,4737,HOGR,"Grebe, horned",Species,"Grebe, horned",Podiceps auritus,Podiceps auritus,POAU,Horned grebe,Podiceps auritus,Aves
+157,4738,RNGR,"Grebe, Red-necked",Species,"Grebe, red-necked",Podiceps grisegena,Podiceps grisegena,POGR,Red-necked grebe,Podiceps grisegena,Aves
+158,4739,EAGR,"Grebe, eared",Species,"Grebe, eared",Podiceps nigricollis,Podiceps nigricollis,PONIG,Eared grebe,Podiceps nigricollis,Aves
+159,4740,PBGR,Peid-billed Grebe,Species,"Grebe, pied-billed",Podilymbus podiceps,Podilymbus podiceps,POPO,Pied-billed grebe,Podilymbus podiceps,Aves
+160,4743,LAAL,"Albatross, laysan",Species,"Albatross, Laysan",Phoebastria immutabilis,Phoebastria immutabilis,,Laysan albatross,Phoebastria immutabilis,Aves
+161,4744,BFAL,"Albatross, black footed",Species,"Albatross, black footed",Phoebastria nigripes,Phoebastria nigripes,,,,
+162,4746,FTSP,"Storm-petrel, fork-tailed",Species,"Storm petrel, fork-tailed",Oceanodroma furcata,Oceanodroma furcata,OCFU,Fork-tailed storm-petrel,Oceanodroma furcata,Aves
+163,4747,LESP,"Storm-petrel, leach's",Species,"Storm petrel, Leach's",Oceanodroma leucorhoa,Oceanodroma leucorhoa,OCLE,Leach's storm-petrel,Oceanodroma leucorhoa,Aves
+164,4748,NOFU,"Fulmar, northern",Species,"Fulmar, northern",Fulmarus glacialis,Fulmarus glacialis,FUGL,Northern fulmar,Fulmarus glacialis,Aves
+165,4750,MOPE,"Petrel, mottled",Species,"Petrel, mottled",Pterodroma inexpectata,Pterodroma inexpectata,,,,
+166,4752,BUSH,"Shearwater, buller's",Species,"Shearwater, Buller's",Puffinus bulleri,Puffinus bulleri,,Buller's shearwater,Puffinus bulleri,Aves
+167,4753,FFSH,"Shearwater, flesh footed",Species,"Shearwater, flesh footed",Puffinus carneipes,Puffinus carneipes,PUCA,Flesh-footed shearwater,Puffinus carneipes,Aves
+168,4754,PFSH,"Shearwater, pink footed",Species,"Shearwater, pink-footed",Puffinus creatopus,Puffinus creatopus,PUCR,Pink-footed shearwater,Puffinus creatopus,Aves
+169,4755,SOSH,"Shearwater, sooty",Species,"Shearwater, sooty",Puffinus griseus,Puffinus griseus,PUGR,Sooty shearwater,Puffinus griseus,Aves
+170,9240,BVSH,"Shearwater, black-vented",Species,"Shearwater, black-vented",Puffinus opisthomelas,Puffinus opisthomelas,,Black-vented shearwater,Puffinus opisthomelas,Aves
+171,9241,ASSP,"Storm-petrel, ashy",Species,"Storm petrel, ashy",Oceanodroma homochroa,Oceanodroma homochroa,,Ashy storm-petrel,Oceanodroma homochroa,Aves
+172,9242,BLSP,"Storm-petrel, black",Species,"Storm petrel, black",Oceanodroma melania,Oceanodroma melania,,Black storm-petrel,Oceanodroma melania,Aves
+173,3194,HAPO,"Porpoise, harbor",Species,"Porpoise, harbor",Phocoena phocoena,Phocoena phocoena,PHPH,Harbor Porpoise,Phocoena phocoena,Mammalia
+174,9390,EMGO,"Goose, emperor",Species,"Goose, emperor",Anser canagicus,Anser canagicus,ANCANA,Emperor goose,Anser canagicus,Aves
