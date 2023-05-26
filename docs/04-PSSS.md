@@ -30,7 +30,7 @@ In short, surveys are conducted by volunteers using a standardized protocol and 
 
 ## Avian Data Collected <a href="#psss4.3" id="psss4.3"></a>
 
-Total observation counts of each waterbird species seen during a point survey are recorded for each month, including bearing, distance, and sex ratio. Raptors are recorded separately from the other waterbird species. The dataset is not zero-filled.
+Total observation counts of each waterbird species seen during a point survey are recorded, including bearing, distance, and sex ratio. Raptors are recorded separately from the other waterbird species. The dataset is not zero-filled.
 
 Taxonomic Authority =
 
