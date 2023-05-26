@@ -26,11 +26,11 @@ output:
 
 PSSS data collection protocol can be found online [here](https://seattleaudubon.org/wp-content/uploads/2021/01/PSSS\_Protocol\_2014-15.pdf).
 
-In short, surveys are conducted by volunteers using a standardized protocol and data collection [sheets](https://seattleaudubon.org/wp-content/uploads/2021/09/PSSS-Datasheet.pdf). Shore-based counts are completed monthly on the first Saturday of each month from October to April. Surveys are complete within approximately 2 hour of high tide to maximize the opportunity for close observation. Surveys are a minimum of 15 minutes and a maximum of 30 minutes per site. All waterbirds observed to a distance of 300 m from the high tide line are counted, except those that fly through without stopping. For large flocks, surveys estimate both the min, max, and best estimate. Surveyors are required to attend a short training session with Seattle Audubon staff prior to their first survey. Data are entered through a customized online data entry system, available [here](http://seabirdsurvey.org/seabirdsurvey/).
+In short, surveys are conducted by volunteers using a standardized protocol and data collection [sheets](https://seattleaudubon.org/wp-content/uploads/2021/09/PSSS-Datasheet.pdf). Shore-based counts are completed monthly on the first Saturday of each month from October to April. Surveys are completed within approximately 2 hours of high tide to maximize the opportunity for close observation. Surveys are a minimum of 15 minutes and a maximum of 30 minutes per site. All waterbirds observed to a distance of 300 m from the high tide line are counted, except those that fly through without stopping. For large flocks, surveys estimate both the min, max, and best estimate. Surveyors are required to attend a short training session with Seattle Audubon staff prior to their first survey. Data are entered through a customized online data entry system, available [here](http://seabirdsurvey.org/seabirdsurvey/).
 
 ## Avian Data Collected <a href="#psss4.3" id="psss4.3"></a>
 
-Total observation counts of each waterbird species seen during a point survey are recorded for each monthly, including bearing, distance, and sex ratio. Raptors are recorded separately from the other waterbird species. The dataset is not zero-filled.
+Total observation counts of each waterbird species seen during a point survey are recorded for each month, including bearing, distance, and sex ratio. Raptors are recorded separately from the other waterbird species. The dataset is not zero-filled.
 
 Taxonomic Authority =
 
@@ -46,15 +46,15 @@ At the time of writing, the data were only accessible by reaching out to the Sea
 
 ## Data Use Considerations <a href="#psss4.6" id="psss4.6"></a>
 
-The data are collected using a standardize protocol, by trained citizen-science volunteers. This standardization is a strength of this datasets for making inferences about coastal waterbirds in the US Salish Sea.
+The data are collected using a standardized protocol, by trained citizen-science volunteers. This standardization is a strength of this dataset for making inferences about coastal waterbirds in the US Salish Sea.
 
-Since surveyors gathers information on distance and direction, estimates of bird density through distance sampling is possible. Specifically, detection of any species declines with the distance from the observer: poor sighting conditions, quality of observing equipment, and observer inexperience all contribute to declining detection likelihood as distance increases. Distance sampling provides a robust approach to estimating density and allow for calculation of less biased density estimates.
+Since surveyors gather information on distance and direction, estimates of bird density through distance sampling are possible. Specifically, detection of any species declines with the distance from the observer: poor sighting conditions, quality of observing equipment, and observer inexperience all contribute to declining detection likelihood as distance increases. Distance sampling provides a robust approach to estimating density and allows for the calculation of less biased density estimates.
 
-The repeated sampling design of the PSSS makes this dataset suitable for an occupancy modelling framework, in which the probability of detection can be modeled alongside occupancy. Auxiliary data collected during each survey are suitable for the detection process of the model.
+The repeated sampling design of the PSSS makes this dataset suitable for an occupancy modeling framework, in which the probability of detection can be modeled alongside occupancy. Auxiliary data collected during each survey are suitable for the detection process of the model.
 
-Measures of effort are innate to the dataset. Survey duration can be used to make effort correction to counts.
+Measures of effort are innate to the dataset. Survey duration can be used to make effort corrections to counts.
 
-_There is spatial inbalance in the sampling design?_ Since this survey is shore-based, there will be a species sampling bias. Specifically, birds that use near shore habitats will be detected and counted more often than birds which use offshore habitats. This dataset may therefore be less suitable for modelling sea bird habitat use, for example.
+_Is there a spatial imbalance in the sampling design?_ Since this survey is shore-based, there will be a species sampling bias. Specifically, birds that use nearshore habitats will be detected and counted more often than birds that use offshore habitats. This dataset may therefore be less suitable for modeling seabird habitat use, for example.
 
 This PSSS survey was designed to be similar to the BCCWS, with some notable differences:
 
