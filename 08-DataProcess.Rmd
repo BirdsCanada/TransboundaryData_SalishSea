@@ -8,20 +8,14 @@ editor_options:
 
 # Data Processing {#Data9}
 
-```{r tidyr9, echo = FALSE, message = FALSE, warning = FALSE, include=FALSE}
 
-library(knitr)
-opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE, cache = TRUE)
-options(max.print = 30)
-
-```
 
 > **Before continuing with this chapter, please review the content in Chapters 2-7. It is the responsibility of the data user to understand the various data collection protocols, stipulations around data access, and data use considerations.**
 
 Start by loading the packages needed for this chapter
 
-```{r packages, eval=FALSE}
 
+```r
 #install.packages("remotes")
 #remotes::install_github("BirdsCanada/naturecounts")
 
@@ -32,17 +26,15 @@ library(auk)
 library(measurements)
 library(reshape2)
 library(reshape)
-
 ```
 
 ## Data Schema {#Data9.1}
 
 The purpose of this chapter is to provide the data user R script which will enable the compilation of disparate avian data sources into a standardized format (also known as a schema). The format selected for the purposes of this project was the Bird Monitoring Data Exchange ([BMDE](https://naturecounts.ca/nc/default/nc_bmde.jsp)), which is the core standard of [NatureCounts](https://naturecounts.ca/nc/default/main.jsp) a node of the [Avian Knowledge Network](https://avianknowledge.net/). The BMDE includes 169 core fields for capturing all metric and descriptors associated with bird observations. You can use the naturecounts R package and the following scripts to view the BMDE core fields. A copy of the BMDE table is also in the `BMDE` folder of this directory, which provides additional descriptions of the core columns.
 
-```{r schema, eval = FALSE}
 
+```r
 BMDE<-meta_bmde_fields("core")
-
 ```
 
 Any data owners wishing to contribute their data to the NatureCounts database should complete the metadata form, also found in the BMDE folder, and reach out to Catherine Jardin: [cjardine\@birdscanada.org](mailto:cjardine@birdscanada.org){.email}, Birds Canada's Data Analyst.
@@ -51,8 +43,8 @@ Any data owners wishing to contribute their data to the NatureCounts database sh
 
 A crucial steps to combining datasets is the inclusion of a common species code. Let's compile the complete species list now for use later in the data compilation. The data tables you will need can be accessed using the naturecounts R package.
 
-```{r sp, eval=FALSE}
 
+```r
 sp.code<-meta_species_codes()
 sp.code<-sp.code %>% filter(authority=="BSCDATA") %>% select(-authority, -species_id2, -rank) %>% distinct()
 
@@ -61,7 +53,6 @@ sp.tax<-sp.tax %>% select(species_id, scientific_name, english_name) %>% distinc
 
 sp<-left_join(sp.code, sp.tax, by="species_id")
 sp<-sp %>% distinct(english_name, .keep_all = TRUE)
-
 ```
 
 ## Data Manipulation {#Data9.3}
@@ -80,20 +71,19 @@ If you are new to the naturecounts R package, I recommend you start by reviewing
 
 Below is some sample code for downloading the BCCWS and BCMA datasets. You will replace the `request_id` and `username` with your own credentials. To retrieve the core BMDE columns, you will want the `fields_set` to be set to "core" (as below).
 
-```{r nc_data_dl, eval=FALSE}
 
+```r
 library(naturecounts) 
 
 BCCWS<-nc_data_dl(collection="BCCWS", username = "YOUR USERNAME", info="MY REASON", fields_set = "core")
 
 BCMA<-nc_data_dl(collection="BCMA", username = "YOUR USERNAME", info="MY REASON", fields_set = "core")
-
 ```
 
 Working with the sample datasets.
 
-```{r sample1, eval = FALSE}
 
+```r
 BCCWS<-read.csv("Data/BCCWS_sample.csv") 
 BCMA<-read.csv("Data/BCMA_sample.csv")  
 
@@ -110,7 +100,6 @@ BCCWS<-BCCWS %>% distinct(RouteIdentifier, SpeciesCode, YearCollected, MonthColl
 
 #Assign SurveyAreaIdentifier to RouteIdentifier for BCMA
 BCMA$RouteIdentifier<-BCMA$SurveyAreaIdentifier
-
 ```
 
 ### PSSS {#Data9.3.2}
@@ -119,8 +108,8 @@ The data will be received in an .xlsx file. Save as a .csv in the `Data` folder 
 
 Note: the sample dataframe is 50 rows long, but the output dataframe will be 65. How can this be!? This is because the raptors are recorded in rows with the other data and are extracted into their own rows to match the BMDE. This makes the data frame longer.
 
-```{r sample3, eval = FALSE, warning=FALSE, message=FALSE, results=FALSE}
 
+```r
 PSSS<-read.csv("Data/PSSS_sample.csv")
 
 PSSS$lat<-sub(" W.*", "", PSSS$position)  
@@ -198,7 +187,6 @@ BMDE_col<-unique(BMDE$local_name)
 missing<-setdiff(BMDE_col, names(PSSS))
 PSSS[missing]<-" "
 PSSS<-PSSS[BMDE_col]
-
 ```
 
 ### PSEMP {#Data9.3.3}
@@ -225,8 +213,8 @@ The tables provided will include:
 
 We will work with the sample dataset here which has the same formatting as the full dataset that you will receive through the online download.
 
-```{r sample4, eval = FALSE}
 
+```r
 PSEMP<-read.csv("Data/PSEMP_sample.csv") #note the x and y were added in ArcGIS before export.
 
 #Get species code information from the NatureCounts R package (duplicate scripts)
@@ -299,7 +287,6 @@ BMDE_col<-unique(BMDE$local_name)
 missing<-setdiff(BMDE_col, names(PSEMP))
 PSEMP[missing]<-" "
 PSEMP<-PSEMP[BMDE_col]
-
 ```
 
 ### eBird {#Data9.3.4}
@@ -310,8 +297,8 @@ There will be several files in the .zip folder along with your raw data, includi
 
 We will once again work with the sample dataset here which has the same formatting as the full dataset that you will receive through the online download.
 
-```{r sample5, eval = FALSE}
 
+```r
 #start by setting the working directory of the abd files to the data directory of this project, where your data files should be saved
 
 #getwd() # your current working directory
@@ -395,7 +382,6 @@ BMDE_col<-unique(BMDE$local_name)
 missing<-setdiff(BMDE_col, names(ebird_data))
 ebird_data[missing]<-" "
 ebird_data<-ebird_data[BMDE_col]
-
 ```
 
 ### CBC {#Data9.3.5}
@@ -418,8 +404,8 @@ The tables provided will include:
 
 We will once again work with the sample dataset here which has the same formatting as the full dataset that you will receive through the online download.
 
-```{r sample6, eval=FALSE}
 
+```r
 #load Species Data
 CBC<-read.csv("Data/CBC_Circle_Species_sample.csv")
 
@@ -473,22 +459,20 @@ BMDE_col<-unique(BMDE$local_name)
 missing<-setdiff(BMDE_col, names(CBC))
 CBC[missing]<-" "
 CBC<-CBC[BMDE_col]
-
 ```
 
 ### All Data Combined {#Data9.3.6}
 
 Now that all the datasets are in the BMDE format, we can simply bind these together into a single dataset.
 
-```{r bind, eval=FALSE}
 
+```r
 dat<-rbind(BCCWS, BCMA, PSSS, PSEMP, ebird_data, CBC)
 
 dat$YearCollected<-as.numeric(dat$YearCollected)
 dat$MonthCollected<-as.numeric(dat$MonthCollected)
 dat$DayCollected<-as.numeric((dat$DayCollected))
 dat$ObservationCount<-as.numeric((dat$ObservationCount))
-
 ```
 
 ## Zero-filling dataframe {#Data9.4}
@@ -499,8 +483,8 @@ To property zero-fill a dataframe you will want to create an `events matrix` usi
 
 **Note: the creation of the events matrix assumes that at least one species was detected at each survey point. This assumption is nearly always true**
 
-```{r events, eval=FALSE}
 
+```r
 #create the events matrix
 event<-NULL
 events<-dat %>% select(YearCollected, MonthCollected, DayCollected, DecimalLatitude, DecimalLongitude, RouteIdentifier) %>% distinct()
@@ -514,17 +498,15 @@ species<-"SUSC"
 
 SUSC<-SUSC %>% mutate(ObservationCount = replace(ObservationCount, is.na(ObservationCount), 0),
                SpeciesCode = species)
-
 ```
 
 ## Checking and removing duplicates {#Data9.5}
 
 Because some people use eBird to submit there data for various programs, there is a potential for duplicates in the full dataset. The `events matrix` does not allow multiple observations/ reports on the same day at the same location (latitude & longitude), so by merging your species specific table to the events matrix, you should eliminate duplicates. If you want to ensure there are no duplicates you can run the following sample code.
 
-```{r duplicates, eval=FALSE}
 
+```r
 distinct<-dat %>% distinct(YearCollected, MonthCollected, DayCollected, TimeCollected, DecimalLatitude, DecimalLongitude, SpeciesCode, ObservationCount, RouteIdentifier, Locality, .keep_all=TRUE)
-
 ```
 
 ## Assigning survey period {#Data9.6}
@@ -533,11 +515,10 @@ Winter surveys more than often straddle two calendar years (e.g., start in Octob
 
 NOTE: The PSEMP dataset contains the `SurveyYear` which is the end year of the survey period. We removed this during data processing but will add it back here.
 
-```{r period, eval=FALSE}
 
+```r
 dat$Period <- ifelse(dat$MonthCollected %in% c(8:12), dat$YearCollected, 
 	dat$YearCollected-1) 
-
 ```
 
 ## Remove out of range species/ unsuitable habitat {#Data9.7}
@@ -548,8 +529,8 @@ NOTE: I would work this into your data processing loop if doing this for many sp
 
 Let's use SUSC again as an example.
 
-```{r range, eval=FALSE}
 
+```r
 site.summ <- melt(dat, id.var = c("RouteIdentifier", "SpeciesCode"), measure.var = "ObservationCount")
 
 site.summ <- cast(site.summ, RouteIdentifier + SpeciesCode ~ variable, sum)
@@ -559,6 +540,4 @@ site.sp.list <- unique(subset(site.summ, select = c("RouteIdentifier", "SpeciesC
 site.SUSC.list<-site.sp.list %>% filter(SpeciesCode=="SUSC") #this will be your 'range' list for SUSC. You can used this to remove out of range or rare records. 
 
 test<-left_join(site.SUSC.list, SUSC, by=c("SpeciesCode", "RouteIdentifier"))
-
-
 ```
