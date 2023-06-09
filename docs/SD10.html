@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Spatial Data | Transboundary avian data for the Salish Sea</title>
+  <meta name="description" content="Data documentation and R scripts to compile transboundary sea duck data for the Salish Sea" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Spatial Data | Transboundary avian data for the Salish Sea" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://github.com/DMEthier/DataCompile-SDJV/NC.png" />
+  <meta property="og:description" content="Data documentation and R scripts to compile transboundary sea duck data for the Salish Sea" />
+  <meta name="github-repo" content="DMEthier/DataCompile-SDJV" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Spatial Data | Transboundary avian data for the Salish Sea" />
+  
+  <meta name="twitter:description" content="Data documentation and R scripts to compile transboundary sea duck data for the Salish Sea" />
+  <meta name="twitter:image" content="https://github.com/DMEthier/DataCompile-SDJV/NC.png" />
+
+<meta name="author" content="Author: Danielle Ethier and Dean Evans" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ADD9.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="mystyles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Transboundary avain data for the Salish Sea: An R users guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome data users!</a></li>
+<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html#project-summary"><i class="fa fa-check"></i><b>1.1</b> Project Summary <a href="overview.html#intro1.1" id="intro1.1"></a></a></li>
+<li class="chapter" data-level="1.2" data-path="overview.html"><a href="overview.html#goals"><i class="fa fa-check"></i><b>1.2</b> Goals <a href="overview.html#intro1.2" id="intro1.2"></a></a></li>
+<li class="chapter" data-level="1.3" data-path="overview.html"><a href="overview.html#scope"><i class="fa fa-check"></i><b>1.3</b> Scope <a href="overview.html#intro1.3" id="intro1.3"></a></a></li>
+<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#guide-structure"><i class="fa fa-check"></i><b>1.4</b> Guide Structure <a href="overview.html#intro1.4" id="intro1.4"></a></a></li>
+<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#acknowledgements"><i class="fa fa-check"></i><b>1.5</b> Acknowledgements <a href="overview.html#intro1.5" id="intro1.5"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bccws.html"><a href="bccws.html"><i class="fa fa-check"></i><b>2</b> BCCWS</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="bccws.html"><a href="bccws.html#quick-data-overview"><i class="fa fa-check"></i><b>2.1</b> Quick Data Overview <a href="bccws.html#bccws2.1" id="bccws2.1"></a></a></li>
+<li class="chapter" data-level="2.2" data-path="bccws.html"><a href="bccws.html#data-collection-protocol"><i class="fa fa-check"></i><b>2.2</b> Data Collection Protocol <a href="bccws.html#bccws2.2" id="bccws2.2"></a></a></li>
+<li class="chapter" data-level="2.3" data-path="bccws.html"><a href="bccws.html#avian-data-collected"><i class="fa fa-check"></i><b>2.3</b> Avian Data Collected <a href="bccws.html#bccws2.3" id="bccws2.3"></a></a></li>
+<li class="chapter" data-level="2.4" data-path="bccws.html"><a href="bccws.html#auxiliary-data-collected"><i class="fa fa-check"></i><b>2.4</b> Auxiliary Data Collected <a href="bccws.html#bccws2.4" id="bccws2.4"></a></a></li>
+<li class="chapter" data-level="2.5" data-path="bccws.html"><a href="bccws.html#data-access-permission-and-format"><i class="fa fa-check"></i><b>2.5</b> Data Access, Permission, and Format <a href="bccws.html#bccws2.5" id="bccws2.5"></a></a></li>
+<li class="chapter" data-level="2.6" data-path="bccws.html"><a href="bccws.html#data-use-considerations"><i class="fa fa-check"></i><b>2.6</b> Data Use Considerations <a href="bccws.html#bccws2.6" id="bccws2.6"></a></a></li>
+<li class="chapter" data-level="2.7" data-path="bccws.html"><a href="bccws.html#data-use-examples"><i class="fa fa-check"></i><b>2.7</b> Data Use Examples <a href="bccws.html#bccws2.7" id="bccws2.7"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bcma.html"><a href="bcma.html"><i class="fa fa-check"></i><b>3</b> BCMA</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="bcma.html"><a href="bcma.html#quick-data-overview-1"><i class="fa fa-check"></i><b>3.1</b> Quick Data Overview <a href="bcma.html#bcma3.1" id="bcma3.1"></a></a></li>
+<li class="chapter" data-level="3.2" data-path="bcma.html"><a href="bcma.html#data-collection-protocol-1"><i class="fa fa-check"></i><b>3.2</b> Data Collection Protocol <a href="bcma.html#bcma3.2" id="bcma3.2"></a></a></li>
+<li class="chapter" data-level="3.3" data-path="bcma.html"><a href="bcma.html#avian-data-collected-1"><i class="fa fa-check"></i><b>3.3</b> Avian Data Collected <a href="bcma.html#bcma3.3" id="bcma3.3"></a></a></li>
+<li class="chapter" data-level="3.4" data-path="bcma.html"><a href="bcma.html#auxiliary-data-collected-1"><i class="fa fa-check"></i><b>3.4</b> Auxiliary Data Collected <a href="bcma.html#bcma3.4" id="bcma3.4"></a></a></li>
+<li class="chapter" data-level="3.5" data-path="bcma.html"><a href="bcma.html#data-access-permission-and-format-1"><i class="fa fa-check"></i><b>3.5</b> Data Access, Permission, and Format <a href="bcma.html#bcma3.5" id="bcma3.5"></a></a></li>
+<li class="chapter" data-level="3.6" data-path="bcma.html"><a href="bcma.html#data-use-considerations-1"><i class="fa fa-check"></i><b>3.6</b> Data Use Considerations <a href="bcma.html#bcma3.6" id="bcma3.6"></a></a></li>
+<li class="chapter" data-level="3.7" data-path="bcma.html"><a href="bcma.html#data-use-examples-1"><i class="fa fa-check"></i><b>3.7</b> Data Use Examples <a href="bcma.html#bcma3.7" id="bcma3.7"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="psss.html"><a href="psss.html"><i class="fa fa-check"></i><b>4</b> PSSS</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="psss.html"><a href="psss.html#quick-data-overview-2"><i class="fa fa-check"></i><b>4.1</b> Quick Data Overview <a href="psss.html#psss4.1" id="psss4.1"></a></a></li>
+<li class="chapter" data-level="4.2" data-path="psss.html"><a href="psss.html#data-collection-protocol-2"><i class="fa fa-check"></i><b>4.2</b> Data Collection Protocol <a href="psss.html#psss4.2" id="psss4.2"></a></a></li>
+<li class="chapter" data-level="4.3" data-path="psss.html"><a href="psss.html#avian-data-collected-2"><i class="fa fa-check"></i><b>4.3</b> Avian Data Collected <a href="psss.html#psss4.3" id="psss4.3"></a></a></li>
+<li class="chapter" data-level="4.4" data-path="psss.html"><a href="psss.html#auxiliary-data-collected-2"><i class="fa fa-check"></i><b>4.4</b> Auxiliary Data Collected <a href="psss.html#psss4.4" id="psss4.4"></a></a></li>
+<li class="chapter" data-level="4.5" data-path="psss.html"><a href="psss.html#data-access-permission-and-format-2"><i class="fa fa-check"></i><b>4.5</b> Data Access, Permission, and Format <a href="psss.html#psss4.5" id="psss4.5"></a></a></li>
+<li class="chapter" data-level="4.6" data-path="psss.html"><a href="psss.html#data-use-considerations-2"><i class="fa fa-check"></i><b>4.6</b> Data Use Considerations <a href="psss.html#psss4.6" id="psss4.6"></a></a></li>
+<li class="chapter" data-level="4.7" data-path="psss.html"><a href="psss.html#data-use-examples-2"><i class="fa fa-check"></i><b>4.7</b> Data Use Examples <a href="psss.html#psss4.7" id="psss4.7"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="psemp.html"><a href="psemp.html"><i class="fa fa-check"></i><b>5</b> PSEMP</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="psemp.html"><a href="psemp.html#quick-data-overview-3"><i class="fa fa-check"></i><b>5.1</b> Quick Data Overview <a href="psemp.html#psemp5.1" id="psemp5.1"></a></a></li>
+<li class="chapter" data-level="5.2" data-path="psemp.html"><a href="psemp.html#data-collection-protocol-3"><i class="fa fa-check"></i><b>5.2</b> Data Collection Protocol <a href="psemp.html#psemp5.2" id="psemp5.2"></a></a></li>
+<li class="chapter" data-level="5.3" data-path="psemp.html"><a href="psemp.html#avian-data-collected-3"><i class="fa fa-check"></i><b>5.3</b> Avian Data Collected <a href="psemp.html#psemp5.3" id="psemp5.3"></a></a></li>
+<li class="chapter" data-level="5.4" data-path="psemp.html"><a href="psemp.html#auxiliary-data-collected-3"><i class="fa fa-check"></i><b>5.4</b> Auxiliary Data Collected <a href="psemp.html#psemp5.4" id="psemp5.4"></a></a></li>
+<li class="chapter" data-level="5.5" data-path="psemp.html"><a href="psemp.html#data-access-permission-and-format-3"><i class="fa fa-check"></i><b>5.5</b> Data Access, Permission, and Format <a href="psemp.html#psemp5.5" id="psemp5.5"></a></a></li>
+<li class="chapter" data-level="5.6" data-path="psemp.html"><a href="psemp.html#data-use-considerations-3"><i class="fa fa-check"></i><b>5.6</b> Data Use Considerations <a href="psemp.html#psemp5.6" id="psemp5.6"></a></a></li>
+<li class="chapter" data-level="5.7" data-path="psemp.html"><a href="psemp.html#data-use-examples-3"><i class="fa fa-check"></i><b>5.7</b> Data Use Examples <a href="psemp.html#psemp5.7" id="psemp5.7"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ebird.html"><a href="ebird.html"><i class="fa fa-check"></i><b>6</b> eBird</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ebird.html"><a href="ebird.html#quick-data-overview-4"><i class="fa fa-check"></i><b>6.1</b> Quick Data Overview <a href="ebird.html#ebird6.1" id="ebird6.1"></a></a></li>
+<li class="chapter" data-level="6.2" data-path="ebird.html"><a href="ebird.html#data-collection-protocol-4"><i class="fa fa-check"></i><b>6.2</b> Data Collection Protocol <a href="ebird.html#ebird6.2" id="ebird6.2"></a></a></li>
+<li class="chapter" data-level="6.3" data-path="ebird.html"><a href="ebird.html#avian-data-collected-4"><i class="fa fa-check"></i><b>6.3</b> Avian Data Collected <a href="ebird.html#ebird6.3" id="ebird6.3"></a></a></li>
+<li class="chapter" data-level="6.4" data-path="ebird.html"><a href="ebird.html#auxiliary-data-collected-4"><i class="fa fa-check"></i><b>6.4</b> Auxiliary Data Collected <a href="ebird.html#ebird6.4" id="ebird6.4"></a></a></li>
+<li class="chapter" data-level="6.5" data-path="ebird.html"><a href="ebird.html#data-access-permission-and-format-4"><i class="fa fa-check"></i><b>6.5</b> Data Access, Permission, and Format <a href="ebird.html#ebird6.5" id="ebird6.5"></a></a></li>
+<li class="chapter" data-level="6.6" data-path="ebird.html"><a href="ebird.html#data-use-considerations-4"><i class="fa fa-check"></i><b>6.6</b> Data Use Considerations <a href="ebird.html#ebird6.6" id="ebird6.6"></a></a></li>
+<li class="chapter" data-level="6.7" data-path="ebird.html"><a href="ebird.html#data-use-examples-4"><i class="fa fa-check"></i><b>6.7</b> Data Use Examples <a href="ebird.html#ebird6.7" id="ebird6.7"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="cbc.html"><a href="cbc.html"><i class="fa fa-check"></i><b>7</b> CBC</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="cbc.html"><a href="cbc.html#quick-data-overview-5"><i class="fa fa-check"></i><b>7.1</b> Quick Data Overview <a href="cbc.html#cbc7.1" id="cbc7.1"></a></a></li>
+<li class="chapter" data-level="7.2" data-path="cbc.html"><a href="cbc.html#data-collection-protocol-5"><i class="fa fa-check"></i><b>7.2</b> Data Collection Protocol <a href="cbc.html#cbc7.2" id="cbc7.2"></a></a></li>
+<li class="chapter" data-level="7.3" data-path="cbc.html"><a href="cbc.html#avian-data-collected-5"><i class="fa fa-check"></i><b>7.3</b> Avian Data Collected <a href="cbc.html#cbc7.3" id="cbc7.3"></a></a></li>
+<li class="chapter" data-level="7.4" data-path="cbc.html"><a href="cbc.html#auxiliary-data-collected-5"><i class="fa fa-check"></i><b>7.4</b> Auxiliary Data Collected <a href="cbc.html#cbc7.4" id="cbc7.4"></a></a></li>
+<li class="chapter" data-level="7.5" data-path="cbc.html"><a href="cbc.html#data-access-permission-and-format-5"><i class="fa fa-check"></i><b>7.5</b> Data Access, Permission, and Format <a href="cbc.html#cbc7.5" id="cbc7.5"></a></a></li>
+<li class="chapter" data-level="7.6" data-path="cbc.html"><a href="cbc.html#data-use-considerations-5"><i class="fa fa-check"></i><b>7.6</b> Data Use Considerations <a href="cbc.html#cbc7.6" id="cbc7.6"></a></a></li>
+<li class="chapter" data-level="7.7" data-path="cbc.html"><a href="cbc.html#data-use-examples-5"><i class="fa fa-check"></i><b>7.7</b> Data Use Examples <a href="cbc.html#ebird7.7" id="ebird7.7"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Data9.html"><a href="Data9.html"><i class="fa fa-check"></i><b>8</b> Data Processing</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="Data9.html"><a href="Data9.html#Data9.1"><i class="fa fa-check"></i><b>8.1</b> Data Schema</a></li>
+<li class="chapter" data-level="8.2" data-path="Data9.html"><a href="Data9.html#Data9.2"><i class="fa fa-check"></i><b>8.2</b> Species Codes</a></li>
+<li class="chapter" data-level="8.3" data-path="Data9.html"><a href="Data9.html#Data9.3"><i class="fa fa-check"></i><b>8.3</b> Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="Data9.html"><a href="Data9.html#Data9.3.1"><i class="fa fa-check"></i><b>8.3.1</b> BCCWS &amp; BCMA</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Data9.html"><a href="Data9.html#Data9.3.2"><i class="fa fa-check"></i><b>8.3.2</b> PSSS</a></li>
+<li class="chapter" data-level="8.3.3" data-path="Data9.html"><a href="Data9.html#Data9.3.3"><i class="fa fa-check"></i><b>8.3.3</b> PSEMP</a></li>
+<li class="chapter" data-level="8.3.4" data-path="Data9.html"><a href="Data9.html#Data9.3.4"><i class="fa fa-check"></i><b>8.3.4</b> eBird</a></li>
+<li class="chapter" data-level="8.3.5" data-path="Data9.html"><a href="Data9.html#Data9.3.5"><i class="fa fa-check"></i><b>8.3.5</b> CBC</a></li>
+<li class="chapter" data-level="8.3.6" data-path="Data9.html"><a href="Data9.html#Data9.3.6"><i class="fa fa-check"></i><b>8.3.6</b> All Data Combined</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Data9.html"><a href="Data9.html#Data9.4"><i class="fa fa-check"></i><b>8.4</b> Zero-filling dataframe</a></li>
+<li class="chapter" data-level="8.5" data-path="Data9.html"><a href="Data9.html#Data9.5"><i class="fa fa-check"></i><b>8.5</b> Checking and removing duplicates</a></li>
+<li class="chapter" data-level="8.6" data-path="Data9.html"><a href="Data9.html#Data9.6"><i class="fa fa-check"></i><b>8.6</b> Assigning survey period</a></li>
+<li class="chapter" data-level="8.7" data-path="Data9.html"><a href="Data9.html#Data9.7"><i class="fa fa-check"></i><b>8.7</b> Remove out of range species/ unsuitable habitat</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ADD9.html"><a href="ADD9.html"><i class="fa fa-check"></i><b>9</b> Additional Data Resources</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="ADD9.html"><a href="ADD9.html#ADD9.1"><i class="fa fa-check"></i><b>9.1</b> Canadian Pacific Vessel-Based Survey</a></li>
+<li class="chapter" data-level="9.2" data-path="ADD9.html"><a href="ADD9.html#ADD9.2"><i class="fa fa-check"></i><b>9.2</b> Pelagic Seabird Atlas</a></li>
+<li class="chapter" data-level="9.3" data-path="ADD9.html"><a href="ADD9.html#ADD9.3"><i class="fa fa-check"></i><b>9.3</b> North Pacific Pelagic Seabird Database (NPPSD)</a></li>
+<li class="chapter" data-level="9.4" data-path="ADD9.html"><a href="ADD9.html#ADD9.4"><i class="fa fa-check"></i><b>9.4</b> Coastal Observation and Seabird Survey Team (COASST)</a></li>
+<li class="chapter" data-level="9.5" data-path="ADD9.html"><a href="ADD9.html#ADD9.5"><i class="fa fa-check"></i><b>9.5</b> Regional Population Monitoring of the Marbled Murrelet (WDFW)</a></li>
+<li class="chapter" data-level="9.6" data-path="ADD9.html"><a href="ADD9.html#ADD9.6"><i class="fa fa-check"></i><b>9.6</b> Cherry Point Aquatic and Fidalgo Bay Aquatic Reserve shore-based monitoring (DNR - WA)</a></li>
+<li class="chapter" data-level="9.7" data-path="ADD9.html"><a href="ADD9.html#ADD9.7"><i class="fa fa-check"></i><b>9.7</b> Additional Historical Datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="SD10.html"><a href="SD10.html"><i class="fa fa-check"></i><b>10</b> Spatial Data</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="SD10.html"><a href="SD10.html#overview-1"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
+<li class="chapter" data-level="10.2" data-path="SD10.html"><a href="SD10.html#available-data"><i class="fa fa-check"></i><b>10.2</b> Available Data</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="SD10.html"><a href="SD10.html#net-primary-productivity"><i class="fa fa-check"></i><b>10.2.1</b> Net Primary Productivity</a></li>
+<li class="chapter" data-level="10.2.2" data-path="SD10.html"><a href="SD10.html#sea-surface-temperature"><i class="fa fa-check"></i><b>10.2.2</b> Sea Surface Temperature</a></li>
+<li class="chapter" data-level="10.2.3" data-path="SD10.html"><a href="SD10.html#salinity"><i class="fa fa-check"></i><b>10.2.3</b> Salinity</a></li>
+<li class="chapter" data-level="10.2.4" data-path="SD10.html"><a href="SD10.html#distance-to-nearest-shoreline"><i class="fa fa-check"></i><b>10.2.4</b> Distance to Nearest Shoreline</a></li>
+<li class="chapter" data-level="10.2.5" data-path="SD10.html"><a href="SD10.html#bottom-depth-bathymetry-and-ocean-floor-topography-slope"><i class="fa fa-check"></i><b>10.2.5</b> Bottom Depth (Bathymetry) and Ocean Floor Topography (Slope)</a></li>
+<li class="chapter" data-level="10.2.6" data-path="SD10.html"><a href="SD10.html#climate"><i class="fa fa-check"></i><b>10.2.6</b> Climate</a></li>
+<li class="chapter" data-level="10.2.7" data-path="SD10.html"><a href="SD10.html#shore-zone"><i class="fa fa-check"></i><b>10.2.7</b> Shore-zone</a></li>
+<li class="chapter" data-level="10.2.8" data-path="SD10.html"><a href="SD10.html#sea-vessels"><i class="fa fa-check"></i><b>10.2.8</b> Sea Vessels</a></li>
+<li class="chapter" data-level="10.2.9" data-path="SD10.html"><a href="SD10.html#bottom-patches"><i class="fa fa-check"></i><b>10.2.9</b> Bottom Patches</a></li>
+<li class="chapter" data-level="10.2.10" data-path="SD10.html"><a href="SD10.html#distribution-of-prey"><i class="fa fa-check"></i><b>10.2.10</b> Distribution of Prey</a></li>
+<li class="chapter" data-level="10.2.11" data-path="SD10.html"><a href="SD10.html#aquatic-vegetation"><i class="fa fa-check"></i><b>10.2.11</b> Aquatic Vegetation</a></li>
+<li class="chapter" data-level="10.2.12" data-path="SD10.html"><a href="SD10.html#additional-data-sources"><i class="fa fa-check"></i><b>10.2.12</b> Additional Data Sources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="SD10.html"><a href="SD10.html#working-with-different-data-sets-in-r"><i class="fa fa-check"></i><b>10.3</b> Working With Different Data Sets in R</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Transboundary avian data for the Salish Sea</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="SD10" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Spatial Data<a href="SD10.html#SD10" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<style type="text/css">
+.table tr:nth-child(even) { background: #eee; }
+</style>
+<div id="overview-1" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Overview<a href="SD10.html#overview-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Previous research has identified a suite of biophysical predictors important in predicting the distribution and habitat use of sea ducks and coastal birds (Table 1). However, likely owing to the international border dividing the Salish Sea, many of these environmental/biophysical layers have yet to be compiled or used for trans-boundary habitat modeling. Furthermore, there are numerous available data sets that have yet to be tested in predicting the distribution of sea ducks that could be important (Table 2). The purpose of this chapter is to give an overview of spatial data that can support international sea duck habitat models in the Salish Sea. At the end of this chapter the user will know:</p>
+<ol style="list-style-type: decimal">
+<li><p>What spatial data is available for modeling in the Salish Sea</p></li>
+<li><p>Where to get the data</p></li>
+<li><p>The limitations of the data (e.g., spatial resolution and temporal scale)</p></li>
+<li><p>How to work with different types of data</p></li>
+</ol>
+<hr />
+<p><strong>Table 1.</strong> Summary of biophysical predictors used in modeling sea duck distribution and habitat use.</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="49%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Covariate</th>
+<th align="center">Type</th>
+<th align="left">Citations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Net Primary Productivity</td>
+<td align="center">Aquatic</td>
+<td align="left">Lamb et al. 2020; Rickbeil et al. 2014</td>
+</tr>
+<tr class="even">
+<td align="left">Sea Surface Temperature</td>
+<td align="center">Aquatic</td>
+<td align="left">Lamb et al. 2020; Rickbeil et al. 2014; Zipkins et al. 2010</td>
+</tr>
+<tr class="odd">
+<td align="left">Salinity</td>
+<td align="center">Aquatic</td>
+<td align="left">Lamb et al. 2020</td>
+</tr>
+<tr class="even">
+<td align="left">Sediments</td>
+<td align="center">Aquatic</td>
+<td align="left">Rickbeil et al. 2014</td>
+</tr>
+<tr class="odd">
+<td align="left">Distance to Nearest Shoreline</td>
+<td align="center">Spatial</td>
+<td align="left">Lamb et al. 2020</td>
+</tr>
+<tr class="even">
+<td align="left">Bottom Depth (Bathymetry)</td>
+<td align="center">Spatial</td>
+<td align="left">Lamb et al. 2020; Zipkins et al. 2010</td>
+</tr>
+<tr class="odd">
+<td align="left">Slope/Ocean Floor Topography</td>
+<td align="center">Spatial</td>
+<td align="left">Lamb et al. 2020; Zipkins et al. 2010</td>
+</tr>
+<tr class="even">
+<td align="left">Bay or Otherwise</td>
+<td align="center">Spatial</td>
+<td align="left">Zipkins et al. 2010</td>
+</tr>
+<tr class="odd">
+<td align="left">Climate During Migration</td>
+<td align="center">Climate</td>
+<td align="left">Zipkins et al. 2010</td>
+</tr>
+<tr class="even">
+<td align="left">Monthly Winter Temperature</td>
+<td align="center">Climate</td>
+<td align="left">Rickbeil et al. 2014</td>
+</tr>
+<tr class="odd">
+<td align="left">Monthly Winter Precipitation</td>
+<td align="center">Climate</td>
+<td align="left">Rickbeil et al. 2014</td>
+</tr>
+<tr class="even">
+<td align="left">Shore Zone</td>
+<td align="center">Terrestrial</td>
+<td align="left">Rickbeil et al. 2014</td>
+</tr>
+<tr class="odd">
+<td align="left">Latitude</td>
+<td align="center">Spatial</td>
+<td align="left">Lamb et al. 2020; Zipkins et al. 2010</td>
+</tr>
+<tr class="even">
+<td align="left">Longitude</td>
+<td align="center">Spatial</td>
+<td align="left">Lamb et al. 2020</td>
+</tr>
+<tr class="odd">
+<td align="left">Spatial Autocorrelation</td>
+<td align="center">Other</td>
+<td align="left">Zipkins et al. 2010</td>
+</tr>
+<tr class="even">
+<td align="left">Temporal Autocorrelation</td>
+<td align="center">Other</td>
+<td align="left">Zipkins et al. 2010</td>
+</tr>
+<tr class="odd">
+<td align="left">Offset or Covariate for Effort</td>
+<td align="center">Other</td>
+<td align="left">Zipkins et al. 2010; Michel et al. 2021</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 2.</strong> Summary of potential biophysical predictors not previously tested in modeling sea duck distribution and habitat use.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Covariate</th>
+<th align="center">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Sea Vessel Traffic</td>
+<td align="center">Spatial</td>
+</tr>
+<tr class="even">
+<td align="left">Bottom Patches</td>
+<td align="center">Spatial</td>
+</tr>
+<tr class="odd">
+<td align="left">Distribution of Prey</td>
+<td align="center">Spatial</td>
+</tr>
+<tr class="even">
+<td align="left">Aquatic Vegiation</td>
+<td align="center">Spatial</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="available-data" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Available Data<a href="SD10.html#available-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Below you will find a collection of available data sets that could be used in sea duck habitat suitability analysis. The data sets provided here have been guided by previous literature and may not be comprehensive. When available newer or better data sets have been included to replace out of date sources. Some covariates in Table 1 have been excluded as they are specific to the research being conducted (latitude/longitude, autocorrelation, and effort). A suite of data sets that have not been previously tested have also been included here. Not all of these data sets are trans boundary in nature but have been included for special use cases and could be updated if and when a corresponding data set becomes available.</p>
+<div id="net-primary-productivity" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Net Primary Productivity<a href="SD10.html#net-primary-productivity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Net Primary Productivity (NPP), the measure of energy or biomass accumulation by primary producers, influences the distribution of consumers at greater trophic levels. With the launch of ocean-observing satellites, reasonable estimates of ocean primary production have become available. Numerous models exist for determining NPP, however, the vertical general productive model (VGPM) is a common standard and is a function of chlorophyll, available light, and photosynthetic efficiency (O’Malley 2012). Alternatively, the concentration chlorophyll-<em>a</em> has been used as an index of NPP as it related to phytoplankton biomass (Moses et al. 2009).</p>
+<div id="data-sources" class="section level4 hasAnchor" number="10.2.1.1">
+<h4><span class="header-section-number">10.2.1.1</span> Data Sources<a href="SD10.html#data-sources" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<colgroup>
+<col width="17%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Dataset</th>
+<th align="left">Format</th>
+<th align="left">Unit</th>
+<th align="left">Resolution (km<sup>2</sup>)</th>
+<th align="left">Timescale</th>
+<th align="left">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="http://orca.science.oregonstate.edu/1080.by.2160.monthly.hdf.vgpm.m.chl.m.sst.php">Vertical General Productive Model</a></td>
+<td align="left">HDF</td>
+<td align="left">mgC m<sup>-2</sup> day<sup>-1</sup></td>
+<td align="left">100</td>
+<td align="left">Monthly or 8day: 2002-2021</td>
+<td align="left">O’Malley 2012</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://oceancolor.gsfc.nasa.gov/cgi/browse.pl?sen=amod">Chlorophyll-<em>a</em></a></td>
+<td align="left">netCDF (.nc)</td>
+<td align="left">mg m<sup>-3</sup></td>
+<td align="left">1</td>
+<td align="left">Daily: 2002-Present</td>
+<td align="left">MODIS</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-use-considerations-6" class="section level4 hasAnchor" number="10.2.1.2">
+<h4><span class="header-section-number">10.2.1.2</span> Data Use Considerations<a href="SD10.html#data-use-considerations-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Both datasets are freely available to download and use from their respective links in the table above. User sign up might be required.</p>
+<p>The VGPM has a few flaws that might limit its usability for habitat suitability modeling. Firstly, its resolution of approximately 10km by 10km is a bit coarse. Furthermore, the model is limited to calculations south of 49<sup>o</sup> N in December and 53<sup>o</sup> N in January. With the northern most point of the Salish Sea Bio-region being at 50.8<sup>o</sup> N the VGPM would not cover the full extent of the study area of interest.</p>
+<p>Chlorophyll-<em>a</em> data from MODIS on the other hand comes with better resolution and timescale, however, this comes at a cost of file size and the number of files which can be cumbersome to deal with. Furthermore, even though the data set has a daily temporal scale, cloud cover can lead to missing data. To overcome this issue one could use MODIS Level 3 data that provides averages at 8-days or monthly at a resolution of 4 km which could be problematic.</p>
+</div>
+</div>
+<div id="sea-surface-temperature" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Sea Surface Temperature<a href="SD10.html#sea-surface-temperature" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea Surface Temperature (SST), can also influence the distribution of species based on their thermal needs (Lamb et al. 2020; Zipkins et al. 2010).</p>
+<div id="data-sources-1" class="section level4 hasAnchor" number="10.2.2.1">
+<h4><span class="header-section-number">10.2.2.1</span> Data Sources<a href="SD10.html#data-sources-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<colgroup>
+<col width="22%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Dataset</th>
+<th align="left">Format</th>
+<th align="left">Unit</th>
+<th align="left">Resolution (km<sup>2</sup>)</th>
+<th align="left">Timescale</th>
+<th align="left">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://oceancolor.gsfc.nasa.gov/cgi/browse.pl?sub=level3&amp;per=CU&amp;day=19331&amp;set=10&amp;ndx=0&amp;mon=19297&amp;sen=amod&amp;rad=0&amp;frc=0&amp;dnm=D@M&amp;prm=SST">MODIS Aqua 11 um Day/Night Sea Surface Temp</a></td>
+<td align="left">netCDF (.nc)</td>
+<td align="left">C</td>
+<td align="left">1</td>
+<td align="left">Daily: 2002-Present</td>
+<td align="left">MODIS</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://www.ncei.noaa.gov/products/avhrr-pathfinder-sst">AVHRR Pathfinder SST</a></td>
+<td align="left">netCDF (.nc)</td>
+<td align="left">C</td>
+<td align="left">16</td>
+<td align="left">Daily: 1981-Present</td>
+<td align="left">NOAA/NASA AVHRR Pathﬁnder Program</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.graph">MUR-SST</a></td>
+<td align="left">netCDF (.nc)</td>
+<td align="left">C</td>
+<td align="left">1</td>
+<td align="left">Daily: 2003-Present</td>
+<td align="left">PODAAC</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-use-considerations-7" class="section level4 hasAnchor" number="10.2.2.2">
+<h4><span class="header-section-number">10.2.2.2</span> Data Use Considerations<a href="SD10.html#data-use-considerations-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MODIS, Pathfinder, and MUR-SST data are freely accessible to download at their respective links above. MODIS data comes in a higher resolution but might be more cumbersome to work with given there are two satellite passes per day resulting in large file downloads. Pathfinder data is ready to use immediately and has day and night averages. Furthermore, like Chlorophyll-<em>a</em> data from MODIS, daily data can often be incomplete depending on cloud cover in the region of interest on a given day. An alternative would be to use MODIS level 3 data which averages over 8 day or monthly periods but at the cost of a lower resolution of 4km.</p>
+<p>MUR-SST data from the Physical Oceanography Distributed Active Archive Center is possibly a good solution to overcome the problems with the first two data sources. This data set uses data from multiple sensors that have been calibrated with each other to provide SST data that is consistant in time and space. This allows for high spatial resolution without data-voids due to cloud contamination.</p>
+</div>
+</div>
+<div id="salinity" class="section level3 hasAnchor" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> Salinity<a href="SD10.html#salinity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Salinity has been shown to influence sea duck distribution. Lamb et al. (2020) found that during the winter 4 species of sea duck selected positively for salinity.</p>
+<div id="data-sources-2" class="section level4 hasAnchor" number="10.2.3.1">
+<h4><span class="header-section-number">10.2.3.1</span> Data Sources<a href="SD10.html#data-sources-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Dataset</th>
+<th align="left">Format</th>
+<th align="left">Unit</th>
+<th align="left">Resolution (km<sup>2</sup>)</th>
+<th align="left">Timescale</th>
+<th align="left">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://www.remss.com/missions/smap/salinity/">SMAP Salinity V5.0</a></td>
+<td align="left">netCDF (.nc)</td>
+<td align="left">g kg-1</td>
+<td align="left">1600/4900</td>
+<td align="left">8-Day: 2015-Present</td>
+<td align="left">Remote Sensing Systems</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-use-considerations-8" class="section level4 hasAnchor" number="10.2.3.2">
+<h4><span class="header-section-number">10.2.3.2</span> Data Use Considerations<a href="SD10.html#data-use-considerations-8" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The SMAP Salinity V5.0 provides global coverage of sea surface salinity at a temporal scale of 8 days and at scales of 40km or 70km resulting in very poor spatial resolution (1600 km<sup>2</sup> and 4900 km<sup>2</sup> respectively). Furthermore, the 70km product is considered the official product and is based on smoothing of the 40 km product which can be noisy. Given this it would be very difficult to use this layer in a meaningful way to model sea duck habitat usage in the Salish Sea.</p>
+</div>
+</div>
+<div id="distance-to-nearest-shoreline" class="section level3 hasAnchor" number="10.2.4">
+<h3><span class="header-section-number">10.2.4</span> Distance to Nearest Shoreline<a href="SD10.html#distance-to-nearest-shoreline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lamb et al. (2020) identified distance to nearest shore as a predictor in sea duck distribution during winter, however, this differed among species. This covariate was included along with bottom slope and depth as a proxy for fine-scale variation in things like currents and eddies.</p>
+<div id="data-sources-3" class="section level4 hasAnchor" number="10.2.4.1">
+<h4><span class="header-section-number">10.2.4.1</span> Data Sources<a href="SD10.html#data-sources-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Dataset</th>
+<th align="left">Format</th>
+<th align="left">Resolution (km)</th>
+<th align="left">Timescale</th>
+<th align="left">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://shoreline.noaa.gov/data/datasheets/wvs.html">World Vector Shoreline</a></td>
+<td align="left">Shapefile (.shp)</td>
+<td align="left">NA</td>
+<td align="left">Static</td>
+<td align="left">Global Self-consistent Hierarchical High-Resolution Database</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://dnc.nga.mil/dncp/DNC/PrototypeGSD.php">Prototype Global Shoreline Data</a></td>
+<td align="left">Shapefile (.shp)</td>
+<td align="left">NA</td>
+<td align="left">Static</td>
+<td align="left">National Geospatial-Intelligence Agency</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-use-considerations-9" class="section level4 hasAnchor" number="10.2.4.2">
+<h4><span class="header-section-number">10.2.4.2</span> Data Use Considerations<a href="SD10.html#data-use-considerations-9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Both data sets are freely available for download at their respective links in the above table. Word Vector Shoreline (WVS) data is in the form of land polygons whereas the Prototype Global Shoreline (PGS) data comes in the form of lines. The PGS data is based on 2000 Landsat imagery (~30m resolution) which is finer than the WVS which at it’s finest scale is about ~2.5km. Both data sets are old with newer imagery only being used to fill in gaps.</p>
+</div>
+</div>
+<div id="bottom-depth-bathymetry-and-ocean-floor-topography-slope" class="section level3 hasAnchor" number="10.2.5">
+<h3><span class="header-section-number">10.2.5</span> Bottom Depth (Bathymetry) and Ocean Floor Topography (Slope)<a href="SD10.html#bottom-depth-bathymetry-and-ocean-floor-topography-slope" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Bottom depth and topography have been shown to influence sea duck distribution likely due to a number of factors. Mostly because these species rely heavily on benthic organisms, such as mollusks, sea ducks will prefer shallower areas for foraging where they can reach the sea floor that is supportive of prey populations (Lamb et al. 2020; Zipkins et al. 2010). Bottom depth and topography may also act as proxies for finer scale processes such as currents and eddies (Lamb et al. 2020).</p>
+<div id="data-sources-4" class="section level4 hasAnchor" number="10.2.5.1">
+<h4><span class="header-section-number">10.2.5.1</span> Data Sources<a href="SD10.html#data-sources-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table style="width:100%;">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Dataset</th>
+<th align="left">Format</th>
+<th align="left">Unit</th>
+<th align="left">Resolution (km<sup>2</sup>)</th>
+<th align="left">Timescale</th>
+<th align="left">Geography</th>
+<th align="left">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://www.ncei.noaa.gov/products/etopo-global-relief-model">2-minute Gridded Global Relief Data, (ETOPO2) v2</a></td>
+<td align="left">geoTiff (.geotiff) or netCDF (.nc)</td>
+<td align="left">m</td>
+<td align="left">0.2025</td>
+<td align="left">Static</td>
+<td align="left">US/CAD</td>
+<td align="left">National Centers for Environmental Information</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://www.ncei.noaa.gov/products/coastal-relief-model">Coastal Relief Model US</a></td>
+<td align="left">netCDF (.nc)</td>
+<td align="left">m</td>
+<td align="left">0.0081</td>
+<td align="left">Static</td>
+<td align="left">US</td>
+<td align="left">National Centers for Environmental Information</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://open.canada.ca/data/en/dataset/d3881c4c-650d-4070-bf9b-1e00aabf0a1d">Canadian Hydrographic Service Non-Navigational (NONNA) Bathymetric Data</a></td>
+<td align="left">geoTiff (.geotiff) and others</td>
+<td align="left">m</td>
+<td align="left">0.1 or 1</td>
+<td align="left">Static</td>
+<td align="left">CAD</td>
+<td align="left">Canadian Hydrographic Service</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://salish-sea-atlas-data-wwu.hub.arcgis.com/maps/f23310e286614728a823ae84ab865cc1/about">Salish Sea Bathymetry Basemap</a></td>
+<td align="left">geoTiff (.geotiff)</td>
+<td align="left">m</td>
+<td align="left">0.0081</td>
+<td align="left">Static</td>
+<td align="left">US/CAD</td>
+<td align="left">Salish Sea Atlas (Western Washington University)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-use-considerations-10" class="section level4 hasAnchor" number="10.2.5.2">
+<h4><span class="header-section-number">10.2.5.2</span> Data Use Considerations<a href="SD10.html#data-use-considerations-10" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>All data sets are freely available for download using their respective links above. Ocean floor topography can be calculated using bathymetry and guidelines on how to do this will be covered in the data use guide below.</p>
+<p>Both the US Coastal Relief Model and the Canadian Hydrographic Service data are included for completeness, however, these data sets are not trans-boundary in nature and are at different spatial scales which limits their use for trans-boundary sea duck modeling.</p>
+<p>ETOPO2 bathymetry data is a global data set at a resolution of 15 Arc-Seconds (~450m) which would be a suitable solution to using different data sets from the US and Canada. Another alternative which is specific to the Salish Sea Bioregion is bathymetry data from Western Washington University’s Salish Sea Atlas. This data set was compiled using two different data sets from the US and Canada and is at a finer resolution than ETOPO2 data (3 Arc-seconds or ~90m). This data set is only suitable to use for work done within the Salish Sea Bioregion as the raster has been clipped to that boundary.</p>
+</div>
+</div>
+<div id="climate" class="section level3 hasAnchor" number="10.2.6">
+<h3><span class="header-section-number">10.2.6</span> Climate<a href="SD10.html#climate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Climatic variables such as the North Atlantic Oscillation (NAO) index has been shown to influence the distribution of wintering sea ducks (Zipkins et al. 2010). The NAO index is related to the climatic variability and has been shown to affect the marine environment and ultimately ecological processes in plants and animals. Positive values are associated with more winter storms of greater intensity. More specific to the pacific region is the Pacific Decadal Oscillation (PDO) which will be included here as it pertains to the Salish Sea. Rickbeil et al. (2014) found weak support for atmospheric variables (temperature and precipitation) predicting occurrence, however, these are included below for reference.</p>
+<div id="data-sources-5" class="section level4 hasAnchor" number="10.2.6.1">
+<h4><span class="header-section-number">10.2.6.1</span> Data Sources<a href="SD10.html#data-sources-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Dataset</th>
+<th align="left">Format</th>
+<th align="left">Unit</th>
+<th align="left">Resolution (km<sup>2</sup>)</th>
+<th align="left">Timescale</th>
+<th align="left">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://www.ncei.noaa.gov/access/monitoring/pdo/">Pacific Decadal Oscillation (PDO)</a></td>
+<td align="left">tabular</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">Monthly: 1854-present</td>
+<td align="left">National Centers for Environmental Information</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://climatena.ca/">ClimateNA</a></td>
+<td align="left">Multiple</td>
+<td align="left">Multiple</td>
+<td align="left">0.64</td>
+<td align="left">Annual, Seasonal, Yearly</td>
+<td align="left">Wang et al. 2016</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-use-considerations-11" class="section level4 hasAnchor" number="10.2.6.2">
+<h4><span class="header-section-number">10.2.6.2</span> Data Use Considerations<a href="SD10.html#data-use-considerations-11" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>All data sets are freely available using their respective links above. The PDO provides a single monthly index for the Pacific Ocean. ClimateNA on the other hand allows you to extract many monthly, seasonal, and annual climate variables (e.g Mean Temperature and Precipitation) from free point locations. This includes historical and future predicted values. The data can be accessed using the ClimateNA software, API, or R package. The major limitation to both of these data sources is that the finest temporal resolution is down to a given month.</p>
+</div>
+</div>
+<div id="shore-zone" class="section level3 hasAnchor" number="10.2.7">
+<h3><span class="header-section-number">10.2.7</span> Shore-zone<a href="SD10.html#shore-zone" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rickbeil et al. (2014) found that including more detailed shore-zone data from the Physical shore-zone mapping system for British Columbia provided modest improvements over only using remotely sensed environmental data for modeling the distributions of coastal bird species in BC.</p>
+<div id="data-sources-6" class="section level4 hasAnchor" number="10.2.7.1">
+<h4><span class="header-section-number">10.2.7.1</span> Data Sources<a href="SD10.html#data-sources-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table style="width:100%;">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Dataset</th>
+<th align="left">Format</th>
+<th align="left">Unit</th>
+<th align="left">Resolution (km<sup>2</sup>)</th>
+<th align="left">Timescale</th>
+<th align="left">Geography</th>
+<th align="left">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://open.canada.ca/data/en/dataset/5644a2ca-9e30-43af-914c-b6fe02748199">Physical shore-zone mapping system for British Columbia</a></td>
+<td align="left">wms/kml</td>
+<td align="left">Categorical</td>
+<td align="left"></td>
+<td align="left">Static</td>
+<td align="left">CAD</td>
+<td align="left">Howes et al 1997</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://www.dnr.wa.gov/programs-and-services/aquatics/aquatic-science/nearshore-habitat-inventory">Washington State ShoreZone Inventory</a></td>
+<td align="left">geodatabase (.gdb)</td>
+<td align="left">Categorical</td>
+<td align="left"></td>
+<td align="left">Static</td>
+<td align="left">US</td>
+<td align="left">Washington State Department of Natural Resources</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-use-considerations-12" class="section level4 hasAnchor" number="10.2.7.2">
+<h4><span class="header-section-number">10.2.7.2</span> Data Use Considerations<a href="SD10.html#data-use-considerations-12" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Shore-zone mapping of both British Columbia and Washington was both done during the late 1990s using a comparable methodology based on Howes (1994). At the time of writing this the British Columbia shore-zone data is difficult to access and work with. Many links to download the data are broken leaving the only available data to be accessed via WMS or .kml. WMS is image based which makes extracting the data extremely difficult and the .kml option has known issues. Alternatively, the Washington data is easy to access in the form of a geodatabase at the link in the above table. Both data sets should be able to be used together (when available) but one important thing to note is that given their age they may not be representative of today’s shore zone.</p>
+</div>
+</div>
+<div id="sea-vessels" class="section level3 hasAnchor" number="10.2.8">
+<h3><span class="header-section-number">10.2.8</span> Sea Vessels<a href="SD10.html#sea-vessels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="data-sources-7" class="section level4 hasAnchor" number="10.2.8.1">
+<h4><span class="header-section-number">10.2.8.1</span> Data Sources<a href="SD10.html#data-sources-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Dataset</th>
+<th align="left">Format</th>
+<th align="left">Timescale</th>
+<th align="left">Geography</th>
+<th align="left">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://open.canada.ca/data/en/dataset/6ab2803a-aace-4e60-83ed-44a7e0ccd1d8">Vessel Traffic Routes</a></td>
+<td align="left">shapefile (.shp)</td>
+<td align="left">Static</td>
+<td align="left">CAD/US</td>
+<td align="left">Fisheries and Oceans Canada</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://www.fisheries.noaa.gov/inport/item/39986">Shipping Fairways, Lanes, and Zones for US waters</a></td>
+<td align="left">shapefile (.shp)</td>
+<td align="left">Static</td>
+<td align="left">US</td>
+<td align="left">National Oceanic and Atmospheric Administration</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://geo.wa.gov/datasets/WSDOT::wsdot-ferry-routes/about">WSDOT - Ferry Routes</a></td>
+<td align="left">shapefile (.shp)</td>
+<td align="left">Static</td>
+<td align="left">US</td>
+<td align="left">Washington State Department of Transportation</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://marinecadastre.gov/data/">AIS Vessel Transit Counts</a></td>
+<td align="left">raster</td>
+<td align="left">2015-2021</td>
+<td align="left">US/CAD</td>
+<td align="left">U.S. Coast Guard</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-use-considerations-13" class="section level4 hasAnchor" number="10.2.8.2">
+<h4><span class="header-section-number">10.2.8.2</span> Data Use Considerations<a href="SD10.html#data-use-considerations-13" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Both Canada and the US have data on sea vessel routes within the Salish Sea. The Canadian Vessel Traffic Routes data set contains information on ferry routes, mandatory direction of traffic flow, separation lines and zones. To be able to use this data in modeling sea duck distribution one would have to do a bit of research to understand what all of the different layers mean using the <a href="https://www.charts.gc.ca/publications/chart1-carte1/sections/m-tracks/tracks-eng.html#section">Canadian Chart 1 Symbols, Abbreviations and Terms</a>. This is not as simple as using the Shipping Fairways, Lanes, and Zones for US waters which clearly shows shipping lanes in Washington. Washington State ferry routes have been included as they are not shown in the Shipping Fairway data set.</p>
+<p>The AIS Vessel Transit counts is an interesting data set that is primarily meant to be US but also spans into the Canadian side of the Salish Sea. This data set is a summary of each time a vessel track passes through a 100m grid cell. Ultimately showing areas of high or low traffic. Furthermore this can be broken down by vessel type: All, Cargo, Fishing, Passenger, Pleasure/Sailing, Tanker, and Tug/Tow.</p>
+</div>
+</div>
+<div id="bottom-patches" class="section level3 hasAnchor" number="10.2.9">
+<h3><span class="header-section-number">10.2.9</span> Bottom Patches<a href="SD10.html#bottom-patches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="data-sources-8" class="section level4 hasAnchor" number="10.2.9.1">
+<h4><span class="header-section-number">10.2.9.1</span> Data Sources<a href="SD10.html#data-sources-8" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Dataset</th>
+<th align="left">Format</th>
+<th align="left">Unit</th>
+<th align="left">Timescale</th>
+<th align="left">Geography</th>
+<th align="left">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://open.canada.ca/data/en/dataset/6cda0f8d-110e-423d-8d7a-bf8a40eaa26e">Nearshore Bottom Patches for Pacific Canada</a></td>
+<td align="left">shapefile (.shp)</td>
+<td align="left">Categorical</td>
+<td align="left">Static</td>
+<td align="left">CAD</td>
+<td align="left">Fisheries and Oceans Canada</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-use-considerations-14" class="section level4 hasAnchor" number="10.2.9.2">
+<h4><span class="header-section-number">10.2.9.2</span> Data Use Considerations<a href="SD10.html#data-use-considerations-14" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The nearshore bottom patches data set for the Pacific Coast of Canada provides continuous substrate map to a depth of 50m off the coast of BC. Substrate is a key indicator of habitat in this important ecosystem where data collection is challenging and expensive. Horizontal accuracy of this data ranges from meters to 10s of meters due to source data and data processing. Areas with higher data density are likely to be more accurate. Unfortunately, at this time there does not seem to be an analogous product for the southern Salish Sea. Habitat mapping has been done here but only in select locations that does not cover the entirety of the southern Salish Sea (see <a href="https://pubs.er.usgs.gov/publication/ds935">here</a>).</p>
+</div>
+</div>
+<div id="distribution-of-prey" class="section level3 hasAnchor" number="10.2.10">
+<h3><span class="header-section-number">10.2.10</span> Distribution of Prey<a href="SD10.html#distribution-of-prey" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Dataset</th>
+<th align="left">Format</th>
+<th align="left">Unit</th>
+<th align="left">Timescale</th>
+<th align="left">Geography</th>
+<th align="left">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://geo.wa.gov/datasets/WADOH::commercial-harvest-sites/about">Commercial Shellfish Harvest Sites</a></td>
+<td align="left">shapefile (.shp)</td>
+<td align="left">NA</td>
+<td align="left">Current</td>
+<td align="left">US</td>
+<td align="left">Washington State Department of Health</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://open.canada.ca/data/en/dataset/522d1b67-30d8-4a34-9b62-5da99b1035e6">British Columbia Aquaculture</a></td>
+<td align="left">CSV</td>
+<td align="left">NA</td>
+<td align="left">Current</td>
+<td align="left">CAD</td>
+<td align="left">Fisheries and Oceans Canada</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://open.canada.ca/data/en/dataset/d892511c-d851-4f85-a0ec-708bc05d2810">Pacific Herring spawn index</a></td>
+<td align="left">CSV</td>
+<td align="left">NA</td>
+<td align="left">1951-2022</td>
+<td align="left">CAD</td>
+<td align="left">Fisheries and Oceans Canada</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://geo.wa.gov/datasets/wdfw::herring-spawning/about">Herring Spawning Locations</a></td>
+<td align="left">shapefile (.shp)</td>
+<td align="left">NA</td>
+<td align="left"></td>
+<td align="left">US</td>
+<td align="left">Washington Dept of Fish and Wildlife</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://pspwa.app.box.com/s/jogxmuw51h2wghaow1kywpguek1u4epe">Southern Salish Sea Herring Biomass</a></td>
+<td align="left">Excel (.xlsx)</td>
+<td align="left">Metric Tons</td>
+<td align="left">1973-2002</td>
+<td align="left">US</td>
+<td align="left">Washington Dept of Fish and Wildlife</td>
+</tr>
+</tbody>
+</table>
+<div id="data-use-considerations-15" class="section level4 hasAnchor" number="10.2.10.1">
+<h4><span class="header-section-number">10.2.10.1</span> Data Use Considerations<a href="SD10.html#data-use-considerations-15" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Aquaculture locations in British Columbia and Washington portions of the Salish Sea are both available from their respective links above. Data from Washington are provided in a spatial point layer whereas BC data is provided in a tabular format which contains latitude and longitude coordinates which can easily be converted to a spatial point layer as well. Both data sets simply provide spatial locations of aquaculture locations with the BC data set differing slightly as it includes other aquaculture locations in addition to shellfish. Only current locations of license holders are shown which do not appear to include historical locations.</p>
+<p>Fisheries and Oceans Canada provides a yearly Herring Spawn Index for approximately 300 <a href="https://pacgis01.dfo-mpo.gc.ca/FGPPublic/Pacific_Herring_Spawn_Index_Data/Pacific_Herring_Section_Maps.pdf">sections</a> along the coast of British Columbia. This is a relative index of Herring Spawn biomass. There is currently no analogous data set for the United States, however, actual biomass has been estimated by the Washington Department of Fish and Wildlife for the Puget Sound. Furthermore, for the same region there is a data set of spawning habitat although survey dates go as far back as 1969 and may not be representative today and there does not appear to be an equivalent data set for BC.</p>
+</div>
+</div>
+<div id="aquatic-vegetation" class="section level3 hasAnchor" number="10.2.11">
+<h3><span class="header-section-number">10.2.11</span> Aquatic Vegetation<a href="SD10.html#aquatic-vegetation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Dataset</th>
+<th align="left">Format</th>
+<th align="left">Timescale</th>
+<th align="left">Geography</th>
+<th align="left">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://bcmca.ca/">British Columbia Marine Conservation Analysis</a></td>
+<td align="left">shapefile (.shp)</td>
+<td align="left">2006-2013</td>
+<td align="left">CAD</td>
+<td align="left">BC Conservation Foundation</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://catalogue.hakai.org/dataset/ca-cioos_0219e1d6-8dfc-4718-b89b-ea3dff06a70d">Eelgrass Extent - Coastal British Columbia</a></td>
+<td align="left">shapefile (.shp)</td>
+<td align="left">2016</td>
+<td align="left">CAD</td>
+<td align="left">Hakai Institute</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://data-wadnr.opendata.arcgis.com/search?groupIds=6156be63723248acb386917641ff397f">Washington State ShoreZone Inventory</a></td>
+<td align="left">shapefile (.shp)</td>
+<td align="left">1994-2000</td>
+<td align="left">US</td>
+<td align="left">Washington State Department of Natural Resources</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://www.dnr.wa.gov/programs-and-services/aquatics/aquatic-science/washington-marine-vegetation-atlas">Washington Marine Vegetation Atlas</a></td>
+<td align="left">geoJSON</td>
+<td align="left"></td>
+<td align="left">US</td>
+<td align="left">Washington State Department of Natural Resources</td>
+</tr>
+</tbody>
+</table>
+<div id="data-use-considerations-16" class="section level4 hasAnchor" number="10.2.11.1">
+<h4><span class="header-section-number">10.2.11.1</span> Data Use Considerations<a href="SD10.html#data-use-considerations-16" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The British Columbia Marine Conservation Analysis provides a suite of data on the aquatic vegetation in British Columbia’s coastal waters. Available data includes information on Kelp, Surfgrass, Ditch Grass, and Eelgrass. Data sets vary and contain multiple sources per species (e.g. Eelgrass polygons, Priority Eelgrass Habitat, and Eelgrass Biobands). Metadata for each of these different data sets can be found <a href="https://bcmca.ca/datafiles/individualfiles/bcmca_eco_vascplants_eelgrass_polygons_metadata.htm">here</a>.</p>
+<p>A predicted data set representing polygons of Eelgrass for the BC Coast is available from the Hakai Institute. Currently data is not directly downloadable, however, a data request can be made to data@hakai.org. This data set uses coastline ShoreZone and bathymetry data to predict Eelgrass extent. More information can be found using the link in the above table.</p>
+<p>The Washington State ShoreZone Inventory contains data on aquatic vegetation for Washington state. Data from this survey is old coming from aerial video collected in 1994-2000. Information on Eelgrass, Dunegrass, Surfgrass, and Kelp is available in a linear format indication areas of continuous or patchy presence along the shore.</p>
+<p>The Washington Marine Vegetation Atlas provides spatial information on the vegetation that grows in nearshore areas for the southern Salish Sea. This data set consists of 2000 polygon areas that have been surveyed from 2 to 56 times and the presence or absence of different vegetation is reported (Seagrass, Kelp, and Macroalgae). Because this data only tells you presence absence information on abundance is not provided. Data is not easily downloadable, however, it can be queried or downloaded using R or GIS software. Below you will find instructions on accessing the data using R.</p>
+</div>
+</div>
+<div id="additional-data-sources" class="section level3 hasAnchor" number="10.2.12">
+<h3><span class="header-section-number">10.2.12</span> Additional Data Sources<a href="SD10.html#additional-data-sources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Below is a table with a list of additional data sources not covered above which may or may not be useful in modeling sea duck distribution in the Salish Sea. Each source contains a link where you can download and discover additional data and notes are provided to give an overview of what is available.</p>
+<table>
+<colgroup>
+<col width="31%" />
+<col width="68%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Additional Data Source</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://wp.wwu.edu/salishseaatlas/data/">Salish Sea Atlas</a></td>
+<td>The Salish Sea Atlas from Western Washington University is an open access digital book that contains cultural and environmental geospatial data sets for the Salish Sea Bioregion. Some data sets included are sea depth (mentioned above), landcover, total annual precipitaiton, and impervious surfaces.</td>
+</tr>
+<tr class="even">
+<td><a href="https://bio-oracle.org/">Bio-ORACLE</a></td>
+<td>Bio-ORACLE is a data source for GIS Rasters that provide global geophysical, biotic, and environmental data for marine surface and benthic areas. Data is proved at a resolution of approximately 9.2 km squares. Example data sets included are Chlorophyll concentration, current velocity, sea surface temperature, and salinity. Furthermore, data can be downloaded using the R package ‘sdmpredictors.’</td>
+</tr>
+<tr class="odd">
+<td><a href="https://bcmca.ca/">The British Columbia Marine Conservation Analysis (2006–2013)</a></td>
+<td>In addition to information on aquatic vegetation, the BCMCA contains a suite of additional data sets for BC coastal waters including tidal currents, Shorezone exposure, algae, invertebrates, birds, and mammals to name a few. It is important to note that data is &gt; 10 years old and is only available for BC.</td>
+</tr>
+<tr class="even">
+<td><a href="https://apps.ecology.wa.gov/coastalatlasmap">Washington Coastal Atlas</a></td>
+<td>In addition to information on aquatic vegetation, the Washington Coastal Atlas contains many other useful data sources specific to Shoreline, Ocean, Wetland, Administrative, and Land Cover. The interactive map allows you to view data and links to downloading (when available) are provided in layer information.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www2.gov.bc.ca/gov/content/data/geographic-data-services/topographic-data/coast">BC Coastal Resource Information Management System</a></td>
+<td>The B.C. Coastal Resource Information Management System (CRIMS) is an interactive tool for viewing and downloading coastal and marine data for British Columbia. The development of this tool is ongoing meaning new layers can be added as they become available.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="working-with-different-data-sets-in-r" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Working With Different Data Sets in R<a href="SD10.html#working-with-different-data-sets-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Coming soon….
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; ab168c426e4b4c544534843877c4fa5c83c19d58</p>
+
+</div>
+</div>
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ADD9.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
