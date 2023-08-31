@@ -2,3 +2,7 @@
 pre > pre {
   margin-bottom: 5px !important;
 }
+
+.leaflet-control-fullscreen-button .leaflet-bar-part {
+  background-image: url("/libs/lfx-fullscreen-1.0.2/css/fullscreen.png") !important;
+}
