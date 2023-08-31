@@ -1,0 +1,7 @@
+book_filename: "SDJV Data Compile 2022"
+chapter_name: "Chapter "
+repo: https://github.com/DMEthier/DataCompile-SDJV
+output_dir: docs
+rmd_files: ["index.Rmd", "01-Intro.Rmd", "02-BCCWS.Rmd", "03-BCMA.Rmd", "04-PSSS.Rmd", "05-PSEMP.Rmd", "06-eBird.Rmd", "07-CBC.Rmd", "08-DataProcess.Rmd", "09-OtherData.RMD", "10-Spatial.RMD"]
+clean: [packages.bib, bookdown.bbl]
+new_session: yes

@@ -468,10 +468,6 @@ of what is available.
 
 ## Working With Different Data Sets in R
 
-<<<<<<< HEAD
-Coming soon....
->>>>>>> ab168c426e4b4c544534843877c4fa5c83c19d58
-=======
 Working with multiple types of geospatial data sets like the ones
 mentioned above can be quite challenging especially if the user does not
 have access or a great understanding of software like ArcGIS/QGIS.
@@ -507,7 +503,7 @@ skill set some of these packages may be familiar or completely new.
 
 Download and then load the required packages:
 
-```{r echo = T, results = 'hide',message=FALSE, warning=FALSE}
+```{r echo = T, results = 'hide', message=FALSE, warning=FALSE}
 ### Install Packages
 #devtools::install_github('rstudio/leaflet') ### Use development version
 #install.packages("leaflet.extras")
@@ -542,7 +538,7 @@ working with the `terra` package. If you encounter this problem please
 download and use the development version
 `devtools::install_github('rstudio/leaflet')`.
 
-```{r echo = T, warning=FALSE,cache=TRUE}
+```{r echo = T, warning=FALSE, cache=TRUE}
 ### Read in Salish Sea Boundary from arcgis service
 SalishSeaBoundary<-geojson_sf("https://services.arcgis.com/qboYD3ru0louQq4F/arcgis/rest/services/Salish_Sea_Bioregion_Boundary/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson") %>% st_transform(4326)
 
