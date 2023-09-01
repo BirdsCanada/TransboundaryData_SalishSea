@@ -2,6 +2,6 @@ book_filename: "SDJV Data Compile 2023"
 chapter_name: "Chapter "
 repo: https://github.com/BirdsCanada/TransboundaryData_SalishSea.git 
 output_dir: docs
-rmd_files: ["a_index.Rmd", "01-Intro.Rmd", "02a-BirdData.Rmd", "03s-Spatial.Rmd"]
+rmd_files: ["a_index.Rmd", "01-Intro.Rmd", "02-BirdData.Rmd", "03-Spatial.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes
