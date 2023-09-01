@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Avian Data | Transboundary avian data for the Salish Sea</title>
+  <meta name="description" content="Data documentation and R scripts to compile transboundary sea duck data for the Salish Sea" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Avian Data | Transboundary avian data for the Salish Sea" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://github.com/BirdsCanada/TransboundaryData_SalishSea.git/NC.png" />
+  <meta property="og:description" content="Data documentation and R scripts to compile transboundary sea duck data for the Salish Sea" />
+  <meta name="github-repo" content="BirdsCanada/TransboundaryData_SalishSea.git" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Avian Data | Transboundary avian data for the Salish Sea" />
+  
+  <meta name="twitter:description" content="Data documentation and R scripts to compile transboundary sea duck data for the Salish Sea" />
+  <meta name="twitter:image" content="https://github.com/BirdsCanada/TransboundaryData_SalishSea.git/NC.png" />
+
+<meta name="author" content="Author: Danielle Ethier and Dean Evans" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="overview.html"/>
+<link rel="next" href="SD2.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.1.2.9000/leaflet.js"></script>
+<link href="libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.css" rel="stylesheet" />
+<script src="libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.js"></script>
+<link href="libs/leaflet-measure-2.1.7/leaflet-measure.css" rel="stylesheet" />
+<script src="libs/leaflet-measure-2.1.7/leaflet-measure.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="mystyles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Transboundary avain data for the Salish Sea: An R users guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome data users!</a></li>
+<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html#project-summary"><i class="fa fa-check"></i><b>1.1</b> Project Summary <a href="overview.html#intro1.1" id="intro1.1"></a></a></li>
+<li class="chapter" data-level="1.2" data-path="overview.html"><a href="overview.html#goals"><i class="fa fa-check"></i><b>1.2</b> Goals <a href="overview.html#intro1.2" id="intro1.2"></a></a></li>
+<li class="chapter" data-level="1.3" data-path="overview.html"><a href="overview.html#acknowledgements"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements <a href="overview.html#intro1.5" id="intro1.5"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="AD2.html"><a href="AD2.html"><i class="fa fa-check"></i><b>2</b> Avian Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="AD2.html"><a href="AD2.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.2" data-path="AD2.html"><a href="AD2.html#bccws"><i class="fa fa-check"></i><b>2.2</b> BCCWS</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="AD2.html"><a href="AD2.html#quick-data-overview"><i class="fa fa-check"></i><b>2.2.1</b> Quick Data Overview</a></li>
+<li class="chapter" data-level="2.2.2" data-path="AD2.html"><a href="AD2.html#data-collection-protocol"><i class="fa fa-check"></i><b>2.2.2</b> Data Collection Protocol</a></li>
+<li class="chapter" data-level="2.2.3" data-path="AD2.html"><a href="AD2.html#avian-data-collected"><i class="fa fa-check"></i><b>2.2.3</b> Avian Data Collected</a></li>
+<li class="chapter" data-level="2.2.4" data-path="AD2.html"><a href="AD2.html#auxiliary-data-collected"><i class="fa fa-check"></i><b>2.2.4</b> Auxiliary Data Collected</a></li>
+<li class="chapter" data-level="2.2.5" data-path="AD2.html"><a href="AD2.html#data-access-permission-and-format"><i class="fa fa-check"></i><b>2.2.5</b> Data Access, Permission, and Format</a></li>
+<li class="chapter" data-level="2.2.6" data-path="AD2.html"><a href="AD2.html#data-use-considerations"><i class="fa fa-check"></i><b>2.2.6</b> Data Use Considerations</a></li>
+<li class="chapter" data-level="2.2.7" data-path="AD2.html"><a href="AD2.html#data-use-examples"><i class="fa fa-check"></i><b>2.2.7</b> Data Use Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="AD2.html"><a href="AD2.html#bcma"><i class="fa fa-check"></i><b>2.3</b> BCMA</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="AD2.html"><a href="AD2.html#quick-data-overview-1"><i class="fa fa-check"></i><b>2.3.1</b> Quick Data Overview</a></li>
+<li class="chapter" data-level="2.3.2" data-path="AD2.html"><a href="AD2.html#data-collection-protocol-1"><i class="fa fa-check"></i><b>2.3.2</b> Data Collection Protocol</a></li>
+<li class="chapter" data-level="2.3.3" data-path="AD2.html"><a href="AD2.html#avian-data-collected-1"><i class="fa fa-check"></i><b>2.3.3</b> Avian Data Collected</a></li>
+<li class="chapter" data-level="2.3.4" data-path="AD2.html"><a href="AD2.html#auxiliary-data-collected-1"><i class="fa fa-check"></i><b>2.3.4</b> Auxiliary Data Collected</a></li>
+<li class="chapter" data-level="2.3.5" data-path="AD2.html"><a href="AD2.html#data-access-permission-and-format-1"><i class="fa fa-check"></i><b>2.3.5</b> Data Access, Permission, and Format</a></li>
+<li class="chapter" data-level="2.3.6" data-path="AD2.html"><a href="AD2.html#data-use-considerations-1"><i class="fa fa-check"></i><b>2.3.6</b> Data Use Considerations</a></li>
+<li class="chapter" data-level="2.3.7" data-path="AD2.html"><a href="AD2.html#data-use-examples-1"><i class="fa fa-check"></i><b>2.3.7</b> Data Use Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="AD2.html"><a href="AD2.html#psss"><i class="fa fa-check"></i><b>2.4</b> PSSS</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="AD2.html"><a href="AD2.html#quick-data-overview-2"><i class="fa fa-check"></i><b>2.4.1</b> Quick Data Overview</a></li>
+<li class="chapter" data-level="2.4.2" data-path="AD2.html"><a href="AD2.html#data-collection-protocol-2"><i class="fa fa-check"></i><b>2.4.2</b> Data Collection Protocol</a></li>
+<li class="chapter" data-level="2.4.3" data-path="AD2.html"><a href="AD2.html#avian-data-collected-2"><i class="fa fa-check"></i><b>2.4.3</b> Avian Data Collected</a></li>
+<li class="chapter" data-level="2.4.4" data-path="AD2.html"><a href="AD2.html#auxiliary-data-collected-2"><i class="fa fa-check"></i><b>2.4.4</b> Auxiliary Data Collected</a></li>
+<li class="chapter" data-level="2.4.5" data-path="AD2.html"><a href="AD2.html#data-access-permission-and-format-2"><i class="fa fa-check"></i><b>2.4.5</b> Data Access, Permission, and Format</a></li>
+<li class="chapter" data-level="2.4.6" data-path="AD2.html"><a href="AD2.html#data-use-considerations-2"><i class="fa fa-check"></i><b>2.4.6</b> Data Use Considerations</a></li>
+<li class="chapter" data-level="2.4.7" data-path="AD2.html"><a href="AD2.html#data-use-examples-2"><i class="fa fa-check"></i><b>2.4.7</b> Data Use Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="AD2.html"><a href="AD2.html#psemp"><i class="fa fa-check"></i><b>2.5</b> PSEMP</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="AD2.html"><a href="AD2.html#quick-data-overview-3"><i class="fa fa-check"></i><b>2.5.1</b> Quick Data Overview</a></li>
+<li class="chapter" data-level="2.5.2" data-path="AD2.html"><a href="AD2.html#data-collection-protocol-3"><i class="fa fa-check"></i><b>2.5.2</b> Data Collection Protocol</a></li>
+<li class="chapter" data-level="2.5.3" data-path="AD2.html"><a href="AD2.html#avian-data-collected-3"><i class="fa fa-check"></i><b>2.5.3</b> Avian Data Collected</a></li>
+<li class="chapter" data-level="2.5.4" data-path="AD2.html"><a href="AD2.html#auxiliary-data-collected-3"><i class="fa fa-check"></i><b>2.5.4</b> Auxiliary Data Collected</a></li>
+<li class="chapter" data-level="2.5.5" data-path="AD2.html"><a href="AD2.html#data-access-permission-and-format-3"><i class="fa fa-check"></i><b>2.5.5</b> Data Access, Permission, and Format</a></li>
+<li class="chapter" data-level="2.5.6" data-path="AD2.html"><a href="AD2.html#data-use-considerations-3"><i class="fa fa-check"></i><b>2.5.6</b> Data Use Considerations</a></li>
+<li class="chapter" data-level="2.5.7" data-path="AD2.html"><a href="AD2.html#data-use-examples-3"><i class="fa fa-check"></i><b>2.5.7</b> Data Use Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="AD2.html"><a href="AD2.html#ebird"><i class="fa fa-check"></i><b>2.6</b> eBird</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="AD2.html"><a href="AD2.html#quick-data-overview-4"><i class="fa fa-check"></i><b>2.6.1</b> Quick Data Overview</a></li>
+<li class="chapter" data-level="2.6.2" data-path="AD2.html"><a href="AD2.html#data-collection-protocol-4"><i class="fa fa-check"></i><b>2.6.2</b> Data Collection Protocol</a></li>
+<li class="chapter" data-level="2.6.3" data-path="AD2.html"><a href="AD2.html#avian-data-collected-4"><i class="fa fa-check"></i><b>2.6.3</b> Avian Data Collected</a></li>
+<li class="chapter" data-level="2.6.4" data-path="AD2.html"><a href="AD2.html#auxiliary-data-collected-4"><i class="fa fa-check"></i><b>2.6.4</b> Auxiliary Data Collected</a></li>
+<li class="chapter" data-level="2.6.5" data-path="AD2.html"><a href="AD2.html#data-access-permission-and-format-4"><i class="fa fa-check"></i><b>2.6.5</b> Data Access, Permission, and Format</a></li>
+<li class="chapter" data-level="2.6.6" data-path="AD2.html"><a href="AD2.html#data-use-considerations-4"><i class="fa fa-check"></i><b>2.6.6</b> Data Use Considerations</a></li>
+<li class="chapter" data-level="2.6.7" data-path="AD2.html"><a href="AD2.html#data-use-examples-4"><i class="fa fa-check"></i><b>2.6.7</b> Data Use Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="AD2.html"><a href="AD2.html#cbc"><i class="fa fa-check"></i><b>2.7</b> CBC</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="AD2.html"><a href="AD2.html#quick-data-overview-5"><i class="fa fa-check"></i><b>2.7.1</b> Quick Data Overview</a></li>
+<li class="chapter" data-level="2.7.2" data-path="AD2.html"><a href="AD2.html#data-collection-protocol-5"><i class="fa fa-check"></i><b>2.7.2</b> Data Collection Protocol</a></li>
+<li class="chapter" data-level="2.7.3" data-path="AD2.html"><a href="AD2.html#avian-data-collected-5"><i class="fa fa-check"></i><b>2.7.3</b> Avian Data Collected</a></li>
+<li class="chapter" data-level="2.7.4" data-path="AD2.html"><a href="AD2.html#auxiliary-data-collected-5"><i class="fa fa-check"></i><b>2.7.4</b> Auxiliary Data Collected</a></li>
+<li class="chapter" data-level="2.7.5" data-path="AD2.html"><a href="AD2.html#data-access-permission-and-format-5"><i class="fa fa-check"></i><b>2.7.5</b> Data Access, Permission, and Format</a></li>
+<li class="chapter" data-level="2.7.6" data-path="AD2.html"><a href="AD2.html#data-use-considerations-5"><i class="fa fa-check"></i><b>2.7.6</b> Data Use Considerations</a></li>
+<li class="chapter" data-level="2.7.7" data-path="AD2.html"><a href="AD2.html#data-use-examples-5"><i class="fa fa-check"></i><b>2.7.7</b> Data Use Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="AD2.html"><a href="AD2.html#data-processing"><i class="fa fa-check"></i><b>2.8</b> Data Processing</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="AD2.html"><a href="AD2.html#data-schema"><i class="fa fa-check"></i><b>2.8.1</b> Data Schema</a></li>
+<li class="chapter" data-level="2.8.2" data-path="AD2.html"><a href="AD2.html#species-codes"><i class="fa fa-check"></i><b>2.8.2</b> Species Codes</a></li>
+<li class="chapter" data-level="2.8.3" data-path="AD2.html"><a href="AD2.html#data-manipulation"><i class="fa fa-check"></i><b>2.8.3</b> Data Manipulation</a></li>
+<li class="chapter" data-level="2.8.4" data-path="AD2.html"><a href="AD2.html#bccws-bcma"><i class="fa fa-check"></i><b>2.8.4</b> BCCWS &amp; BCMA</a></li>
+<li class="chapter" data-level="2.8.5" data-path="AD2.html"><a href="AD2.html#psss-1"><i class="fa fa-check"></i><b>2.8.5</b> PSSS</a></li>
+<li class="chapter" data-level="2.8.6" data-path="AD2.html"><a href="AD2.html#psemp-1"><i class="fa fa-check"></i><b>2.8.6</b> PSEMP</a></li>
+<li class="chapter" data-level="2.8.7" data-path="AD2.html"><a href="AD2.html#ebird-1"><i class="fa fa-check"></i><b>2.8.7</b> eBird</a></li>
+<li class="chapter" data-level="2.8.8" data-path="AD2.html"><a href="AD2.html#cbc-1"><i class="fa fa-check"></i><b>2.8.8</b> CBC</a></li>
+<li class="chapter" data-level="2.8.9" data-path="AD2.html"><a href="AD2.html#all-data-combined"><i class="fa fa-check"></i><b>2.8.9</b> All Data Combined</a></li>
+<li class="chapter" data-level="2.8.10" data-path="AD2.html"><a href="AD2.html#zero-filling-dataframe"><i class="fa fa-check"></i><b>2.8.10</b> Zero-filling dataframe</a></li>
+<li class="chapter" data-level="2.8.11" data-path="AD2.html"><a href="AD2.html#checking-and-removing-duplicates"><i class="fa fa-check"></i><b>2.8.11</b> Checking and removing duplicates</a></li>
+<li class="chapter" data-level="2.8.12" data-path="AD2.html"><a href="AD2.html#assigning-survey-period"><i class="fa fa-check"></i><b>2.8.12</b> Assigning survey period</a></li>
+<li class="chapter" data-level="2.8.13" data-path="AD2.html"><a href="AD2.html#remove-out-of-range-species-unsuitable-habitat"><i class="fa fa-check"></i><b>2.8.13</b> Remove out of range species/ unsuitable habitat</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="AD2.html"><a href="AD2.html#additional-avian-data-resources"><i class="fa fa-check"></i><b>2.9</b> Additional Avian Data Resources</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="AD2.html"><a href="AD2.html#canadian-pacific-vessel-based-survey"><i class="fa fa-check"></i><b>2.9.1</b> Canadian Pacific Vessel-Based Survey</a></li>
+<li class="chapter" data-level="2.9.2" data-path="AD2.html"><a href="AD2.html#pelagic-seabird-atlas"><i class="fa fa-check"></i><b>2.9.2</b> Pelagic Seabird Atlas</a></li>
+<li class="chapter" data-level="2.9.3" data-path="AD2.html"><a href="AD2.html#north-pacific-pelagic-seabird-database-nppsd"><i class="fa fa-check"></i><b>2.9.3</b> North Pacific Pelagic Seabird Database (NPPSD)</a></li>
+<li class="chapter" data-level="2.9.4" data-path="AD2.html"><a href="AD2.html#coastal-observation-and-seabird-survey-team-coasst"><i class="fa fa-check"></i><b>2.9.4</b> Coastal Observation and Seabird Survey Team (COASST)</a></li>
+<li class="chapter" data-level="2.9.5" data-path="AD2.html"><a href="AD2.html#regional-population-monitoring-of-the-marbled-murrelet-wdfw"><i class="fa fa-check"></i><b>2.9.5</b> Regional Population Monitoring of the Marbled Murrelet (WDFW)</a></li>
+<li class="chapter" data-level="2.9.6" data-path="AD2.html"><a href="AD2.html#cherry-point-aquatic-and-fidalgo-bay-aquatic-reserve-shore-based-monitoring-dnr---wa"><i class="fa fa-check"></i><b>2.9.6</b> Cherry Point Aquatic and Fidalgo Bay Aquatic Reserve shore-based monitoring (DNR - WA)</a></li>
+<li class="chapter" data-level="2.9.7" data-path="AD2.html"><a href="AD2.html#additional-historical-datasets"><i class="fa fa-check"></i><b>2.9.7</b> Additional Historical Datasets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="SD2.html"><a href="SD2.html"><i class="fa fa-check"></i><b>3</b> Spatial Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="SD2.html"><a href="SD2.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="SD2.html"><a href="SD2.html#available-data"><i class="fa fa-check"></i><b>3.2</b> Available Data</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="SD2.html"><a href="SD2.html#net-primary-productivity"><i class="fa fa-check"></i><b>3.2.1</b> Net Primary Productivity</a></li>
+<li class="chapter" data-level="3.2.2" data-path="SD2.html"><a href="SD2.html#sea-surface-temperature"><i class="fa fa-check"></i><b>3.2.2</b> Sea Surface Temperature</a></li>
+<li class="chapter" data-level="3.2.3" data-path="SD2.html"><a href="SD2.html#salinity"><i class="fa fa-check"></i><b>3.2.3</b> Salinity</a></li>
+<li class="chapter" data-level="3.2.4" data-path="SD2.html"><a href="SD2.html#distance-to-nearest-shoreline"><i class="fa fa-check"></i><b>3.2.4</b> Distance to Nearest Shoreline</a></li>
+<li class="chapter" data-level="3.2.5" data-path="SD2.html"><a href="SD2.html#bottom-depth-bathymetry-and-ocean-floor-topography-slope"><i class="fa fa-check"></i><b>3.2.5</b> Bottom Depth (Bathymetry) and Ocean Floor Topography (Slope)</a></li>
+<li class="chapter" data-level="3.2.6" data-path="SD2.html"><a href="SD2.html#climate"><i class="fa fa-check"></i><b>3.2.6</b> Climate</a></li>
+<li class="chapter" data-level="3.2.7" data-path="SD2.html"><a href="SD2.html#shore-zone"><i class="fa fa-check"></i><b>3.2.7</b> Shore-zone</a></li>
+<li class="chapter" data-level="3.2.8" data-path="SD2.html"><a href="SD2.html#sea-vessels"><i class="fa fa-check"></i><b>3.2.8</b> Sea Vessels</a></li>
+<li class="chapter" data-level="3.2.9" data-path="SD2.html"><a href="SD2.html#bottom-patches"><i class="fa fa-check"></i><b>3.2.9</b> Bottom Patches</a></li>
+<li class="chapter" data-level="3.2.10" data-path="SD2.html"><a href="SD2.html#distribution-of-prey"><i class="fa fa-check"></i><b>3.2.10</b> Distribution of Prey</a></li>
+<li class="chapter" data-level="3.2.11" data-path="SD2.html"><a href="SD2.html#aquatic-vegetation"><i class="fa fa-check"></i><b>3.2.11</b> Aquatic Vegetation</a></li>
+<li class="chapter" data-level="3.2.12" data-path="SD2.html"><a href="SD2.html#additional-data-sources"><i class="fa fa-check"></i><b>3.2.12</b> Additional Data Sources</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="SD2.html"><a href="SD2.html#working-with-different-data-sets-in-r"><i class="fa fa-check"></i><b>3.3</b> Working With Different Data Sets in R</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="SD2.html"><a href="SD2.html#getting-started"><i class="fa fa-check"></i><b>3.3.1</b> Getting Started</a></li>
+<li class="chapter" data-level="3.3.2" data-path="SD2.html"><a href="SD2.html#working-with-netcdf-.nc-covariates"><i class="fa fa-check"></i><b>3.3.2</b> Working with NetCDF (.nc) Covariates</a></li>
+<li class="chapter" data-level="3.3.3" data-path="SD2.html"><a href="SD2.html#working-with-raster-covariates"><i class="fa fa-check"></i><b>3.3.3</b> Working with Raster Covariates</a></li>
+<li class="chapter" data-level="3.3.4" data-path="SD2.html"><a href="SD2.html#working-with-linear-covariates"><i class="fa fa-check"></i><b>3.3.4</b> Working with Linear Covariates</a></li>
+<li class="chapter" data-level="3.3.5" data-path="SD2.html"><a href="SD2.html#climate-data"><i class="fa fa-check"></i><b>3.3.5</b> Climate Data</a></li>
+<li class="chapter" data-level="3.3.6" data-path="SD2.html"><a href="SD2.html#other-spatial-data"><i class="fa fa-check"></i><b>3.3.6</b> Other Spatial Data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="SD2.html"><a href="SD2.html#references"><i class="fa fa-check"></i><b>3.4</b> References</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Transboundary avian data for the Salish Sea</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="AD2" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Avian Data<a href="AD2.html#AD2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview-1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Overview<a href="AD2.html#overview-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are seemingly endless datasets that live on the hard drive of some
+retired government biologist computer. Since the goal of this guide to
+identify <em>available</em> data resources, we do not include datasets that are
+difficult to find, lack well documented metadata, or require complex
+data permissions. Thus, avian datasets needed to be openly accessible to
+be included in this guide. Generally, the datasets that are not openly
+accessible are older (pre-2000) and cover a narrow geographic extents.
+Because of this, the guide is scoped primarily to data collected
+post-2000.</p>
+<p>In this section of the guide we detail each avian dataset separately.
+The datasets are presented in the following order: Canada, U.S.,
+transboundary. We then focus on how to compile the data into a
+standardized framework.</p>
+</div>
+<div id="bccws" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> BCCWS<a href="AD2.html#bccws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="(https:/www.birdscanada.org/bird-science/british-columbia-coastal-waterbird-survey)/"><strong>British Columbia Coastal Waterbird
+Survey</strong></a></p>
+<figure>
+<p><img src="images/BCCWS.PNG"/></p>
+<figcaption>
+</figcaption>
+</figure>
+<div id="quick-data-overview" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Quick Data Overview<a href="AD2.html#quick-data-overview" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="83%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>British Columbia Coastal Waterbird Survey (BCCWS)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Owner</td>
+<td>Birds Canada/ Canada Wildlife Service</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Active</td>
+</tr>
+<tr class="odd">
+<td>Years</td>
+<td>1999 - present</td>
+</tr>
+<tr class="even">
+<td>Seasons</td>
+<td>Monthly survey, with a winter focus from Sept - April</td>
+</tr>
+<tr class="odd">
+<td>Sampling</td>
+<td>Coastal surveys along designated routes</td>
+</tr>
+<tr class="even">
+<td>Data Access</td>
+<td>Available directly in R, with permission from Birds Canada or through the <a href="https://naturecounts.ca/nc/default/searchquery.jsp">NatureCounts</a> webportal</td>
+</tr>
+<tr class="odd">
+<td>Contact</td>
+<td><a href="mailto:rtorrenta@birdscanada.org" class="email">rtorrenta@birdscanada.org</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-collection-protocol" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Data Collection Protocol<a href="AD2.html#data-collection-protocol" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>BCCWS data collection protocol can be found online
+<a href="https://www.birdscanada.org/bird-science/british-columbia-coastal-waterbird-survey/bccws_resources">here</a>.</p>
+<p>In short, surveys have been conducted by volunteers using a standardized
+protocol and data collection
+<a href="https://birdscanada.b-cdn.net/wp-content/uploads/2021/02/BCCWS_Datasheet.pdf">sheets</a>.
+Shore-based counts are completed monthly on or near the second Sunday of
+each month from September to April. Surveys are complete within
+approximately 2 hours of high tide to maximize the opportunity for close
+observation. All waterbirds observed to a distance of 1 km from the high
+tide line are counted, except those that fly through without stopping.
+In the case of larger flocks, numbers are estimated by counting
+individuals and species in groups and scaling up (see <a href="https://birdscanada.b-cdn.net/wp-content/uploads/2020/02/BCCWS-Training-Module.pdf">Training Module
+for
+Volunteers</a>).
+Data are entered through a customized online data entry system available
+on the Birds Canada website,
+<a href="https:/www.birdscanada.%20org/birdmon/default/main.jsp">NatureCounts</a>.
+Observations are processed using the eBird data filters to flag rare
+species and high counts during observer data entry, and records are
+manually reviewed for form accuracy.</p>
+</div>
+<div id="avian-data-collected" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Avian Data Collected<a href="AD2.html#avian-data-collected" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Observation counts of waterbirds and raptor seen during a survey are
+compiled at the scale of the route (i.e., the maximum count per species)
+on each monthly survey. These observations are divided into inland, near
+shore (shoreline to 500m out from high tide), off shore (beyond 500m),
+and total counts. The dataset is not zero-filled.</p>
+<p>Taxonomic Authority = <a href="https://www.birds.cornell.edu/clementschecklist?__hstc=60209138.6f747e6e23a2f1b7014cf372ca892894.1544132358313.1566237656917.1566240564794.714&amp;__hssc=60209138.3.1566240564794&amp;__hsfp=2467889448">eBird/Clements
+v2019</a></p>
+</div>
+<div id="auxiliary-data-collected" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Auxiliary Data Collected<a href="AD2.html#auxiliary-data-collected" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Observer information: observer ID</li>
+<li>Survey information: time observation started, time observation
+ended, duration in hours</li>
+<li>Survey condition: precipitation, % cloud, sea condition, tide state,
+tide movement, visibility, survey equipment, human activity (all
+categorical)</li>
+</ul>
+</div>
+<div id="data-access-permission-and-format" class="section level3 hasAnchor" number="2.2.5">
+<h3><span class="header-section-number">2.2.5</span> Data Access, Permission, and Format<a href="AD2.html#data-access-permission-and-format" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data can be freely accessed through the NatureCounts data
+<a href="https://naturecounts.ca/nc/default/searchquery.jsp">download</a> portal or
+directly through the naturecounts R package, which I will demonstrate
+later in this chapter. The BCCWS is Access Level 4 dataset, meaning a
+data request form must be submitted. This is not meant to be a barrier,
+rather a means of keeping track of who is using the data and for what
+purposes.</p>
+<p>Data are formatted using a standardized schema that is a core standard
+of the <a href="https://avianknowledge.net/">Avian Knowledge Network</a> and which
+feeds into <a href="https://www.gbif.org/">GBIF</a>. This format is called the Bird
+Monitoring Data Exchange
+(<a href="https://naturecounts.ca/nc/default/nc_bmde.jsp">BMDE</a>), which includes
+169 core fields for capturing all metric and descriptors associated with
+bird observations.</p>
+</div>
+<div id="data-use-considerations" class="section level3 hasAnchor" number="2.2.6">
+<h3><span class="header-section-number">2.2.6</span> Data Use Considerations<a href="AD2.html#data-use-considerations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The data are collected using a standardize protocol, by trained
+citizen-science volunteers. This standardization is a strength of this
+datasets for making inferences about coastal waterbirds in the Canadian
+Salish Sea.</p>
+<p>The repeated sampling design of the BCCWS makes this dataset suitable
+for an occupancy modelling framework, in which the probability of
+detection can be modeled alongside occupancy. Auxiliary data collected
+during each survey are suitable for the detection process of the model.
+Using mean counts in abundance on a route within a year, these data have
+also been recently used to assess coastal waterbird
+<a href="https://www.ace-eco.org/vol15/iss2/art20/">trends</a>.</p>
+<p>Measures of effort are innate to the dataset. Survey duration (column
+<code>DurationinHours</code>) and survey area can be used to make effort correction
+to counts. Survey areas for each survey route has been provided as a
+.shp file in the <code>Data</code> folder in this project directory. The number of
+years an observer has been doing the survey can also be used to correct
+for observer bias.</p>
+<p>There is spatial inbalance in the sampling design, with more routes
+occurring in the southern Salish Sea and around areas that are inhabited
+by people. Hard to access locations are not well sampled, nor are
+regions further to the north. Since this survey is shore-based, there
+will be a species sampling bias. Specifically, birds that use near shore
+habitats will be detected and counted more often than birds which use
+offshore habitats. This dataset may therefore be less suitable for
+modelling at-sea habitat use, for example.</p>
+<p>The dataset should be filtered prior to use. For example, rare species
+should be removed since they are not necessarily representative (e.g.,
+those which occur on &lt;1% of routes). Depending on the analysis, routes
+that are run for only a short time (e.g., &lt;3 years) or which have
+incomplete data (e.g., &lt;8 months per year or &lt;4 core winter month) may
+be considered for removal.This dataframe is not zero-filled. It is up to
+the data user to zero-fill the martix prior to use.</p>
+</div>
+<div id="data-use-examples" class="section level3 hasAnchor" number="2.2.7">
+<h3><span class="header-section-number">2.2.7</span> Data Use Examples<a href="AD2.html#data-use-examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ethier, D.M., P.J.A. Davidson, G. Sorenson, C. Jardine, D. Lepage, K.
+Barry, K. Devitt, D.W. Bradley. 2020. <em>Twenty years of coastal waterbird
+trends suggest regional patterns of environmental pressure in British
+Columbia, Canada.</em> Avian Conservation and Ecology. 15(2):20</p>
+<p>Middleton, H. A., R. W. Butler, and P. Davidson. 2018. <em>Waterbirds alter
+their distribution and behavior in the presence of Bald Eagles
+(Haliaeetus leucocephalus).</em> Northwestern Naturalist 99:21–30. doi:
+10.1898/nwn16-21.1.</p>
+<p>Crewe, T., K. Barry, P. Davidson, and D. Lepage. 2012. <em>Coastal
+waterbird population trends in the Strait of Georgia 1999 – 2011:
+Results from the first 12 years of the British Columbia Coastal
+Waterbird Survey</em>. British Columbia Birds 22: 8–35.</p>
+<p>Bower, J. L. 2009. <em>Changes in marine bird abundance in the Salish Sea:
+1975 to 2007.</em> Marine Ornithology 37: 9–17.</p>
+<p>Badzinski, S. S., R. J. Cannings, T. E. Armenta, J. Komaromi, and P. J.
+Davidson. 2006. <em>British Columbia Coastal Waterbird Survey: An
+evaluation of survey power and species trends after five years of
+monitoring</em>. Canadian Wildlife Service, Pacific and Yukon Region,
+Technical Report Series no. 455: 1-122.</p>
+</div>
+</div>
+<div id="bcma" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> BCMA<a href="AD2.html#bcma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="(https:/storymaps.arcgis.com/stories/643e7710d56a427487e4fbe04cb8064c)/"><strong>British Columbia Marine Bird
+Atlas</strong></a></p>
+<figure>
+<p><img src="images/BCMA.PNG"/></p>
+<figcaption>
+</figcaption>
+</figure>
+<div id="quick-data-overview-1" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Quick Data Overview<a href="AD2.html#quick-data-overview-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="18%" />
+<col width="81%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>British Columbia Marine Bird Atlas (BCMA)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Owner</td>
+<td>Birds Canada/ Pacific Wildlife Foundation</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Not Active</td>
+</tr>
+<tr class="odd">
+<td>Years</td>
+<td>2008-2015</td>
+</tr>
+<tr class="even">
+<td>Seasons</td>
+<td>Monthly surveys over a full year, with some variability</td>
+</tr>
+<tr class="odd">
+<td>Sampling</td>
+<td>Vessel transects along designated routes, over different regions of the Canadian Salish Sea in each year</td>
+</tr>
+<tr class="even">
+<td>Data Access</td>
+<td>Available directly in R or through the <a href="https://naturecounts.ca/nc/default/searchquery.jsp">NatureCounts</a> webportal</td>
+</tr>
+<tr class="odd">
+<td>Contact</td>
+<td><a href="mailto:acouturier@bsc-eoc.org" class="email">acouturier@bsc-eoc.org</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-collection-protocol-1" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Data Collection Protocol<a href="AD2.html#data-collection-protocol-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Protocols are published in technical reports (links below), which may
+differ slightly between years since each year the survey focused on a
+different geographic region within the Salish Sea. Also note that the
+year long survey period straddles a calendar year.</p>
+<p>In short, counts of birds and marine mammals were made from a small boat
+moving at 10-12 knots within a 200 m (100m on either side) wide transect
+parallel to the shoreline. Surveyors also recorded the number of birds
+and mammals seen beyond 100 m of the boat. Two observers scanned for
+birds and mammals on either side of the boat. One observer calls out
+waypoints approximately every 250-500 meters (depending on survey year),
+while the other observer recorded the data. Binoculars are used to
+assist in counting and identifying distant birds and mammals. In most
+situations, birds and mammals are counted individually. Flocks of more
+than about 100 individual birds were estimated by summing the number by
+groups of 10s of individuals.</p>
+<p>Technical reports can be found here:</p>
+<ul>
+<li><a href="https://pwlf.ca/wp-content/uploads/2019/04/Davidson2010SGI.pdf">The Southern Gulf Islands
+(2008-2010)</a></li>
+<li><a href="https://pwlf.ca/wp-content/uploads/2019/04/mbbi.pdf">Burrard Inlet and Indian Arm
+(2011-2013)</a></li>
+<li>Boundary Bay (2007-2008) (no report available)</li>
+<li><a href="https://secureservercdn.net/45.40.148.234/g5z.e05.myftpupload.com/wp-content/uploads/2021/10/Howe_Sound_Report_Final.pdf">Howe Sound
+(2014-2015)</a></li>
+<li><a href="https://pwlf.ca/wp-content/uploads/2019/04/ferf.pdf">The Fraser River Estuary
+(2016-2017)</a></li>
+</ul>
+</div>
+<div id="avian-data-collected-1" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Avian Data Collected<a href="AD2.html#avian-data-collected-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Counts of waterbird seen during a survey are compiled for each point
+along a survey transect (i.e., the maximum species count) on each
+monthly survey. These observations are divided into Port Section,
+Central Section, Board Section and total ObservationCount. The dataset
+is not zero-filled.</p>
+<p>Taxonomic Authority = AOU</p>
+</div>
+<div id="auxiliary-data-collected-1" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Auxiliary Data Collected<a href="AD2.html#auxiliary-data-collected-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Observer information: observer ID</li>
+<li>Survey information: time observation started, time observation
+ended, duration in hours</li>
+<li>Survey condition: none recorded</li>
+</ul>
+</div>
+<div id="data-access-permission-and-format-1" class="section level3 hasAnchor" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> Data Access, Permission, and Format<a href="AD2.html#data-access-permission-and-format-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data can be freely accessed through the NatureCounts data
+<a href="https://naturecounts.ca/nc/default/searchquery.jsp">download</a> portal or
+directly through the naturecounts R package, which I will demonstrate
+later in this chapter. The BCMA is an Access Level 5 dataset, meaning a
+data request form is not required to get access to this dataset, and it
+can be openly downloaded directly into R using the naturecounts R
+package.</p>
+<p>Data are formatted using a standardized schema that is a core standard
+of the <a href="https://avianknowledge.net/">Avian Knowledge Network</a> and which
+feeds into <a href="https://www.gbif.org/">GBIF</a>.This format is called the Bird
+Monitoring Data Exchange
+(<a href="https://naturecounts.ca/nc/default/nc_bmde.jsp">BMDE</a>), which includes
+169 core fields used for capturing all metric and descriptors associated
+with bird observations.</p>
+</div>
+<div id="data-use-considerations-1" class="section level3 hasAnchor" number="2.3.6">
+<h3><span class="header-section-number">2.3.6</span> Data Use Considerations<a href="AD2.html#data-use-considerations-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Measures of effort are innate to the dataset. Survey duration (column
+<code>DurationinHours</code>) can be used to make effort correction to counts.</p>
+<p>Surveys targeted regions of the Canadian Salish Sea that are known to be
+important to seabirds. The sampling design is therefore not randomized
+with respect to habitat types samples, which may limit its usability for
+habitat suitability modelling.</p>
+<p>This dataframe is not zero-filled. It is up to the data user to
+zero-fill the martix prior to use.</p>
+<p><strong>Some data are missing from the NatureCounts database. Birds Canada is
+working to get this updated before the official release of this book</strong></p>
+</div>
+<div id="data-use-examples-1" class="section level3 hasAnchor" number="2.3.7">
+<h3><span class="header-section-number">2.3.7</span> Data Use Examples<a href="AD2.html#data-use-examples-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Davidson, P.J.A., R.J. Cannings, A.R. Couturier, D. Lepage, and C.M. Di
+Corrado (eds.). 2015. <em>The Atlas of the Breeding Birds of British
+Columbia, 2008-2012</em>. Bird Studies Canada, Delta, B.C.</p>
+</div>
+</div>
+<div id="psss" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> PSSS<a href="AD2.html#psss" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="(https:/seattleaudubon.org/wp-content/uploads/2021/01/PSSS_Protocol_2014-15.pdf)."><strong>Puget Sound Seabird
+Survey</strong></a></p>
+<figure>
+<p><img src="images/PSSS.PNG"/></p>
+<figcaption>
+</figcaption>
+</figure>
+<div id="quick-data-overview-2" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Quick Data Overview<a href="AD2.html#quick-data-overview-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="79%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Puget Sound Seabird Survey (PSSS)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Owner</td>
+<td>Seattle Audubon/ Puget Sound Bird Observatory</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Active</td>
+</tr>
+<tr class="odd">
+<td>Years</td>
+<td>2009 - present</td>
+</tr>
+<tr class="even">
+<td>Seasons</td>
+<td>Monthly survey, with a winter focus from Oct - April</td>
+</tr>
+<tr class="odd">
+<td>Sampling</td>
+<td>Coastal surveys at designated points</td>
+</tr>
+<tr class="even">
+<td>Data Access</td>
+<td>Available by contacting data owner</td>
+</tr>
+<tr class="odd">
+<td>Contact</td>
+<td><a href="mailto:joshm@seattleaudubon.org" class="email">joshm@seattleaudubon.org</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-collection-protocol-2" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Data Collection Protocol<a href="AD2.html#data-collection-protocol-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>PSSS data collection protocol can be found online
+<a href="https://seattleaudubon.org/wp-content/uploads/2021/01/PSSS_Protocol_2014-15.pdf">here</a>.</p>
+<p>In short, surveys are conducted by volunteers using a standardized
+protocol and data collection
+<a href="https://seattleaudubon.org/wp-content/uploads/2021/09/PSSS-Datasheet.pdf">sheets</a>.
+Shore-based counts are completed monthly on the first Saturday of each
+month from October to April. Surveys are completed within approximately
+2 hours of high tide to maximize the opportunity for close observation.
+Surveys are a minimum of 15 minutes and a maximum of 30 minutes per
+site. All waterbirds observed to a distance of 300 m from the high tide
+line are counted, except those that fly through without stopping. For
+large flocks, surveys estimate both the min, max, and best estimate.
+Surveyors are required to attend a short training session with Seattle
+Audubon staff prior to their first survey. Data are entered through a
+customized online data entry system, available
+<a href="http://seabirdsurvey.org/seabirdsurvey/">here</a>.</p>
+</div>
+<div id="avian-data-collected-2" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Avian Data Collected<a href="AD2.html#avian-data-collected-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Total observation counts of each waterbird species seen during a point
+survey are recorded, including bearing, distance, and sex ratio. Raptors
+are recorded separately from the other waterbird species. The dataset is
+not zero-filled.</p>
+<p>Taxonomic Authority =</p>
+</div>
+<div id="auxiliary-data-collected-2" class="section level3 hasAnchor" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Auxiliary Data Collected<a href="AD2.html#auxiliary-data-collected-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Observer information: observer name</li>
+<li>Survey information: time observation started, time observation ended</li>
+<li>Survey condition: weather, precipitation, sea state, tide movement,
+visibility, human activity, raptor activity (all categorical)</li>
+</ul>
+</div>
+<div id="data-access-permission-and-format-2" class="section level3 hasAnchor" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> Data Access, Permission, and Format<a href="AD2.html#data-access-permission-and-format-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>At the time of writing, the data were only accessible by reaching out to
+the Seattle Audubon directly and filling out a data share agreement. The
+data will be sent to you as a .xslx flat file which will be suitable for
+<a href="04-PSSS.md#Data9">Data Processing</a>. Ensure that you receive all the
+data for the specified temporal period you are interested in analyzing.
+This will be needed to allow for proper zero-filling.</p>
+</div>
+<div id="data-use-considerations-2" class="section level3 hasAnchor" number="2.4.6">
+<h3><span class="header-section-number">2.4.6</span> Data Use Considerations<a href="AD2.html#data-use-considerations-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The data are collected using a standardized protocol, by trained
+citizen-science volunteers. This standardization is a strength of this
+dataset for making inferences about coastal waterbirds in the US Salish
+Sea.</p>
+<p>Since surveyors gather information on distance and direction, estimates
+of bird density through distance sampling are possible. Specifically,
+detection of any species declines with the distance from the observer:
+poor sighting conditions, quality of observing equipment, and observer
+inexperience all contribute to declining detection likelihood as
+distance increases. Distance sampling provides a robust approach to
+estimating density and allows for the calculation of less biased density
+estimates.</p>
+<p>The repeated sampling design of the PSSS makes this dataset suitable for
+an occupancy modeling framework, in which the probability of detection
+can be modeled alongside occupancy. Auxiliary data collected during each
+survey are suitable for the detection process of the model.</p>
+<p>Measures of effort are innate to the dataset. Survey duration can be
+used to make effort corrections to counts.</p>
+<p><em>Is there a spatial imbalance in the sampling design?</em> Since this survey
+is shore-based, there will be a species sampling bias. Specifically,
+birds that use nearshore habitats will be detected and counted more
+often than birds that use offshore habitats. This dataset may therefore
+be less suitable for modeling seabird habitat use, for example.</p>
+<p>This PSSS survey was designed to be similar to the BCCWS, with some
+notable differences:</p>
+<table>
+<thead>
+<tr class="header">
+<th>BCCWS</th>
+<th>PSSS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Survey the second Sunday</td>
+<td>Survey the first Saturday</td>
+</tr>
+<tr class="even">
+<td>Sept-April</td>
+<td>Oct-April</td>
+</tr>
+<tr class="odd">
+<td>1km count distance</td>
+<td>300m count distance</td>
+</tr>
+<tr class="even">
+<td>Survey route</td>
+<td>Survey point</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-use-examples-2" class="section level3 hasAnchor" number="2.4.7">
+<h3><span class="header-section-number">2.4.7</span> Data Use Examples<a href="AD2.html#data-use-examples-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ward EJ, Marshall KN, Ross T, Sedgley A, Hass T, Pearson SF, Joyce G,
+Hamel NJ, Hodum PJ, Faucett R. 2015. <em>Using citizen-science data to
+identify local hotspots of seabird occurrence.</em> PeerJ 3:e704
+<a href="https://doi.org/10.7717/peerj.704" class="uri">https://doi.org/10.7717/peerj.704</a></p>
+</div>
+</div>
+<div id="psemp" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> PSEMP<a href="AD2.html#psemp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="(https:/wdfw.wa.gov/species-habitats/at-risk/species-recovery/seabirds/surveys-winter-aerial)."><strong>Midwinter Aerial Seabird
+Survey</strong></a></p>
+<figure>
+<p><img src="images/PSEMP.PNG"/></p>
+<figcaption>
+</figcaption>
+</figure>
+<div id="quick-data-overview-3" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Quick Data Overview<a href="AD2.html#quick-data-overview-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="18%" />
+<col width="81%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Midwinter Aerial Seabird Survey (PSEMP)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Owner</td>
+<td>Washington Department of Fish and Wildlife (WDFW)</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Active</td>
+</tr>
+<tr class="odd">
+<td>Years</td>
+<td>1994 - present</td>
+</tr>
+<tr class="even">
+<td>Seasons</td>
+<td>Early December until the surveys are complete, which is usually in February</td>
+</tr>
+<tr class="odd">
+<td>Sampling</td>
+<td>Aerial flights along fixed routes</td>
+</tr>
+<tr class="even">
+<td>Data Access</td>
+<td><a href="https://data-wdfw.opendata.arcgis.com/documents/wdfw">Open Data Portal</a></td>
+</tr>
+<tr class="odd">
+<td>Contact</td>
+<td><a href="mailto:Joseph.Evenson@dfw.wa.gov" class="email">Joseph.Evenson@dfw.wa.gov</a> and <a href="mailto:Kyle.Spragens@dfw.wa.gov" class="email">Kyle.Spragens@dfw.wa.gov</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-collection-protocol-3" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Data Collection Protocol<a href="AD2.html#data-collection-protocol-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>Links to a data collection sheet and protocol if available</em></p>
+<p>Surveys are flown each year by a crew of experienced WDFW biologists
+from early December until the surveys are complete, which is usually by
+the end of January or February. The surveys were designed to occur
+during midwinter when sea ducks and other marine birds are least likely
+to be migrating. Flights are conducted at an altitude of 200 feet (61
+meters) above the water and at an airspeed of 85-90 knots. Each
+biologist makes all marine bird and mammal observations within a
+50-meter strip along their respective side of the aircraft. The surveys
+cover the entire shoreline of the inland marine waters of Washington.
+The offshore waters are sampled by flying a pre-designed zigzag pattern.</p>
+<p>PSEMP data processing notes can be found online by navigating to the
+ESRI <a href="https://www.arcgis.com/home/item.html?id=0d57403ea9eb45b7a8acabf3dd58c7b0">open data
+portal</a>.
+Download the data by clicking the <code>Open</code> button, then save the files to
+the <code>Data</code> directory in this project. Information on data processing can
+be found in the
+<code>Midwinter Aerial Seabird Surveys Geoprocessing Metadata Notes.pdf</code>.</p>
+<p>In short, during pre-processing the flight crew transcribe voice
+recordings of their observations, linking them with a series of point
+locations collected during the survey by GPS. The results are provided
+as two tab-delimited text files containing observation and track-log
+locations. When the surveyors have completed their transcription, a
+series of geoprocessing scripts are run which omit off-effort
+observations, calculate the extent of surveyed areas, and add
+appropriate attribute information to both observations and survey
+strips.</p>
+</div>
+<div id="avian-data-collected-3" class="section level3 hasAnchor" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Avian Data Collected<a href="AD2.html#avian-data-collected-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>PSEMP_Survey_Observations</code> layer stores the processed bird
+observation data, including the total <code>ObservationCount</code> of species on a
+given transect.</p>
+<p>There are three additional tables that are used to assign species to
+species codes, scientific names, and groups.</p>
+<ul>
+<li>Species: This table lists the avian species groups recorded during
+the winter fixed-wing aerial shorebird surveys. It provides species’
+common and scientific names as well as the species codes
+(TaxoNameID) necessary to crosswalk these species to group
+membership (for composite groups analyzed) and to other WDFW
+databases.</li>
+<li>PSEMP_Group: This table provides a list of composite groups of
+species surveys. Some of these groups were included in subsequent
+statistical analysis; these groups are noted in the “StatsRun”
+attribute.</li>
+<li>SpeciesPSEMP_Group: This associative table allows species
+observations to be crosswalked to composite groups <a href="#user-content-fn-1">that they
+participate in.</a>[^1]</li>
+<li>PSEMP_SpeciesObservation_Attribute.xlsx: This is an extra table that
+was attained from the PSEMP group directly. It contains descriptors
+of the <code>PSEMP_Survey_Observations</code> layer. A copy of this table is
+saved in the <code>Data</code> director.</li>
+</ul>
+<p>Taxonomic Authority - AOU with modifications</p>
+</div>
+<div id="auxiliary-data-collected-3" class="section level3 hasAnchor" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> Auxiliary Data Collected<a href="AD2.html#auxiliary-data-collected-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Each observation point contains detailed attribute information including
+date, time, TransectID, ObserverID, and environmental characteristics
+(i.e., wind, glare).</p>
+<p>The <code>MidwinterAerialSeaBirdSurvey.gdb</code> also contains a
+<code>PSEMP_Analysis_Strata</code> polygon file that contains the spatial extent
+and boundaries of the basin-depth strata. There are nine basins and six
+depth classes identified.</p>
+</div>
+<div id="data-access-permission-and-format-3" class="section level3 hasAnchor" number="2.5.5">
+<h3><span class="header-section-number">2.5.5</span> Data Access, Permission, and Format<a href="AD2.html#data-access-permission-and-format-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data are accessible online by navigating to the ESRI <a href="https://www.arcgis.com/home/item.html?id=0d57403ea9eb45b7a8acabf3dd58c7b0">open data
+portal</a>.
+Download the data by clicking the <code>Open</code> button. The data are in a
+geodatabase (.gdb), which is a proprietary format of ESRI meaning the
+data are not suited for exchange with other applications. My suggestion
+is that you import the data layers into ArcGIS, and export the
+<code>PSEMP_SurveyObservations</code> and <code>Species</code> tables as .txt files for import
+into Excel. Then they can be opened and saved as .csv files for
+processing in the <code>Data</code> directory of this project.</p>
+<p>Although the data are openly available, WDFW staff ask you develop a
+data-sharing agreement prior to analysis and publication.</p>
+</div>
+<div id="data-use-considerations-3" class="section level3 hasAnchor" number="2.5.6">
+<h3><span class="header-section-number">2.5.6</span> Data Use Considerations<a href="AD2.html#data-use-considerations-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Before using the information, please consult
+<a href="mailto:Joseph.Evenson@dfw.wa.gov" class="email">Joseph.Evenson@dfw.wa.gov</a>
+or <a href="mailto:Kyle.Spragens@dfw.wa.gov" class="email">Kyle.Spragens@dfw.wa.gov</a>.
+Appropriate use of the data or analysis requires a detailed
+understanding of the survey effort and how that effort has changed over
+time. Not accounting for these details is very likely to result in
+inappropriate interpretation.</p>
+</div>
+<div id="data-use-examples-3" class="section level3 hasAnchor" number="2.5.7">
+<h3><span class="header-section-number">2.5.7</span> Data Use Examples<a href="AD2.html#data-use-examples-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Michel, N., T. Bayard, A. Summers, G. Slater, and K. Spragens. 2021.
+Avian Habitat Suitability Models for Puget Sound Estuary Birds. Prepared
+for the Puget Sound Ecosystem Monitoring Program, Puget Sound
+Partnership. Tacoma, WA.</p>
+</div>
+</div>
+<div id="ebird" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> eBird<a href="AD2.html#ebird" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://ebird.org/home"><strong>eBird</strong></a></p>
+<figure>
+<p><img src="images/eBird.PNG" width="366"/></p>
+<figcaption>
+</figcaption>
+</figure>
+<div id="quick-data-overview-4" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Quick Data Overview<a href="AD2.html#quick-data-overview-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="83%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>eBird/ eBird Canada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Owner</td>
+<td>Cornell/ Birds Canada</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Active</td>
+</tr>
+<tr class="odd">
+<td>Years</td>
+<td>2002-present</td>
+</tr>
+<tr class="even">
+<td>Seasons</td>
+<td>All year</td>
+</tr>
+<tr class="odd">
+<td>Sampling</td>
+<td>Checklist: stationary, traveling, incidental, historic</td>
+</tr>
+<tr class="even">
+<td>Data Access</td>
+<td>Online access through <a href="https://science.ebird.org/en/status-and-trends/download-data">Cornell</a> or <a href="https://naturecounts.ca/nc/default/searchquery.jsp">NatureCounts</a></td>
+</tr>
+<tr class="odd">
+<td>Contact</td>
+<td><a href="mailto:ebird@cornell.edu" class="email">ebird@cornell.edu</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-collection-protocol-4" class="section level3 hasAnchor" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Data Collection Protocol<a href="AD2.html#data-collection-protocol-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>eBird is a checklist based citizen-science program. There are <a href="https://support.ebird.org/en/support/solutions/articles/48000950859-guide-to-ebird-protocols#anchorStationarys">three
+main data collection
+protocol</a>s,
+including:</p>
+<ul>
+<li>Stationary: objective is birding, a single fixed location, with
+specified start and end time</li>
+<li>Travelling: objective is birding, specified start and end time, and
+known distance of travel</li>
+<li>Incidental: objective is not on birding, but species was identified
+and submitted. Not a complete checklist.</li>
+</ul>
+<p>There are also several specialized protocols:</p>
+<ul>
+<li>Pelagic: applies to checklists that are made farther than two miles
+offshore on oceans, seas, or large lakes. <em>These data are likely
+most valuable to this initiative</em>.</li>
+<li>Banding: birds observed because they were captured for banding.
+Detection rates from banding are very different from normal birding</li>
+<li>Nocturnal Flight Call (NFC): nighttime contact calls of migrating
+songbirds as they pass through on their way to breeding grounds</li>
+</ul>
+</div>
+<div id="avian-data-collected-4" class="section level3 hasAnchor" number="2.6.3">
+<h3><span class="header-section-number">2.6.3</span> Avian Data Collected<a href="AD2.html#avian-data-collected-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>eBird data are collected and organized around the concept of a
+checklist, representing observations from a single birding event, such
+as a 1 km walk through a park or 15 minutes observing bird feeders in a
+backyard. Each checklist contains a list of species observed and the
+counts of the number of individuals seen of each species.</p>
+<p>Taxonomic Authority = <a href="https://www.birds.cornell.edu/clementschecklist?__hstc=60209138.6f747e6e23a2f1b7014cf372ca892894.1544132358313.1566237656917.1566240564794.714&amp;__hssc=60209138.3.1566240564794&amp;__hsfp=2467889448">eBird/Clements
+v2019</a></p>
+</div>
+<div id="auxiliary-data-collected-4" class="section level3 hasAnchor" number="2.6.4">
+<h3><span class="header-section-number">2.6.4</span> Auxiliary Data Collected<a href="AD2.html#auxiliary-data-collected-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Observer information: observer ID</li>
+<li>Survey information: time of day, checklist duration, distance
+traveled, and number of observers.</li>
+</ul>
+</div>
+<div id="data-access-permission-and-format-4" class="section level3 hasAnchor" number="2.6.5">
+<h3><span class="header-section-number">2.6.5</span> Data Access, Permission, and Format<a href="AD2.html#data-access-permission-and-format-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>eBird offers free access to its data via prepackaged and customizable
+file downloads and APIs. For all downloads and APIs, eBird require first
+that you submit a request with a short abstract so they can learn more
+about how eBird data are being used. eBird date requests can be made to
+Cornell <a href="https://ebird.org/data/request">here</a>. There is also an option
+to request eBird Canada data through the NatureCounts platform by making
+a request <a href="https://naturecounts.ca/nc/default/searchquery.jsp">here</a>.
+However, for the purposes of this transboundary project, the data
+example will be using eBird data accessed through Cornell.</p>
+<ul>
+<li>eBird Basic Dataset (EBD) is the core dataset for accessing all raw
+eBird observations and associated metadata.There are several R
+packages available for summarizing data, including one that is
+managed by the Cornell Lab specifically for working with the EBD
+dataset: <a href="https://cornelllabofornithology.github.io/auk/">auk: eBird Data Extraction and Processing with
+AWK</a>.</li>
+<li>eBird Observational Dataset (EOD) is made available through
+<a href="https://www.gbif.org/">GBIF</a> and includes species, date, and
+location. Additional metadata associated with these observations,
+including sampling event data (i.e., effort), are not included
+through this platform.</li>
+</ul>
+<p><a href="https://www.birds.cornell.edu/home/ebird-data-access-terms-of-use/">eBird’s Terms of
+Use</a>
+are clearly outlined on their webpage, and should be reviewed prior to
+requesting data.</p>
+<p>eBird data are not zero-filled. Instructions on zero-filling the dataset
+can be found
+<a href="https://cornelllabofornithology.github.io/ebird-best-practices/ebird.html#ebird-zf">here</a>.</p>
+<p>Additional information on the metadata strucutre can be found in the
+“eBird Basic Dataset Metadata (v1.14)” pdf, which is saved in the <code>Data</code>
+folder of this directory.</p>
+</div>
+<div id="data-use-considerations-4" class="section level3 hasAnchor" number="2.6.6">
+<h3><span class="header-section-number">2.6.6</span> Data Use Considerations<a href="AD2.html#data-use-considerations-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>eBird is a semi-structured project, having flexible, easy to follow
+protocols that attract many participants, making it the largest avian
+citizen science dataset globally. However, despite the strengths of
+eBird’s size, species observations collected through citizen science
+projects present a number of challenges that are not found in
+conventional scientific data. The following are some of the primary
+challenges associated these data: taxonomic, spatial, and temporal
+biases, spatial precision, class inbalance, and variation in detection.</p>
+<p>When working with semi-structured datasets like eBird, one approach to
+dealing with this variation is to impose some more consistent structure
+on the data by filtering observations on the effort variables. This
+reduces the variation in detectability between checklists. It is
+generally recommended that users restricting checklists to less than 5
+hours long and 5 km in length, and with 10 or fewer observers.</p>
+<p>Users of eBird data should review and adopt <a href="https://cornelllabofornithology.github.io/ebird-best-practices/">Best Practices for Using
+eBird
+Data</a>.</p>
+<p>Recommended Citation: eBird Basic Dataset. Version: EBD_relSep-2022.
+Cornell Lab of Ornithology, Ithaca, New York. Month Year of Access.</p>
+</div>
+<div id="data-use-examples-4" class="section level3 hasAnchor" number="2.6.7">
+<h3><span class="header-section-number">2.6.7</span> Data Use Examples<a href="AD2.html#data-use-examples-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An exhaustive list of eBird publications can be found online
+<a href="https://ebird.org/about/publications/">here</a>.</p>
+</div>
+</div>
+<div id="cbc" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> CBC<a href="AD2.html#cbc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://www.audubon.org/conservation/science/christmas-bird-count"><strong>Christmas Bird
+Count</strong></a></p>
+<figure>
+<p><img src="images/CBC.PNG"/></p>
+<figcaption>
+</figcaption>
+</figure>
+<div id="quick-data-overview-5" class="section level3 hasAnchor" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Quick Data Overview<a href="AD2.html#quick-data-overview-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="79%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Christmas Bird Count (CBC)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Owner</td>
+<td>Audubon</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Active</td>
+</tr>
+<tr class="odd">
+<td>Years</td>
+<td>1901 - present</td>
+</tr>
+<tr class="even">
+<td>Seasons</td>
+<td>Between December 14 - January 5: 1 day count</td>
+</tr>
+<tr class="odd">
+<td>Sampling</td>
+<td>All winter bird in a specified area</td>
+</tr>
+<tr class="even">
+<td>Data Access</td>
+<td>Available by contacting data owner for large downloads</td>
+</tr>
+<tr class="odd">
+<td>Contact</td>
+<td><a href="mailto:cbcadmin@audubon.org" class="email">cbcadmin@audubon.org</a>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-collection-protocol-5" class="section level3 hasAnchor" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> Data Collection Protocol<a href="AD2.html#data-collection-protocol-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Winter bird are counted on a single calendar day between December
+14–January 5. Count volunteers follow specified routes through a
+designated 15-mile (24-km) diameter circle, counting every bird they see
+or hear all day. Participants join groups that survey sub-units of the
+circle during the course of the day using a variety of transportation
+methods (mostly on foot, in a car, or watching at a feeder, but can
+include boat, ski, or snowmobile). All birds seen or heard are recorded.
+Data compilers for each circle collect and submit data to Audubon.</p>
+</div>
+<div id="avian-data-collected-5" class="section level3 hasAnchor" number="2.7.3">
+<h3><span class="header-section-number">2.7.3</span> Avian Data Collected<a href="AD2.html#avian-data-collected-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>All birds are counted all day, giving an indication of the total number
+of birds in the circle that day. CBC data are entered online through a
+program-specific
+<a href="https://netapp.audubon.org/aap/application/cbc">webportal</a>. Data can
+also be submitted using the <a href="https://ebird.org/news/ebirding-your-christmas-bird-count-updated">eBird mobile
+app</a>.</p>
+</div>
+<div id="auxiliary-data-collected-5" class="section level3 hasAnchor" number="2.7.4">
+<h3><span class="header-section-number">2.7.4</span> Auxiliary Data Collected<a href="AD2.html#auxiliary-data-collected-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Observer information: number of individuals participating including
+the compilers ID</li>
+<li>Survey information: duration of counts, number of party-hours, types
+of counts (e.g., road, walk), and distance travelled</li>
+<li>Weather information: temperature, wind, snow, cloud, rain</li>
+</ul>
+</div>
+<div id="data-access-permission-and-format-5" class="section level3 hasAnchor" number="2.7.5">
+<h3><span class="header-section-number">2.7.5</span> Data Access, Permission, and Format<a href="AD2.html#data-access-permission-and-format-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Christmas Bird Count (CBC) is a National Audubon Society owned and
+operated citizen science and research program and database. The CBC
+Database is housed on Audubon-owned servers and is accessible only
+through the Audubon web portal. <em>Terms of Use</em> govern access to and use
+of the CBC Database. Please read these terms carefully. By accessing the
+CBC Database, you agree to be bound by these Terms and by Audubon’s
+policy <a href="https://www.audubon.org/privacy-policy">Privacy Policy</a>. Larger
+data subsets of raw data may be provided for analytical use. To request
+permission, contact Audubon at
+<a href="mailto:cbcadmin@audubon.org" class="email">cbcadmin@audubon.org</a>. A online
+form will be send to you to complete.</p>
+<p>When requesting data from Audubon, keep in mind that you do not need all
+the available data. You should make a request that matched the spatial
+and temporal extend of the study to limit the file size. For example, my
+request included Washington State and British Columbia, and the years
+1990-current. You will also be able to specify the data tables you
+require. In this instance, request all the available data tables (i.e.,
+counts, effort, weather, and lat/longs).</p>
+<p>You must credit Audubon and the volunteers who collected the data in all
+published material containing CBC data, including scientific papers,
+articles, adverts, talks and slides with the following: “CBC Data are
+provided by National Audubon Society and through the generous efforts of
+Bird Studies Canada and countless volunteers across the Western
+Hemisphere.” Where possible, you should provide a link to the Audubon
+and CBC websites and, when using CBC data collected in Canada, Birds
+Canada, Audubon’s Canadian CBC partner.</p>
+<p>Please review the <a href="https://www.audubon.org/content/policy-regarding-use-christmas-bird-count-data">CBC data use
+policy</a>
+prior to requesting data.</p>
+</div>
+<div id="data-use-considerations-5" class="section level3 hasAnchor" number="2.7.6">
+<h3><span class="header-section-number">2.7.6</span> Data Use Considerations<a href="AD2.html#data-use-considerations-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Christmas Bird Count has undoubted value for documenting broad
+patterns of change in winter distribution (both annual and long-term)
+and for studies of patterns in species richness. No other data set
+provides such broad temporal and geographic coverage of North America’s
+winter bird life! However, like other citizen-science programs, there
+are several date use considerations to keep in mind.</p>
+<p>Although the number of uncommon species detected on a given count is
+certain to increase with effort, rare species are often scouted ahead of
+time, and the emphasis that most participants put on high species totals
+ensures that the distributional, presence–absence data in the CBC are
+very good.</p>
+<p>Counts within and between circles can vary because of sampling biases,
+including number of participants, hours in the field, extent and modes
+of travel, cover-age of different habitats, skill levels, and use of
+attractive devices (e.g. bird feeders, noises such as “pishing”). Some
+of these biases can be accounted for in an analysis if the necessariy
+data are recorded. For example, survey effort has changes over the
+years. In recent decades, the number of party-hours has been recorded to
+account for the variable duration of, and participation in, the count.
+Thus, party-hour is often considered as an effort covariate in model
+development.</p>
+<p>Spatial distribution of count circles is not random. Like many citizen
+science programs, count sites were originally placed near population
+centers. This spatial bias towards urban center still persists.</p>
+<p>Finally, CBC is a land-based survey. The focus of data collection is
+therefore not on coastal waterbirds or seabirds.</p>
+</div>
+<div id="data-use-examples-5" class="section level3 hasAnchor" number="2.7.7">
+<h3><span class="header-section-number">2.7.7</span> Data Use Examples<a href="AD2.html#data-use-examples-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Meehan, T.D., Michel, N.L. and Rue, H. 2019. Spatial modeling of Audubon
+Christmas Bird Counts reveals fine‐scale patterns and drivers of
+relative abundance trends. Ecosphere 10: e02707.</p>
+<p><a href="https://pdxscholar.library.pdx.edu/uerc/2020/presentations/6/">Portland Christmas Bird Count – An 80-year review of species trends
+(1938-2017)</a></p>
+</div>
+</div>
+<div id="data-processing" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Data Processing<a href="AD2.html#data-processing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p><strong>Before continuing with this chapter, please review the content in
+Chapters 2-7. It is the responsibility of the data user to understand
+the various data collection protocols, stipulations around data
+access, and data use considerations.</strong></p>
+</blockquote>
+<p>Start by loading the packages needed for this chapter</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="AD2.html#cb1-1" tabindex="-1"></a><span class="co">#install.packages(&quot;remotes&quot;)</span></span>
+<span id="cb1-2"><a href="AD2.html#cb1-2" tabindex="-1"></a><span class="co">#remotes::install_github(&quot;BirdsCanada/naturecounts&quot;)</span></span>
+<span id="cb1-3"><a href="AD2.html#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="AD2.html#cb1-4" tabindex="-1"></a><span class="fu">library</span>(naturecounts)</span>
+<span id="cb1-5"><a href="AD2.html#cb1-5" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-6"><a href="AD2.html#cb1-6" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-7"><a href="AD2.html#cb1-7" tabindex="-1"></a><span class="fu">library</span>(auk)</span>
+<span id="cb1-8"><a href="AD2.html#cb1-8" tabindex="-1"></a><span class="fu">library</span>(measurements)</span>
+<span id="cb1-9"><a href="AD2.html#cb1-9" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb1-10"><a href="AD2.html#cb1-10" tabindex="-1"></a><span class="fu">library</span>(reshape)</span></code></pre></div>
+<div id="data-schema" class="section level3 hasAnchor" number="2.8.1">
+<h3><span class="header-section-number">2.8.1</span> Data Schema<a href="AD2.html#data-schema" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The purpose of this chapter is to provide the data user R script which
+will enable the compilation of disparate avian data sources into a
+standardized format (also known as a schema). The format selected for
+the purposes of this project was the Bird Monitoring Data Exchange
+(<a href="https://naturecounts.ca/nc/default/nc_bmde.jsp">BMDE</a>), which is the
+core standard of
+<a href="https://naturecounts.ca/nc/default/main.jsp">NatureCounts</a> a node of
+the <a href="https://avianknowledge.net/">Avian Knowledge Network</a>. The BMDE
+includes 169 core fields for capturing all metric and descriptors
+associated with bird observations. You can use the naturecounts R
+package and the following scripts to view the BMDE core fields. A copy
+of the BMDE table is also in the <code>BMDE</code> folder of this directory, which
+provides additional descriptions of the core columns.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="AD2.html#cb2-1" tabindex="-1"></a>BMDE<span class="ot">&lt;-</span><span class="fu">meta_bmde_fields</span>(<span class="st">&quot;core&quot;</span>)</span></code></pre></div>
+<p>Any data owners wishing to contribute their data to the NatureCounts
+database should complete the metadata form, also found in the BMDE
+folder, and reach out to Catherine Jardin:
+<a href="mailto:cjardine@birdscanada.org" class="email">cjardine@birdscanada.org</a>,
+Birds Canada’s Data Analyst.</p>
+</div>
+<div id="species-codes" class="section level3 hasAnchor" number="2.8.2">
+<h3><span class="header-section-number">2.8.2</span> Species Codes<a href="AD2.html#species-codes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A crucial steps to combining datasets is the inclusion of a common
+species code. Let’s compile the complete species list now for use later
+in the data compilation. The data tables you will need can be accessed
+using the naturecounts R package.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="AD2.html#cb3-1" tabindex="-1"></a>sp.code<span class="ot">&lt;-</span><span class="fu">meta_species_codes</span>()</span>
+<span id="cb3-2"><a href="AD2.html#cb3-2" tabindex="-1"></a>sp.code<span class="ot">&lt;-</span>sp.code <span class="sc">%&gt;%</span> <span class="fu">filter</span>(authority<span class="sc">==</span><span class="st">&quot;BSCDATA&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>authority, <span class="sc">-</span>species_id2, <span class="sc">-</span>rank) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb3-3"><a href="AD2.html#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="AD2.html#cb3-4" tabindex="-1"></a>sp.tax<span class="ot">&lt;-</span><span class="fu">meta_species_taxonomy</span>()</span>
+<span id="cb3-5"><a href="AD2.html#cb3-5" tabindex="-1"></a>sp.tax<span class="ot">&lt;-</span>sp.tax <span class="sc">%&gt;%</span> <span class="fu">select</span>(species_id, scientific_name, english_name) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb3-6"><a href="AD2.html#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="AD2.html#cb3-7" tabindex="-1"></a>sp<span class="ot">&lt;-</span><span class="fu">left_join</span>(sp.code, sp.tax, <span class="at">by=</span><span class="st">&quot;species_id&quot;</span>)</span>
+<span id="cb3-8"><a href="AD2.html#cb3-8" tabindex="-1"></a>sp<span class="ot">&lt;-</span>sp <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(english_name, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+<div id="data-manipulation" class="section level3 hasAnchor" number="2.8.3">
+<h3><span class="header-section-number">2.8.3</span> Data Manipulation<a href="AD2.html#data-manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>All data sets need to be manipulated before they are used for an
+analysis. Anyone that uses big datasets for research will tell you that
+it often takes more time to manipulate and filter the data than doing
+the actual statistical analysis. I therefore cannot cover all the
+possible data manipulations you will do, but will give you some sample
+script to help compile a contemporary dataset of birds using the
+tansboundary waters of the Salish Sea.</p>
+<p>To accommodate the R scripts in this chapter, data samples for each
+dataset are provided in the <code>Data</code> folder. These samples are structured
+in the same format you will receive the raw data from the data owner.</p>
+<p>There are data column in the raw dataset that are not carried over to
+the BMDE. We do retain any information which could be used for effort
+correction, but some auxiliary data is lost which could bee used if
+developing a occupancy model. If you are a data user, you should inspect
+the raw data columns to ensure there is nothing that you need dropped
+from the final datatable. You can change the code below to retain
+additional columns as needed.</p>
+</div>
+<div id="bccws-bcma" class="section level3 hasAnchor" number="2.8.4">
+<h3><span class="header-section-number">2.8.4</span> BCCWS &amp; BCMA<a href="AD2.html#bccws-bcma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We start with two Canadian datasets that are already in the BMDE schema
+and accessible through
+<a href="https://naturecounts.ca/nc/default/main.jsp">NatureCounts</a>. The
+<a href="#BCCWS2">BCCWS</a> and <a href="#id_#BCMA3">BCMA</a> are accessible through the
+NatureCounts web portal or directly using the naturecounts R package.
+Since the BCCWS is Access Level 3, you need to make a <a href="https://naturecounts.ca/nc/default/searchquery.jsp">data
+request</a>. Once your
+NatureCounts data request has been approved you will receive an email
+confirmation, which will contain your <code>request_id</code>. This number will be
+used to download your newly acquired dataset into R. The BCMA is open
+access, Level 5, and therefore a data <code>request_id</code> is not required.</p>
+<p>If you are new to the naturecounts R package, I recommend you start by
+reviewing the <a href="https://birdscanada.github.io/NatureCounts_IntroTutorial/">Introductory R
+Tutorial</a>.
+Those materials will not be repeated here.</p>
+<p>Below is some sample code for downloading the BCCWS and BCMA datasets.
+You will replace the <code>request_id</code> and <code>username</code> with your own
+credentials. To retrieve the core BMDE columns, you will want the
+<code>fields_set</code> to be set to “core” (as below).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="AD2.html#cb4-1" tabindex="-1"></a><span class="fu">library</span>(naturecounts) </span>
+<span id="cb4-2"><a href="AD2.html#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="AD2.html#cb4-3" tabindex="-1"></a>BCCWS<span class="ot">&lt;-</span><span class="fu">nc_data_dl</span>(<span class="at">collection=</span><span class="st">&quot;BCCWS&quot;</span>, <span class="at">username =</span> <span class="st">&quot;YOUR USERNAME&quot;</span>, <span class="at">info=</span><span class="st">&quot;MY REASON&quot;</span>, <span class="at">fields_set =</span> <span class="st">&quot;core&quot;</span>)</span>
+<span id="cb4-4"><a href="AD2.html#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="AD2.html#cb4-5" tabindex="-1"></a>BCMA<span class="ot">&lt;-</span><span class="fu">nc_data_dl</span>(<span class="at">collection=</span><span class="st">&quot;BCMA&quot;</span>, <span class="at">username =</span> <span class="st">&quot;YOUR USERNAME&quot;</span>, <span class="at">info=</span><span class="st">&quot;MY REASON&quot;</span>, <span class="at">fields_set =</span> <span class="st">&quot;core&quot;</span>)</span></code></pre></div>
+<p>Working with the sample datasets.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="AD2.html#cb5-1" tabindex="-1"></a>BCCWS<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/BCCWS_sample.csv&quot;</span>) </span>
+<span id="cb5-2"><a href="AD2.html#cb5-2" tabindex="-1"></a>BCMA<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/BCMA_sample.csv&quot;</span>)  </span>
+<span id="cb5-3"><a href="AD2.html#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="AD2.html#cb5-4" tabindex="-1"></a><span class="co">#select only core BMDE columns, since they seem to vary</span></span>
+<span id="cb5-5"><a href="AD2.html#cb5-5" tabindex="-1"></a><span class="fu">library</span>(naturecounts)</span>
+<span id="cb5-6"><a href="AD2.html#cb5-6" tabindex="-1"></a>BMDE<span class="ot">&lt;-</span><span class="fu">meta_bmde_fields</span>(<span class="st">&quot;core&quot;</span>)</span>
+<span id="cb5-7"><a href="AD2.html#cb5-7" tabindex="-1"></a>BMDE_col<span class="ot">&lt;-</span><span class="fu">unique</span>(BMDE<span class="sc">$</span>local_name)</span>
+<span id="cb5-8"><a href="AD2.html#cb5-8" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="AD2.html#cb5-9" tabindex="-1"></a>BCCWS<span class="ot">&lt;-</span>BCCWS <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">all_of</span>(BMDE_col)) </span>
+<span id="cb5-10"><a href="AD2.html#cb5-10" tabindex="-1"></a>BCMA<span class="ot">&lt;-</span>BCMA <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">all_of</span>(BMDE_col)) </span>
+<span id="cb5-11"><a href="AD2.html#cb5-11" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="AD2.html#cb5-12" tabindex="-1"></a><span class="co">#There seems to be some duplicates in the full BCCWS dataset that need removed. </span></span>
+<span id="cb5-13"><a href="AD2.html#cb5-13" tabindex="-1"></a>BCCWS<span class="ot">&lt;-</span>BCCWS <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(RouteIdentifier, SpeciesCode, YearCollected, MonthCollected, DayCollected, DecimalLatitude, DecimalLongitude, <span class="at">.keep_all=</span><span class="cn">TRUE</span>)</span>
+<span id="cb5-14"><a href="AD2.html#cb5-14" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="AD2.html#cb5-15" tabindex="-1"></a><span class="co">#Assign SurveyAreaIdentifier to RouteIdentifier for BCMA</span></span>
+<span id="cb5-16"><a href="AD2.html#cb5-16" tabindex="-1"></a>BCMA<span class="sc">$</span>RouteIdentifier<span class="ot">&lt;-</span>BCMA<span class="sc">$</span>SurveyAreaIdentifier</span></code></pre></div>
+</div>
+<div id="psss-1" class="section level3 hasAnchor" number="2.8.5">
+<h3><span class="header-section-number">2.8.5</span> PSSS<a href="AD2.html#psss-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The data will be received in an .xlsx file. Save as a .csv in the <code>Data</code>
+folder for processing using the following scripts. We will work with the
+sample dataset here which has the same formatting as the full dataset
+that you will receive.</p>
+<p>Note: the sample dataframe is 50 rows long, but the output dataframe
+will be 65. How can this be!? This is because the raptors are recorded
+in rows with the other data and are extracted into their own rows to
+match the BMDE. This makes the data frame longer.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="AD2.html#cb6-1" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/PSSS_sample.csv&quot;</span>)</span>
+<span id="cb6-2"><a href="AD2.html#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="AD2.html#cb6-3" tabindex="-1"></a>PSSS<span class="sc">$</span>lat<span class="ot">&lt;-</span><span class="fu">sub</span>(<span class="st">&quot; W.*&quot;</span>, <span class="st">&quot;&quot;</span>, PSSS<span class="sc">$</span>position)  </span>
+<span id="cb6-4"><a href="AD2.html#cb6-4" tabindex="-1"></a>PSSS<span class="sc">$</span>long<span class="ot">&lt;-</span><span class="fu">sub</span>(<span class="st">&quot;.*W&quot;</span>, <span class="st">&quot;&quot;</span>, PSSS<span class="sc">$</span>position)</span>
+<span id="cb6-5"><a href="AD2.html#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="AD2.html#cb6-6" tabindex="-1"></a>PSSS<span class="sc">$</span>lat <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&#39;N&#39;</span>, <span class="st">&#39;&#39;</span>, PSSS<span class="sc">$</span>lat)</span>
+<span id="cb6-7"><a href="AD2.html#cb6-7" tabindex="-1"></a>PSSS<span class="sc">$</span>long <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&#39;W&#39;</span>, <span class="st">&#39;&#39;</span>, PSSS<span class="sc">$</span>long)</span>
+<span id="cb6-8"><a href="AD2.html#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="AD2.html#cb6-9" tabindex="-1"></a>PSSS<span class="sc">$</span>DecimalLatitude <span class="ot">=</span> measurements<span class="sc">::</span><span class="fu">conv_unit</span>(PSSS<span class="sc">$</span>lat, <span class="at">from =</span> <span class="st">&#39;deg_dec_min&#39;</span>, <span class="at">to =</span> <span class="st">&#39;dec_deg&#39;</span>)</span>
+<span id="cb6-10"><a href="AD2.html#cb6-10" tabindex="-1"></a>PSSS<span class="sc">$</span>DecimalLatitude<span class="ot">&lt;-</span><span class="fu">as.numeric</span>((PSSS<span class="sc">$</span>DecimalLatitude))</span>
+<span id="cb6-11"><a href="AD2.html#cb6-11" tabindex="-1"></a>PSSS<span class="sc">$</span>DecimalLongitude <span class="ot">=</span> measurements<span class="sc">::</span><span class="fu">conv_unit</span>(PSSS<span class="sc">$</span>long, <span class="at">from =</span> <span class="st">&#39;deg_dec_min&#39;</span>, <span class="at">to =</span> <span class="st">&#39;dec_deg&#39;</span>)</span>
+<span id="cb6-12"><a href="AD2.html#cb6-12" tabindex="-1"></a>PSSS<span class="sc">$</span>DecimalLongitude<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(PSSS<span class="sc">$</span>DecimalLongitude)</span>
+<span id="cb6-13"><a href="AD2.html#cb6-13" tabindex="-1"></a>PSSS<span class="sc">$</span>DecimalLongitude<span class="ot">=</span>PSSS<span class="sc">$</span>DecimalLongitude<span class="sc">*</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb6-14"><a href="AD2.html#cb6-14" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="AD2.html#cb6-15" tabindex="-1"></a><span class="co">#break apart survey_date and reform into day, month, year</span></span>
+<span id="cb6-16"><a href="AD2.html#cb6-16" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span>PSSS <span class="sc">%&gt;%</span> <span class="fu">separate</span>(survey_date, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;Date&quot;</span>, <span class="st">&quot;del&quot;</span>), <span class="at">sep=</span><span class="st">&quot; &quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>del) <span class="sc">%&gt;%</span> <span class="fu">separate</span>(Date, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;YearCollected&quot;</span>, <span class="st">&quot;MonthCollected&quot;</span>, <span class="st">&quot;DayCollected&quot;</span>), <span class="at">sep=</span><span class="st">&quot;-&quot;</span>) </span>
+<span id="cb6-17"><a href="AD2.html#cb6-17" tabindex="-1"></a><span class="co">#wrangle raptor data into the long format since each species identification should be in a unique row. </span></span>
+<span id="cb6-18"><a href="AD2.html#cb6-18" tabindex="-1"></a>raptor1<span class="ot">&lt;-</span>PSSS <span class="sc">%&gt;%</span> <span class="fu">filter</span>(raptor1 <span class="sc">!=</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">common_name =</span> raptor1, <span class="at">bird_count =</span> raptor1_count, <span class="at">notes=</span> raptor1_affect)<span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="sc">-</span>raptor1, <span class="sc">-</span>raptor2, <span class="sc">-</span>raptor3, <span class="sc">-</span>raptor1_count, <span class="sc">-</span>raptor2_count, <span class="sc">-</span>raptor3_count, <span class="sc">-</span>raptor1_affect, <span class="sc">-</span>raptor2_affect, <span class="sc">-</span>raptor3_affect) </span>
+<span id="cb6-19"><a href="AD2.html#cb6-19" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="AD2.html#cb6-20" tabindex="-1"></a>raptor1<span class="ot">&lt;-</span>raptor1 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(site_name, common_name, YearCollected, MonthCollected, DayCollected) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">bird_count=</span><span class="fu">sum</span>(bird_count)) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(common_name, site_name, YearCollected, MonthCollected, DayCollected, <span class="at">.keep_all=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-21"><a href="AD2.html#cb6-21" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="AD2.html#cb6-22" tabindex="-1"></a>raptor2<span class="ot">&lt;-</span>PSSS <span class="sc">%&gt;%</span> <span class="fu">filter</span>(raptor2 <span class="sc">!=</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">common_name =</span> raptor2, <span class="at">bird_count =</span> raptor2_count, <span class="at">notes=</span> raptor2_affect)<span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="sc">-</span>raptor1, <span class="sc">-</span>raptor2, <span class="sc">-</span>raptor3, <span class="sc">-</span>raptor1_count, <span class="sc">-</span>raptor2_count, <span class="sc">-</span>raptor3_count, <span class="sc">-</span>raptor1_affect, <span class="sc">-</span>raptor2_affect, <span class="sc">-</span>raptor3_affect) </span>
+<span id="cb6-23"><a href="AD2.html#cb6-23" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="AD2.html#cb6-24" tabindex="-1"></a>raptor2<span class="ot">&lt;-</span>raptor2 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(site_name, common_name, YearCollected, MonthCollected, DayCollected) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">bird_count=</span><span class="fu">sum</span>(bird_count)) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(common_name, site_name, YearCollected, MonthCollected, DayCollected, <span class="at">.keep_all=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-25"><a href="AD2.html#cb6-25" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="AD2.html#cb6-26" tabindex="-1"></a>raptor3<span class="ot">&lt;-</span>PSSS <span class="sc">%&gt;%</span> <span class="fu">filter</span>(raptor3 <span class="sc">!=</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">common_name =</span> raptor3, <span class="at">bird_count =</span> raptor3_count, <span class="at">notes=</span> raptor3_affect) <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="sc">-</span>raptor1, <span class="sc">-</span>raptor2, <span class="sc">-</span>raptor3, <span class="sc">-</span>raptor1_count, <span class="sc">-</span>raptor2_count, <span class="sc">-</span>raptor3_count, <span class="sc">-</span>raptor1_affect, <span class="sc">-</span>raptor2_affect, <span class="sc">-</span>raptor3_affect) </span>
+<span id="cb6-27"><a href="AD2.html#cb6-27" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="AD2.html#cb6-28" tabindex="-1"></a>raptor3<span class="ot">&lt;-</span>raptor3 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(site_name, common_name, YearCollected, MonthCollected, DayCollected) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">bird_count=</span><span class="fu">sum</span>(bird_count)) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(common_name, site_name, YearCollected, MonthCollected, DayCollected, <span class="at">.keep_all=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-29"><a href="AD2.html#cb6-29" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="AD2.html#cb6-30" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span>PSSS <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="sc">-</span>raptor1, <span class="sc">-</span>raptor2, <span class="sc">-</span>raptor3, <span class="sc">-</span>raptor1_count, <span class="sc">-</span>raptor2_count, <span class="sc">-</span>raptor3_count, <span class="sc">-</span>raptor1_affect, <span class="sc">-</span>raptor2_affect, <span class="sc">-</span>raptor3_affect) </span>
+<span id="cb6-31"><a href="AD2.html#cb6-31" tabindex="-1"></a></span>
+<span id="cb6-32"><a href="AD2.html#cb6-32" tabindex="-1"></a><span class="co">#bind raptor data back with PSSS data</span></span>
+<span id="cb6-33"><a href="AD2.html#cb6-33" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span><span class="fu">rbind</span>(PSSS, raptor1)</span>
+<span id="cb6-34"><a href="AD2.html#cb6-34" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span><span class="fu">rbind</span>(PSSS, raptor2)</span>
+<span id="cb6-35"><a href="AD2.html#cb6-35" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span><span class="fu">rbind</span>(PSSS, raptor3)</span>
+<span id="cb6-36"><a href="AD2.html#cb6-36" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="AD2.html#cb6-37" tabindex="-1"></a><span class="co">#remove rows with missing common name</span></span>
+<span id="cb6-38"><a href="AD2.html#cb6-38" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span>PSSS <span class="sc">%&gt;%</span> <span class="fu">filter</span>(common_name <span class="sc">!=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb6-39"><a href="AD2.html#cb6-39" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="AD2.html#cb6-40" tabindex="-1"></a><span class="co">#remove bearing and distance because we want each species/ site/ date to be a single row in the data set similar to BBCWS</span></span>
+<span id="cb6-41"><a href="AD2.html#cb6-41" tabindex="-1"></a></span>
+<span id="cb6-42"><a href="AD2.html#cb6-42" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span>PSSS <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>bearing, <span class="sc">-</span>dist)</span>
+<span id="cb6-43"><a href="AD2.html#cb6-43" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="AD2.html#cb6-44" tabindex="-1"></a><span class="co">#Now summarize the records per species/ site/ date</span></span>
+<span id="cb6-45"><a href="AD2.html#cb6-45" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span>PSSS <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(site_name, common_name, YearCollected, MonthCollected, DayCollected) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">bird_count=</span><span class="fu">sum</span>(bird_count)) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(common_name, site_name, YearCollected, MonthCollected, DayCollected, <span class="at">.keep_all=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-46"><a href="AD2.html#cb6-46" tabindex="-1"></a></span>
+<span id="cb6-47"><a href="AD2.html#cb6-47" tabindex="-1"></a><span class="co">#replace Thayer&#39;s Gull with Ivory Gull</span></span>
+<span id="cb6-48"><a href="AD2.html#cb6-48" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span>PSSS <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">common_name =</span> <span class="fu">ifelse</span>(common_name <span class="sc">==</span> <span class="st">&quot;Thayer&#39;s Gull&quot;</span>, <span class="st">&quot;Ivory Gull&quot;</span>, common_name))</span>
+<span id="cb6-49"><a href="AD2.html#cb6-49" tabindex="-1"></a></span>
+<span id="cb6-50"><a href="AD2.html#cb6-50" tabindex="-1"></a><span class="co">#Merge with species ID</span></span>
+<span id="cb6-51"><a href="AD2.html#cb6-51" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span><span class="fu">merge</span>(PSSS, sp, <span class="at">by.x=</span><span class="fu">c</span>(<span class="st">&quot;common_name&quot;</span>), <span class="at">by.y=</span> (<span class="st">&quot;english_name&quot;</span>), <span class="at">all.x=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-52"><a href="AD2.html#cb6-52" tabindex="-1"></a>  </span>
+<span id="cb6-53"><a href="AD2.html#cb6-53" tabindex="-1"></a><span class="co">#rename data columns to match BMDE</span></span>
+<span id="cb6-54"><a href="AD2.html#cb6-54" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span>PSSS <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">CommonName =</span>common_name, <span class="at">SurveyAreaIdentifier=</span> survey_site_id, <span class="at">Locality =</span> site_name, <span class="at">MinimumElevationInMeters=</span>elevation, <span class="at">MaximumElevationInMeters=</span>elevation, <span class="at">TimeObservationsStarted=</span>start_time, <span class="at">TimeCollected =</span> start_time, <span class="at">TimeObservationsEnded=</span>end_time, <span class="at">ObservationCount =</span> bird_count, <span class="at">ObservationCount2=</span>large_flock_best, <span class="at">ObsCountAtLeast =</span> large_flock_min, <span class="at">ObsCountAtMost =</span> large_flock_max, <span class="at">FieldNotes=</span>notes, <span class="at">Collector =</span> name, <span class="at">ScientificName=</span>scientific_name, <span class="at">SpeciesCode=</span>species_code, <span class="at">AllSpeciesReported=</span>is_complete)</span>
+<span id="cb6-55"><a href="AD2.html#cb6-55" tabindex="-1"></a></span>
+<span id="cb6-56"><a href="AD2.html#cb6-56" tabindex="-1"></a>PSSS<span class="sc">$</span>RouteIdentifier<span class="ot">&lt;-</span>PSSS<span class="sc">$</span>Locality</span>
+<span id="cb6-57"><a href="AD2.html#cb6-57" tabindex="-1"></a>PSSS<span class="sc">$</span>BasisOfRecord <span class="ot">&lt;-</span> <span class="st">&quot;Observation&quot;</span></span>
+<span id="cb6-58"><a href="AD2.html#cb6-58" tabindex="-1"></a>PSSS<span class="sc">$</span>CollectionCode <span class="ot">&lt;-</span> <span class="st">&quot;PSSS&quot;</span></span>
+<span id="cb6-59"><a href="AD2.html#cb6-59" tabindex="-1"></a>PSSS<span class="sc">$</span>Continent <span class="ot">&lt;-</span><span class="st">&quot;North America&quot;</span></span>
+<span id="cb6-60"><a href="AD2.html#cb6-60" tabindex="-1"></a>PSSS<span class="sc">$</span>Country<span class="ot">&lt;-</span><span class="st">&quot;United States&quot;</span></span>
+<span id="cb6-61"><a href="AD2.html#cb6-61" tabindex="-1"></a>PSSS<span class="sc">$</span>StateProvince<span class="ot">&lt;-</span><span class="st">&quot;Washington&quot;</span></span>
+<span id="cb6-62"><a href="AD2.html#cb6-62" tabindex="-1"></a>PSSS<span class="sc">$</span>ProtocolType <span class="ot">&lt;-</span> <span class="st">&quot;PointCount&quot;</span></span>
+<span id="cb6-63"><a href="AD2.html#cb6-63" tabindex="-1"></a>PSSS<span class="sc">$</span>ProtocolSpeciesTargeted <span class="ot">&lt;-</span> <span class="st">&quot;Waterbirds&quot;</span></span>
+<span id="cb6-64"><a href="AD2.html#cb6-64" tabindex="-1"></a>PSSS<span class="sc">$</span>ProtocolURL<span class="ot">=</span> <span class="st">&quot;https://seattleaudubon.org/wp-content/uploads/2021/01/PSSS_Protocol_2014-15.pdf&quot;</span></span>
+<span id="cb6-65"><a href="AD2.html#cb6-65" tabindex="-1"></a>PSSS<span class="sc">$</span>SurveyAreaShape <span class="ot">=</span> <span class="st">&quot;300 m&quot;</span></span>
+<span id="cb6-66"><a href="AD2.html#cb6-66" tabindex="-1"></a><span class="co">#PSSS$EffortUnit1 = &quot;Party-hours&quot;</span></span>
+<span id="cb6-67"><a href="AD2.html#cb6-67" tabindex="-1"></a>PSSS<span class="sc">$</span>ObservationDescriptor <span class="ot">=</span> <span class="st">&quot;Total Count&quot;</span></span>
+<span id="cb6-68"><a href="AD2.html#cb6-68" tabindex="-1"></a>PSSS<span class="sc">$</span>ObservationDescriptor2 <span class="ot">=</span> <span class="st">&quot;Large flock best estiamte&quot;</span> </span>
+<span id="cb6-69"><a href="AD2.html#cb6-69" tabindex="-1"></a></span>
+<span id="cb6-70"><a href="AD2.html#cb6-70" tabindex="-1"></a><span class="co">#Now that we have specified all the data columns we can, we will create the BMDE standardized data table. </span></span>
+<span id="cb6-71"><a href="AD2.html#cb6-71" tabindex="-1"></a></span>
+<span id="cb6-72"><a href="AD2.html#cb6-72" tabindex="-1"></a><span class="co">#Identify the missing columns of data</span></span>
+<span id="cb6-73"><a href="AD2.html#cb6-73" tabindex="-1"></a>BMDE_col<span class="ot">&lt;-</span><span class="fu">unique</span>(BMDE<span class="sc">$</span>local_name)</span>
+<span id="cb6-74"><a href="AD2.html#cb6-74" tabindex="-1"></a></span>
+<span id="cb6-75"><a href="AD2.html#cb6-75" tabindex="-1"></a>missing<span class="ot">&lt;-</span><span class="fu">setdiff</span>(BMDE_col, <span class="fu">names</span>(PSSS))</span>
+<span id="cb6-76"><a href="AD2.html#cb6-76" tabindex="-1"></a>PSSS[missing]<span class="ot">&lt;-</span><span class="st">&quot; &quot;</span></span>
+<span id="cb6-77"><a href="AD2.html#cb6-77" tabindex="-1"></a>PSSS<span class="ot">&lt;-</span>PSSS[BMDE_col]</span></code></pre></div>
+</div>
+<div id="psemp-1" class="section level3 hasAnchor" number="2.8.6">
+<h3><span class="header-section-number">2.8.6</span> PSEMP<a href="AD2.html#psemp-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The data will be downloaded as a .gdb file, which is a proprietary
+format of ESRI meaning the data are not suited for exchange with other
+applications. My suggestion is that you (or your GIS analyst) import the
+data layers into ArcGIS, and export tables in .txt. format for import
+into Excel. Then save as .csv in the <code>Data</code> directory of this project.</p>
+<p>The tables provided will include:</p>
+<ul>
+<li>PSEMP_Survey_Observations (PSEMP_sample.csv): This is a point layer
+storing processed bird observation data recorded during the winter
+fixed-wing aerial shorebird surveys. There are two observers in the
+plane, one on each side facing outward, that record their
+observations into an audio recording device along with timestamp
+information and position data from an on-board GPS receiver. This
+data is later transcribed into tab-delimited files along with a
+timestamped track-log for the plane (also tab-delimited). This
+source data are then imported into GIS format and a series of
+geoprocessing scripts are run which project these points spatially
+63 meters at right angles to either side of the plane as well as
+filtering them (to reduce the chance of double counting) and adding
+additional attribute information.</li>
+</ul>
+<blockquote>
+<p><strong>You will want to add the X and Y coordinates to this table before
+you export it from ArcGIS. If you are not familiar with how to do
+this, you will find some useful instructions
+<a href="https://support.esri.com/en/technical-article/000002217">here</a>.</strong></p>
+</blockquote>
+<ul>
+<li><p>PSEMP_SurveyRoutes: This is a polyline GIS data layer representing
+the flight path of the fixed wing plane recorded (initially as a
+series of point locations) during the winter fixed-wing aerial
+shorebird surveys.</p></li>
+<li><p>PSEMP_SurveyArea: This is a polygon data layer that represents the
+area considered to be visually surveyed during the annual winter
+fixed-wing aerial shorebird surveys. The data consist of rectangular
+strips that run parallel to the flight path of the plane. The strips
+are 50 meters wide and are centered 63 meters to either side of the
+plane. Locations of shorebird observations recorded along the flight
+path are spatially projected into the center of these strips. The
+purpose of the strips is to provide an estimate of surveyed area as
+well as serving as inputs in a process wherein some shorebird
+observations are removed from areas of survey strip overlap in an
+effort to minimize the chances of double counting birds.</p></li>
+<li><p>Species (PSEMP_species.csv): This table lists the avian species
+groups recorded during the winter fixed-wing aerial shorebird
+surveys. It provides species common and scientific names as well as
+the species codes (TaxoNameID) necessary to crosswalk these species
+to group membership (for composite groups analyzed) and to other
+WDFW databases.</p></li>
+<li><p>PSEMP_Group: This table provides a list of composite groups of
+species surveys. Some of these groups were included in subsequent
+statistical analysis; these groups are noted in the “StatsRun”
+attribute.</p></li>
+<li><p>SpeciesPSEMP_Group: This associative table allows species
+observations to be crosswalked to composite groups that they
+participate in.</p></li>
+<li><p>PSEMP_SpeciesObservation_Attribute.xlsx: This is an extra table that
+was attained from the PSEMP group directly. It contains descriptors
+of the <code>PSEMP_Survey_Observations</code> layer. A copy of this table is
+saved in the <code>Data</code> director.</p></li>
+</ul>
+<p>We will work with the sample dataset here which has the same formatting
+as the full dataset that you will receive through the online download.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="AD2.html#cb7-1" tabindex="-1"></a>PSEMP<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/PSEMP_sample.csv&quot;</span>) <span class="co">#note the x and y were added in ArcGIS before export.</span></span>
+<span id="cb7-2"><a href="AD2.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="AD2.html#cb7-3" tabindex="-1"></a><span class="co">#Get species code information from the NatureCounts R package (duplicate scripts)</span></span>
+<span id="cb7-4"><a href="AD2.html#cb7-4" tabindex="-1"></a>sp.code<span class="ot">&lt;-</span><span class="fu">meta_species_codes</span>()</span>
+<span id="cb7-5"><a href="AD2.html#cb7-5" tabindex="-1"></a>sp.code<span class="ot">&lt;-</span>sp.code <span class="sc">%&gt;%</span> <span class="fu">filter</span>(authority<span class="sc">==</span><span class="st">&quot;BSCDATA&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>authority, <span class="sc">-</span>species_id2, <span class="sc">-</span>rank) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb7-6"><a href="AD2.html#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="AD2.html#cb7-7" tabindex="-1"></a>sp.tax<span class="ot">&lt;-</span><span class="fu">meta_species_taxonomy</span>()</span>
+<span id="cb7-8"><a href="AD2.html#cb7-8" tabindex="-1"></a>sp.tax<span class="ot">&lt;-</span>sp.tax <span class="sc">%&gt;%</span> <span class="fu">select</span>(species_id, scientific_name, english_name) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb7-9"><a href="AD2.html#cb7-9" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="AD2.html#cb7-10" tabindex="-1"></a>sp<span class="ot">&lt;-</span><span class="fu">left_join</span>(sp.code, sp.tax, <span class="at">by=</span><span class="st">&quot;species_id&quot;</span>)</span>
+<span id="cb7-11"><a href="AD2.html#cb7-11" tabindex="-1"></a>sp<span class="ot">&lt;-</span>sp <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(english_name, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-12"><a href="AD2.html#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="AD2.html#cb7-13" tabindex="-1"></a><span class="co">#load the PSEMP species table</span></span>
+<span id="cb7-14"><a href="AD2.html#cb7-14" tabindex="-1"></a>sp_PSEMP<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/PSEMP_species.csv&quot;</span>)</span>
+<span id="cb7-15"><a href="AD2.html#cb7-15" tabindex="-1"></a>sp_PSEMP<span class="ot">&lt;-</span>sp_PSEMP <span class="sc">%&gt;%</span> <span class="fu">select</span>(TaxoNameID, PSEMP_CommonName, PSEMP_SpeciesCode, PSEMP_SciName1) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> <span class="fu">filter</span>(TaxoNameID<span class="sc">&gt;=</span><span class="dv">1</span>)</span>
+<span id="cb7-16"><a href="AD2.html#cb7-16" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="AD2.html#cb7-17" tabindex="-1"></a><span class="co">#some species codes need changed in order to properly link this with the sp table from the NatureCounts database. </span></span>
+<span id="cb7-18"><a href="AD2.html#cb7-18" tabindex="-1"></a>sp_PSEMP<span class="ot">&lt;-</span>sp_PSEMP <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Cormorant, Brandt&#39;s&quot;</span>, <span class="st">&quot;BRAC&quot;</span>, PSEMP_SpeciesCode)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-19"><a href="AD2.html#cb7-19" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Plover, American golden&quot;</span>, <span class="st">&quot;AMGP&quot;</span>, PSEMP_SpeciesCode)) <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Duck, harlequin&quot;</span>, <span class="st">&quot;HARD&quot;</span>, PSEMP_SpeciesCode))  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Gull, herring&quot;</span>, <span class="st">&quot;HERG&quot;</span>, PSEMP_SpeciesCode)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Gull, Heermann&#39;s&quot;</span>, <span class="st">&quot;HEEG&quot;</span>, PSEMP_SpeciesCode))  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Shoveler, northern&quot;</span>, <span class="st">&quot;NSHO&quot;</span>, PSEMP_SpeciesCode))  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Crow, northwestern&quot;</span>, <span class="st">&quot;NOCR&quot;</span>, PSEMP_SpeciesCode))  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Hawk, red-tailed&quot;</span>, <span class="st">&quot;HAHA&quot;</span>, PSEMP_SpeciesCode))  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Gull, Thayer&#39;s&quot;</span>, <span class="st">&quot;ICGU&quot;</span>, PSEMP_SpeciesCode))  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Swan, trumpeter&quot;</span>, <span class="st">&quot;TRUS&quot;</span>, PSEMP_SpeciesCode))  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Goose, white-fronted&quot;</span>, <span class="st">&quot;GWFG&quot;</span>, PSEMP_SpeciesCode))  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PSEMP_SpeciesCode=</span><span class="fu">ifelse</span>(PSEMP_CommonName<span class="sc">==</span><span class="st">&quot;Pelican, American white&quot;</span>, <span class="st">&quot;AWPE&quot;</span>, PSEMP_SpeciesCode)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-20"><a href="AD2.html#cb7-20" tabindex="-1"></a><span class="fu">filter</span>(PSEMP_SpeciesCode<span class="sc">!=</span><span class="st">&quot;HAPO&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-21"><a href="AD2.html#cb7-21" tabindex="-1"></a><span class="fu">select</span>(<span class="sc">-</span>TaxoNameID, <span class="sc">-</span>PSEMP_CommonName, <span class="sc">-</span>PSEMP_SciName1)</span>
+<span id="cb7-22"><a href="AD2.html#cb7-22" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="AD2.html#cb7-23" tabindex="-1"></a><span class="co">#join species tables</span></span>
+<span id="cb7-24"><a href="AD2.html#cb7-24" tabindex="-1"></a>sp_PSEMP<span class="ot">&lt;-</span><span class="fu">merge</span>(sp_PSEMP, sp, <span class="at">by.x=</span><span class="st">&quot;PSEMP_SpeciesCode&quot;</span>, <span class="at">by.y=</span><span class="st">&quot;species_code&quot;</span>, <span class="at">all.x=</span><span class="cn">TRUE</span>)</span>
+<span id="cb7-25"><a href="AD2.html#cb7-25" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="AD2.html#cb7-26" tabindex="-1"></a><span class="co">#join to observation data</span></span>
+<span id="cb7-27"><a href="AD2.html#cb7-27" tabindex="-1"></a>PSEMP<span class="ot">&lt;-</span><span class="fu">left_join</span>(PSEMP, sp_PSEMP, <span class="at">by=</span><span class="st">&quot;PSEMP_SpeciesCode&quot;</span>)</span>
+<span id="cb7-28"><a href="AD2.html#cb7-28" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="AD2.html#cb7-29" tabindex="-1"></a><span class="co">#remove any species that start with &#39;U&#39; as unidentified </span></span>
+<span id="cb7-30"><a href="AD2.html#cb7-30" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="AD2.html#cb7-31" tabindex="-1"></a>PSEMP<span class="ot">&lt;-</span>PSEMP <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(species_id))</span>
+<span id="cb7-32"><a href="AD2.html#cb7-32" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="AD2.html#cb7-33" tabindex="-1"></a><span class="co">#join to the area table</span></span>
+<span id="cb7-34"><a href="AD2.html#cb7-34" tabindex="-1"></a>area_PSEMP<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/PSEMP_SurveyArea.csv&quot;</span>)</span>
+<span id="cb7-35"><a href="AD2.html#cb7-35" tabindex="-1"></a>area_PSEMP<span class="ot">&lt;-</span>area_PSEMP <span class="sc">%&gt;%</span> <span class="fu">select</span>(TransectID, SurveyYear, Shape_Length, Shape_Area)</span>
+<span id="cb7-36"><a href="AD2.html#cb7-36" tabindex="-1"></a>area_PSEMP<span class="ot">&lt;-</span>area_PSEMP <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(TransectID, SurveyYear, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-37"><a href="AD2.html#cb7-37" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="AD2.html#cb7-38" tabindex="-1"></a>PSEMP<span class="ot">&lt;-</span><span class="fu">left_join</span>(PSEMP, area_PSEMP, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;TransectID&quot;</span>, <span class="st">&quot;SurveyYear&quot;</span>))</span>
+<span id="cb7-39"><a href="AD2.html#cb7-39" tabindex="-1"></a></span>
+<span id="cb7-40"><a href="AD2.html#cb7-40" tabindex="-1"></a><span class="co">#Separate data and time field into separate columns</span></span>
+<span id="cb7-41"><a href="AD2.html#cb7-41" tabindex="-1"></a>PSEMP<span class="sc">$</span>DateTimeFromLog<span class="ot">&lt;-</span><span class="fu">as.Date</span>(PSEMP<span class="sc">$</span>ObservationDateTime)</span>
+<span id="cb7-42"><a href="AD2.html#cb7-42" tabindex="-1"></a>PSEMP<span class="ot">&lt;-</span>PSEMP <span class="sc">%&gt;%</span> <span class="fu">separate</span>(ObservationDateTime, <span class="fu">c</span>(<span class="st">&quot;YearCollected&quot;</span>, <span class="st">&quot;MonthCollected&quot;</span>, <span class="st">&quot;del&quot;</span>), <span class="at">sep=</span><span class="st">&quot;-&quot;</span>)</span>
+<span id="cb7-43"><a href="AD2.html#cb7-43" tabindex="-1"></a>PSEMP<span class="ot">&lt;-</span>PSEMP <span class="sc">%&gt;%</span> <span class="fu">separate</span>(del, <span class="fu">c</span>(<span class="st">&quot;DayCollected&quot;</span>, <span class="st">&quot;TimeCollected&quot;</span>), <span class="at">sep=</span><span class="st">&quot; &quot;</span>) </span>
+<span id="cb7-44"><a href="AD2.html#cb7-44" tabindex="-1"></a></span>
+<span id="cb7-45"><a href="AD2.html#cb7-45" tabindex="-1"></a><span class="co">#rename columns to match BMDE</span></span>
+<span id="cb7-46"><a href="AD2.html#cb7-46" tabindex="-1"></a>PSEMP<span class="ot">&lt;-</span>PSEMP <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">RouteIdentifier=</span>TransectID, <span class="at">ProtocolType=</span>TransectType, CollectorNumber</span>
+<span id="cb7-47"><a href="AD2.html#cb7-47" tabindex="-1"></a><span class="ot">=</span> ObserverID, <span class="at">SamplingEventIdentifier=</span>ObservationID, <span class="at">BearingInDegrees=</span>ObservationDegreesDTrue, <span class="at">DecimalLatitude=</span>Y, <span class="at">DecimalLongitude=</span>X, <span class="at">ScientificName =</span> scientific_name, <span class="at">SpeciesCode=</span>PSEMP_SpeciesCode, </span>
+<span id="cb7-48"><a href="AD2.html#cb7-48" tabindex="-1"></a><span class="at">CommonName=</span>english_name, <span class="at">SurveyAreaSize=</span>Shape_Area, <span class="at">Remarks=</span>ObservationComment)</span>
+<span id="cb7-49"><a href="AD2.html#cb7-49" tabindex="-1"></a></span>
+<span id="cb7-50"><a href="AD2.html#cb7-50" tabindex="-1"></a><span class="co">#1-Observation on shoreline transect; 2-Observation on open water transect; Unsure why some years are Null</span></span>
+<span id="cb7-51"><a href="AD2.html#cb7-51" tabindex="-1"></a></span>
+<span id="cb7-52"><a href="AD2.html#cb7-52" tabindex="-1"></a>PSEMP<span class="ot">&lt;-</span>PSEMP <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ProtocolType=</span><span class="fu">ifelse</span>(ProtocolType<span class="sc">==</span><span class="dv">1</span>, <span class="st">&quot;Shoreline Transect&quot;</span>, <span class="fu">ifelse</span>(ProtocolType<span class="sc">==</span><span class="dv">2</span>, <span class="st">&quot;Open Water Transect&quot;</span>, <span class="st">&quot;Null&quot;</span>)))</span>
+<span id="cb7-53"><a href="AD2.html#cb7-53" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="AD2.html#cb7-54" tabindex="-1"></a>PSEMP<span class="sc">$</span>Locality<span class="ot">&lt;-</span>PSEMP<span class="sc">$</span>RouteIdentifier</span>
+<span id="cb7-55"><a href="AD2.html#cb7-55" tabindex="-1"></a>PSEMP<span class="sc">$</span>BasisOfRecord <span class="ot">&lt;-</span> <span class="st">&quot;Observation&quot;</span></span>
+<span id="cb7-56"><a href="AD2.html#cb7-56" tabindex="-1"></a>PSEMP<span class="sc">$</span>CollectionCode <span class="ot">&lt;-</span> <span class="st">&quot;PSEMP&quot;</span></span>
+<span id="cb7-57"><a href="AD2.html#cb7-57" tabindex="-1"></a>PSEMP<span class="sc">$</span>Continent <span class="ot">&lt;-</span><span class="st">&quot;North America&quot;</span></span>
+<span id="cb7-58"><a href="AD2.html#cb7-58" tabindex="-1"></a>PSEMP<span class="sc">$</span>Country<span class="ot">&lt;-</span><span class="st">&quot;United States&quot;</span></span>
+<span id="cb7-59"><a href="AD2.html#cb7-59" tabindex="-1"></a>PSEMP<span class="sc">$</span>StateProvince<span class="ot">&lt;-</span><span class="st">&quot;Washington&quot;</span></span>
+<span id="cb7-60"><a href="AD2.html#cb7-60" tabindex="-1"></a>PSEMP<span class="sc">$</span>ProtocolSpeciesTargeted <span class="ot">&lt;-</span> <span class="st">&quot;Waterbirds&quot;</span></span>
+<span id="cb7-61"><a href="AD2.html#cb7-61" tabindex="-1"></a>PSEMP<span class="sc">$</span>InstitutionCode<span class="ot">&lt;-</span><span class="st">&quot;PSEMP&quot;</span></span>
+<span id="cb7-62"><a href="AD2.html#cb7-62" tabindex="-1"></a>PSEMP<span class="sc">$</span>NumberOfObservers<span class="ot">&lt;-</span><span class="dv">2</span></span>
+<span id="cb7-63"><a href="AD2.html#cb7-63" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="AD2.html#cb7-64" tabindex="-1"></a><span class="co">#Remove non-unique observations and sum results per location/ date (double observer)</span></span>
+<span id="cb7-65"><a href="AD2.html#cb7-65" tabindex="-1"></a>PSEMP<span class="ot">&lt;-</span>PSEMP <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(RouteIdentifier, SpeciesCode, YearCollected, MonthCollected, DayCollected, DecimalLatitude, DecimalLongitude) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ObservationCount=</span><span class="fu">sum</span>(ObservationCount)) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(RouteIdentifier, SpeciesCode, YearCollected, MonthCollected, DayCollected, DecimalLatitude, DecimalLongitude, <span class="at">.keep_all=</span><span class="cn">TRUE</span>)</span>
+<span id="cb7-66"><a href="AD2.html#cb7-66" tabindex="-1"></a></span>
+<span id="cb7-67"><a href="AD2.html#cb7-67" tabindex="-1"></a><span class="co">#Now that we have specified all the data columns we can, we will create the BMDE standardized data table. #Identify the missing columns of data</span></span>
+<span id="cb7-68"><a href="AD2.html#cb7-68" tabindex="-1"></a>BMDE_col<span class="ot">&lt;-</span><span class="fu">unique</span>(BMDE<span class="sc">$</span>local_name)</span>
+<span id="cb7-69"><a href="AD2.html#cb7-69" tabindex="-1"></a></span>
+<span id="cb7-70"><a href="AD2.html#cb7-70" tabindex="-1"></a>missing<span class="ot">&lt;-</span><span class="fu">setdiff</span>(BMDE_col, <span class="fu">names</span>(PSEMP))</span>
+<span id="cb7-71"><a href="AD2.html#cb7-71" tabindex="-1"></a>PSEMP[missing]<span class="ot">&lt;-</span><span class="st">&quot; &quot;</span></span>
+<span id="cb7-72"><a href="AD2.html#cb7-72" tabindex="-1"></a>PSEMP<span class="ot">&lt;-</span>PSEMP[BMDE_col]</span></code></pre></div>
+</div>
+<div id="ebird-1" class="section level3 hasAnchor" number="2.8.7">
+<h3><span class="header-section-number">2.8.7</span> eBird<a href="AD2.html#ebird-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You will make an online request for eBird data scoped to the geographic
+region and temporal scale of choice. In this instance, I would request
+all the data for Washington and British Columbia from 2002-present. Each
+region needs to be requested separately. Once you have received the raw
+data files, you can save them in the <code>Data</code> directory of this folder.
+They will be BIG! Due to the large size of this dataset, it must be
+filtered to a smaller subset of desired observations before reading into
+R. This filtering is most efficiently done using <a href="https://cornelllabofornithology.github.io/auk/">auk: eBird Data
+Extraction and Processing with
+AWK</a> a Unix utility and
+programming language for processing column formatted text data. This
+package acts as a front end for AWK, allowing users to filter eBird data
+before import into R.</p>
+<p>There will be several files in the .zip folder along with your raw data,
+including: BCRCodes, IBACodes, USFWSCodes, recommend citation, terms of
+use, and the metadata file.</p>
+<p>We will once again work with the sample dataset here which has the same
+formatting as the full dataset that you will receive through the online
+download.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="AD2.html#cb8-1" tabindex="-1"></a><span class="co">#start by setting the working directory of the abd files to the data directory of this project, where your data files should be saved</span></span>
+<span id="cb8-2"><a href="AD2.html#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="AD2.html#cb8-3" tabindex="-1"></a><span class="co">#getwd() # your current working directory</span></span>
+<span id="cb8-4"><a href="AD2.html#cb8-4" tabindex="-1"></a><span class="co">#auk_set_ebd_path(&quot;C:/Users/dethier/Documents/ethier-scripts/DataCompile-SDJV/Data/&quot;, overwrite=FALSE) # my current working directory (sample code)</span></span>
+<span id="cb8-5"><a href="AD2.html#cb8-5" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="AD2.html#cb8-6" tabindex="-1"></a>WA_in<span class="ot">&lt;-</span><span class="st">&quot;Data/eBirdWA_sample.txt&quot;</span></span>
+<span id="cb8-7"><a href="AD2.html#cb8-7" tabindex="-1"></a>WA_out<span class="ot">&lt;-</span><span class="st">&quot;Data/WA_filter.txt&quot;</span></span>
+<span id="cb8-8"><a href="AD2.html#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="AD2.html#cb8-9" tabindex="-1"></a>ebird_WA<span class="ot">&lt;-</span>WA_in <span class="sc">%&gt;%</span> <span class="fu">auk_ebd</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-10"><a href="AD2.html#cb8-10" tabindex="-1"></a>  <span class="co">#define filters</span></span>
+<span id="cb8-11"><a href="AD2.html#cb8-11" tabindex="-1"></a>  <span class="fu">auk_bcr</span>(<span class="at">bcr=</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-12"><a href="AD2.html#cb8-12" tabindex="-1"></a>  <span class="co">#auk_protocol(&quot;eBird Pelagic Protocol&quot;) %&gt;% </span></span>
+<span id="cb8-13"><a href="AD2.html#cb8-13" tabindex="-1"></a>  <span class="fu">auk_protocol</span>(<span class="st">&quot;Stationary&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-14"><a href="AD2.html#cb8-14" tabindex="-1"></a>  <span class="fu">auk_filter</span>(<span class="at">file=</span>WA_out, <span class="at">overwrite=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-15"><a href="AD2.html#cb8-15" tabindex="-1"></a>  <span class="fu">read_ebd</span>()</span>
+<span id="cb8-16"><a href="AD2.html#cb8-16" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="AD2.html#cb8-17" tabindex="-1"></a>BC_in<span class="ot">&lt;-</span><span class="st">&quot;Data/eBirdBC_sample.txt&quot;</span></span>
+<span id="cb8-18"><a href="AD2.html#cb8-18" tabindex="-1"></a>BC_out<span class="ot">&lt;-</span><span class="st">&quot;Data/BC_filter.txt&quot;</span></span>
+<span id="cb8-19"><a href="AD2.html#cb8-19" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="AD2.html#cb8-20" tabindex="-1"></a>ebird_BC<span class="ot">&lt;-</span>BC_in <span class="sc">%&gt;%</span> <span class="fu">auk_ebd</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-21"><a href="AD2.html#cb8-21" tabindex="-1"></a>  <span class="co">#define filters</span></span>
+<span id="cb8-22"><a href="AD2.html#cb8-22" tabindex="-1"></a>  <span class="fu">auk_bcr</span>(<span class="at">bcr=</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-23"><a href="AD2.html#cb8-23" tabindex="-1"></a>  <span class="co">#auk_protocol(&quot;eBird Pelagic Protocol&quot;) %&gt;% </span></span>
+<span id="cb8-24"><a href="AD2.html#cb8-24" tabindex="-1"></a>  <span class="fu">auk_protocol</span>(<span class="st">&quot;Stationary&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-25"><a href="AD2.html#cb8-25" tabindex="-1"></a>  <span class="fu">auk_filter</span>(<span class="at">file=</span>BC_out, <span class="at">overwrite=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-26"><a href="AD2.html#cb8-26" tabindex="-1"></a>  <span class="fu">auk_complete</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-27"><a href="AD2.html#cb8-27" tabindex="-1"></a>  <span class="fu">read_ebd</span>()</span>
+<span id="cb8-28"><a href="AD2.html#cb8-28" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="AD2.html#cb8-29" tabindex="-1"></a>ebird_data<span class="ot">&lt;-</span><span class="fu">rbind</span>(ebird_BC, ebird_WA)</span>
+<span id="cb8-30"><a href="AD2.html#cb8-30" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="AD2.html#cb8-31" tabindex="-1"></a><span class="co">#separate data and time columns</span></span>
+<span id="cb8-32"><a href="AD2.html#cb8-32" tabindex="-1"></a>ebird_data<span class="ot">&lt;-</span>ebird_data <span class="sc">%&gt;%</span> <span class="fu">separate</span>(observation_date, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;YearCollected&quot;</span>, <span class="st">&quot;MonthCollected&quot;</span>, <span class="st">&quot;DayCollected&quot;</span>), <span class="at">sep=</span><span class="st">&quot;-&quot;</span>) </span>
+<span id="cb8-33"><a href="AD2.html#cb8-33" tabindex="-1"></a>  </span>
+<span id="cb8-34"><a href="AD2.html#cb8-34" tabindex="-1"></a><span class="co">#rename columns</span></span>
+<span id="cb8-35"><a href="AD2.html#cb8-35" tabindex="-1"></a>ebird_data<span class="ot">&lt;-</span>ebird_data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span> (<span class="at">GlobalUniqueIdentifier=</span>global_unique_identifier, </span>
+<span id="cb8-36"><a href="AD2.html#cb8-36" tabindex="-1"></a><span class="at">DateLastModified=</span>last_edited_date,  </span>
+<span id="cb8-37"><a href="AD2.html#cb8-37" tabindex="-1"></a><span class="at">TaxonConceptID=</span>taxon_concept_id, </span>
+<span id="cb8-38"><a href="AD2.html#cb8-38" tabindex="-1"></a><span class="at">CommonName=</span>common_name,     </span>
+<span id="cb8-39"><a href="AD2.html#cb8-39" tabindex="-1"></a><span class="at">ScientificName=</span>scientific_name, </span>
+<span id="cb8-40"><a href="AD2.html#cb8-40" tabindex="-1"></a><span class="at">ObservationCount=</span>observation_count, </span>
+<span id="cb8-41"><a href="AD2.html#cb8-41" tabindex="-1"></a><span class="at">Country=</span>country_code, </span>
+<span id="cb8-42"><a href="AD2.html#cb8-42" tabindex="-1"></a><span class="at">StateProvince=</span>state, </span>
+<span id="cb8-43"><a href="AD2.html#cb8-43" tabindex="-1"></a><span class="at">SurveyAreaIdentifier=</span>locality_id,</span>
+<span id="cb8-44"><a href="AD2.html#cb8-44" tabindex="-1"></a><span class="at">TimeCollected=</span>time_observations_started, </span>
+<span id="cb8-45"><a href="AD2.html#cb8-45" tabindex="-1"></a><span class="at">CollectorNumber=</span>observer_id, </span>
+<span id="cb8-46"><a href="AD2.html#cb8-46" tabindex="-1"></a><span class="at">SamplingEventIdentifier=</span>sampling_event_identifier, </span>
+<span id="cb8-47"><a href="AD2.html#cb8-47" tabindex="-1"></a><span class="at">ProtocolType=</span>protocol_type, </span>
+<span id="cb8-48"><a href="AD2.html#cb8-48" tabindex="-1"></a><span class="at">ProtocolCode=</span>protocol_code, </span>
+<span id="cb8-49"><a href="AD2.html#cb8-49" tabindex="-1"></a><span class="at">ProjectCode=</span>project_code, </span>
+<span id="cb8-50"><a href="AD2.html#cb8-50" tabindex="-1"></a><span class="at">DistanceFromStart=</span>effort_distance_km,</span>
+<span id="cb8-51"><a href="AD2.html#cb8-51" tabindex="-1"></a><span class="at">SurveyAreaSize=</span>effort_area_ha,</span>
+<span id="cb8-52"><a href="AD2.html#cb8-52" tabindex="-1"></a><span class="at">NumberOfObservers=</span>number_observers,</span>
+<span id="cb8-53"><a href="AD2.html#cb8-53" tabindex="-1"></a><span class="at">AllIndividualsReported=</span>all_species_reported,</span>
+<span id="cb8-54"><a href="AD2.html#cb8-54" tabindex="-1"></a><span class="at">Remarks=</span>trip_comments,</span>
+<span id="cb8-55"><a href="AD2.html#cb8-55" tabindex="-1"></a><span class="at">Remarks2=</span>species_comments, </span>
+<span id="cb8-56"><a href="AD2.html#cb8-56" tabindex="-1"></a><span class="at">DecimalLatitude=</span> latitude,</span>
+<span id="cb8-57"><a href="AD2.html#cb8-57" tabindex="-1"></a><span class="at">DecimalLongitude=</span>longitude,</span>
+<span id="cb8-58"><a href="AD2.html#cb8-58" tabindex="-1"></a><span class="at">Locality=</span>locality</span>
+<span id="cb8-59"><a href="AD2.html#cb8-59" tabindex="-1"></a>)</span>
+<span id="cb8-60"><a href="AD2.html#cb8-60" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="AD2.html#cb8-61" tabindex="-1"></a><span class="co">#Assign species_id and SpeciesCode</span></span>
+<span id="cb8-62"><a href="AD2.html#cb8-62" tabindex="-1"></a>ebird_data<span class="ot">&lt;-</span><span class="fu">merge</span>(ebird_data, sp, <span class="at">by.x=</span><span class="st">&quot;CommonName&quot;</span>, <span class="at">by.y=</span><span class="st">&quot;english_name&quot;</span>) </span>
+<span id="cb8-63"><a href="AD2.html#cb8-63" tabindex="-1"></a><span class="co">#Some species may be lost in this merge. Looking for a way to fix this using the naturecounts package. </span></span>
+<span id="cb8-64"><a href="AD2.html#cb8-64" tabindex="-1"></a></span>
+<span id="cb8-65"><a href="AD2.html#cb8-65" tabindex="-1"></a>ebird_data<span class="ot">&lt;-</span>ebird_data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">SpeciesCode=</span>species_code)</span>
+<span id="cb8-66"><a href="AD2.html#cb8-66" tabindex="-1"></a></span>
+<span id="cb8-67"><a href="AD2.html#cb8-67" tabindex="-1"></a>ebird_data<span class="sc">$</span>RouteIdentifier<span class="ot">&lt;-</span>ebird_data<span class="sc">$</span>Locality</span>
+<span id="cb8-68"><a href="AD2.html#cb8-68" tabindex="-1"></a>ebird_data<span class="sc">$</span>BasisOfRecord <span class="ot">&lt;-</span> <span class="st">&quot;Observation&quot;</span></span>
+<span id="cb8-69"><a href="AD2.html#cb8-69" tabindex="-1"></a>ebird_data<span class="sc">$</span>CollectionCode <span class="ot">&lt;-</span> <span class="st">&quot;EBIRD&quot;</span></span>
+<span id="cb8-70"><a href="AD2.html#cb8-70" tabindex="-1"></a>ebird_data<span class="sc">$</span>InstitutionCode<span class="ot">&lt;-</span><span class="st">&quot;Cornell&quot;</span></span>
+<span id="cb8-71"><a href="AD2.html#cb8-71" tabindex="-1"></a>ebird_data<span class="sc">$</span>Continent <span class="ot">&lt;-</span><span class="st">&quot;North America&quot;</span></span>
+<span id="cb8-72"><a href="AD2.html#cb8-72" tabindex="-1"></a>ebird_data<span class="sc">$</span>ProtocolURL<span class="ot">&lt;-</span> <span class="st">&quot;https://support.ebird.org/en/support/solutions/articles/48000950859-guide-to-ebird-protocols&quot;</span></span>
+<span id="cb8-73"><a href="AD2.html#cb8-73" tabindex="-1"></a></span>
+<span id="cb8-74"><a href="AD2.html#cb8-74" tabindex="-1"></a>ebird_data<span class="ot">&lt;-</span>ebird_data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">DurationInHours =</span> duration_minutes<span class="sc">/</span><span class="dv">60</span>)</span>
+<span id="cb8-75"><a href="AD2.html#cb8-75" tabindex="-1"></a></span>
+<span id="cb8-76"><a href="AD2.html#cb8-76" tabindex="-1"></a><span class="co">#Now that we have specified all the data columns we can, we will create the BMDE standardized data table. </span></span>
+<span id="cb8-77"><a href="AD2.html#cb8-77" tabindex="-1"></a></span>
+<span id="cb8-78"><a href="AD2.html#cb8-78" tabindex="-1"></a><span class="co">#Identify the missing columns of data</span></span>
+<span id="cb8-79"><a href="AD2.html#cb8-79" tabindex="-1"></a>BMDE_col<span class="ot">&lt;-</span><span class="fu">unique</span>(BMDE<span class="sc">$</span>local_name)</span>
+<span id="cb8-80"><a href="AD2.html#cb8-80" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="AD2.html#cb8-81" tabindex="-1"></a>missing<span class="ot">&lt;-</span><span class="fu">setdiff</span>(BMDE_col, <span class="fu">names</span>(ebird_data))</span>
+<span id="cb8-82"><a href="AD2.html#cb8-82" tabindex="-1"></a>ebird_data[missing]<span class="ot">&lt;-</span><span class="st">&quot; &quot;</span></span>
+<span id="cb8-83"><a href="AD2.html#cb8-83" tabindex="-1"></a>ebird_data<span class="ot">&lt;-</span>ebird_data[BMDE_col]</span></code></pre></div>
+</div>
+<div id="cbc-1" class="section level3 hasAnchor" number="2.8.8">
+<h3><span class="header-section-number">2.8.8</span> CBC<a href="AD2.html#cbc-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To access CBC data you must contact Audubon at
+<a href="mailto:cbcadmin@audubon.org" class="email">cbcadmin@audubon.org</a>. A online
+form will be send to you to complete. When completing this form, scope
+the data to the geographic and temporal scale you require. You will also
+be asked if you want the auxiliary data included, such as effort and
+weather. Select yes to all options so that you have a complete dataset
+to work with.</p>
+<p>You will receive the raw data compressed in a Box folder, which you can
+download and save to the <code>Data</code> directory associated with this project.
+You will also be given links to download the
+“cbc_field_definitions_2013.pdf”, which details the information in each
+data column, and the “CBCEditorialCodes.pdf”, which defines the
+modifiers used when recording species. Both of these files are saved in
+the <code>Data</code> directory of this project.</p>
+<p>The tables provided will include:</p>
+<ul>
+<li><p>CBC_Circle_Species_Report: the raw counts of each species seen in
+each circle in each year</p></li>
+<li><p>CBC_Effort_Many_Types: for each count circle in each year, this
+table details the mode of data collection (e.g., car, foot),
+distance traveled, and the number of hours the survey took.</p></li>
+<li><p>CBC_Effort_Summary_Report: for each count in each year, this table
+details additional types of data collection effort, including field
+versus feeder counters, min and max parties, feeder hours, nocturnal
+hours, and nocturnal distance. These data are often used for effort
+correction.</p></li>
+<li><p>CBC_Weather_Report: for each count circle in each year, this table
+details all th weather covarites collected during the survey.</p></li>
+<li><p>CBC_Count_History_Report: this table detail when each count circle
+was run and in which years. This can be used to zero-fill the data
+matrix.</p></li>
+</ul>
+<p>We will once again work with the sample dataset here which has the same
+formatting as the full dataset that you will receive through the online
+download.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="AD2.html#cb9-1" tabindex="-1"></a><span class="co">#load Species Data</span></span>
+<span id="cb9-2"><a href="AD2.html#cb9-2" tabindex="-1"></a>CBC<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/CBC_Circle_Species_sample.csv&quot;</span>)</span>
+<span id="cb9-3"><a href="AD2.html#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="AD2.html#cb9-4" tabindex="-1"></a><span class="co">#separate columns</span></span>
+<span id="cb9-5"><a href="AD2.html#cb9-5" tabindex="-1"></a>CBC<span class="ot">&lt;-</span>CBC <span class="sc">%&gt;%</span> <span class="fu">separate</span>(subnational_code, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;del&quot;</span>, <span class="st">&quot;StateProvince&quot;</span>), <span class="at">sep=</span><span class="st">&quot;-&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>del)</span>
+<span id="cb9-6"><a href="AD2.html#cb9-6" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="AD2.html#cb9-7" tabindex="-1"></a>CBC<span class="ot">&lt;-</span>CBC <span class="sc">%&gt;%</span> <span class="fu">separate</span>(cnt_dt, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;del&quot;</span>), <span class="at">sep=</span><span class="st">&quot; &quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>del)</span>
+<span id="cb9-8"><a href="AD2.html#cb9-8" tabindex="-1"></a>CBC<span class="ot">&lt;-</span>CBC <span class="sc">%&gt;%</span> <span class="fu">separate</span>(date, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;MonthCollected&quot;</span>, <span class="st">&quot;DayCollected&quot;</span>, <span class="st">&quot;YearCollected&quot;</span>), <span class="at">sep=</span><span class="st">&quot;/&quot;</span>)</span>
+<span id="cb9-9"><a href="AD2.html#cb9-9" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="AD2.html#cb9-10" tabindex="-1"></a><span class="co">#rename columns</span></span>
+<span id="cb9-11"><a href="AD2.html#cb9-11" tabindex="-1"></a><span class="co">#circle ID = RouteIdentifier</span></span>
+<span id="cb9-12"><a href="AD2.html#cb9-12" tabindex="-1"></a>CBC<span class="ot">&lt;-</span>CBC <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">RouteIdentifier=</span>abbrev, <span class="at">Locality=</span>name, <span class="at">DecimalLatitude=</span> latitude, <span class="at">DecimalLongitude=</span>longitude, <span class="at">Country=</span>country_code, <span class="at">CommonName =</span> com_name, <span class="at">ScientificName=</span>sci_name, <span class="at">ObservationCount =</span> how_many)</span>
+<span id="cb9-13"><a href="AD2.html#cb9-13" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="AD2.html#cb9-14" tabindex="-1"></a><span class="co">#load effort measurements</span></span>
+<span id="cb9-15"><a href="AD2.html#cb9-15" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="AD2.html#cb9-16" tabindex="-1"></a>CBC_eff<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/CBC_Effort_Many_Types_Report.csv&quot;</span>)</span>
+<span id="cb9-17"><a href="AD2.html#cb9-17" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="AD2.html#cb9-18" tabindex="-1"></a><span class="co">#convert from miles to km</span></span>
+<span id="cb9-19"><a href="AD2.html#cb9-19" tabindex="-1"></a>CBC_eff<span class="ot">&lt;-</span>CBC_eff <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">dist_km =</span> <span class="fu">ifelse</span>(distance_unit<span class="sc">==</span><span class="st">&quot;Miles&quot;</span>, distance<span class="sc">*</span><span class="fl">1.609344</span>, distance)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>distance, <span class="sc">-</span>OID_)</span>
+<span id="cb9-20"><a href="AD2.html#cb9-20" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="AD2.html#cb9-21" tabindex="-1"></a><span class="co">#create total distance travelled</span></span>
+<span id="cb9-22"><a href="AD2.html#cb9-22" tabindex="-1"></a>CBC_eff<span class="ot">&lt;-</span>CBC_eff <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(abbrev, name, count_yr) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">dis_tot=</span><span class="fu">sum</span>(dist_km), <span class="at">hour_tot=</span><span class="fu">sum</span>(hours)) </span>
+<span id="cb9-23"><a href="AD2.html#cb9-23" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="AD2.html#cb9-24" tabindex="-1"></a><span class="co">#rename columns</span></span>
+<span id="cb9-25"><a href="AD2.html#cb9-25" tabindex="-1"></a>CBC_eff<span class="ot">&lt;-</span>CBC_eff <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">RouteIdentifier=</span>abbrev, <span class="at">Locality=</span>name,  <span class="at">DurationInHours =</span> hour_tot, <span class="at">DistanceFromStart=</span> dis_tot)</span>
+<span id="cb9-26"><a href="AD2.html#cb9-26" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="AD2.html#cb9-27" tabindex="-1"></a><span class="co">#join tables</span></span>
+<span id="cb9-28"><a href="AD2.html#cb9-28" tabindex="-1"></a>CBC<span class="ot">&lt;-</span><span class="fu">left_join</span>(CBC, CBC_eff, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;RouteIdentifier&quot;</span>, <span class="st">&quot;Locality&quot;</span>, <span class="st">&quot;count_yr&quot;</span>))</span>
+<span id="cb9-29"><a href="AD2.html#cb9-29" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="AD2.html#cb9-30" tabindex="-1"></a><span class="co">#Remove subspecies since this does not allow tables to link </span></span>
+<span id="cb9-31"><a href="AD2.html#cb9-31" tabindex="-1"></a>CBC<span class="sc">$</span>CommonName<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">s*</span><span class="sc">\\</span><span class="st">([^</span><span class="sc">\\</span><span class="st">)]+</span><span class="sc">\\</span><span class="st">)&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="fu">as.character</span>(CBC<span class="sc">$</span>CommonName))</span>
+<span id="cb9-32"><a href="AD2.html#cb9-32" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="AD2.html#cb9-33" tabindex="-1"></a><span class="co">#replace Thayer&#39;s Gull with Ivory Gull</span></span>
+<span id="cb9-34"><a href="AD2.html#cb9-34" tabindex="-1"></a>CBC<span class="ot">&lt;-</span>CBC <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">CommonName =</span> <span class="fu">ifelse</span>(CommonName <span class="sc">==</span> <span class="st">&quot;Thayer&#39;s Gull&quot;</span>, <span class="st">&quot;Ivory Gull&quot;</span>, CommonName))</span>
+<span id="cb9-35"><a href="AD2.html#cb9-35" tabindex="-1"></a></span>
+<span id="cb9-36"><a href="AD2.html#cb9-36" tabindex="-1"></a>CBC<span class="ot">&lt;-</span><span class="fu">merge</span>(CBC, sp, <span class="at">by.x=</span><span class="st">&quot;CommonName&quot;</span>, <span class="at">by.y=</span><span class="st">&quot;english_name&quot;</span>)</span>
+<span id="cb9-37"><a href="AD2.html#cb9-37" tabindex="-1"></a>CBC<span class="ot">&lt;-</span>CBC <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>ScientificName) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">ScientificName =</span> scientific_name, <span class="at">SpeciesCode=</span>species_code)</span>
+<span id="cb9-38"><a href="AD2.html#cb9-38" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="AD2.html#cb9-39" tabindex="-1"></a>CBC<span class="sc">$</span>BasisOfRecord <span class="ot">&lt;-</span> <span class="st">&quot;Observation&quot;</span></span>
+<span id="cb9-40"><a href="AD2.html#cb9-40" tabindex="-1"></a>CBC<span class="sc">$</span>CollectionCode <span class="ot">&lt;-</span> <span class="st">&quot;CBC&quot;</span></span>
+<span id="cb9-41"><a href="AD2.html#cb9-41" tabindex="-1"></a>CBC<span class="sc">$</span>Continent <span class="ot">&lt;-</span><span class="st">&quot;North America&quot;</span></span>
+<span id="cb9-42"><a href="AD2.html#cb9-42" tabindex="-1"></a>CBC<span class="sc">$</span>ProtocolSpeciesTargeted <span class="ot">&lt;-</span> <span class="st">&quot;All birds&quot;</span></span>
+<span id="cb9-43"><a href="AD2.html#cb9-43" tabindex="-1"></a>CBC<span class="sc">$</span>InstitutionCode<span class="ot">&lt;-</span><span class="st">&quot;Audubon&quot;</span></span>
+<span id="cb9-44"><a href="AD2.html#cb9-44" tabindex="-1"></a>CBC<span class="sc">$</span>ProtocolURL<span class="ot">=</span><span class="st">&quot;https://www.audubon.org/conservation/science/christmas-bird-count&quot;</span></span>
+<span id="cb9-45"><a href="AD2.html#cb9-45" tabindex="-1"></a></span>
+<span id="cb9-46"><a href="AD2.html#cb9-46" tabindex="-1"></a><span class="co">#Now that we have specified all the data columns we can, we will create the BMDE standardized data table. </span></span>
+<span id="cb9-47"><a href="AD2.html#cb9-47" tabindex="-1"></a></span>
+<span id="cb9-48"><a href="AD2.html#cb9-48" tabindex="-1"></a><span class="co">#Identify the missing columns of data</span></span>
+<span id="cb9-49"><a href="AD2.html#cb9-49" tabindex="-1"></a>BMDE_col<span class="ot">&lt;-</span><span class="fu">unique</span>(BMDE<span class="sc">$</span>local_name)</span>
+<span id="cb9-50"><a href="AD2.html#cb9-50" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="AD2.html#cb9-51" tabindex="-1"></a>missing<span class="ot">&lt;-</span><span class="fu">setdiff</span>(BMDE_col, <span class="fu">names</span>(CBC))</span>
+<span id="cb9-52"><a href="AD2.html#cb9-52" tabindex="-1"></a>CBC[missing]<span class="ot">&lt;-</span><span class="st">&quot; &quot;</span></span>
+<span id="cb9-53"><a href="AD2.html#cb9-53" tabindex="-1"></a>CBC<span class="ot">&lt;-</span>CBC[BMDE_col]</span></code></pre></div>
+</div>
+<div id="all-data-combined" class="section level3 hasAnchor" number="2.8.9">
+<h3><span class="header-section-number">2.8.9</span> All Data Combined<a href="AD2.html#all-data-combined" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now that all the datasets are in the BMDE format, we can simply bind
+these together into a single dataset.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="AD2.html#cb10-1" tabindex="-1"></a>dat<span class="ot">&lt;-</span><span class="fu">rbind</span>(BCCWS, BCMA, PSSS, PSEMP, ebird_data, CBC)</span>
+<span id="cb10-2"><a href="AD2.html#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="AD2.html#cb10-3" tabindex="-1"></a>dat<span class="sc">$</span>YearCollected<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(dat<span class="sc">$</span>YearCollected)</span>
+<span id="cb10-4"><a href="AD2.html#cb10-4" tabindex="-1"></a>dat<span class="sc">$</span>MonthCollected<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(dat<span class="sc">$</span>MonthCollected)</span>
+<span id="cb10-5"><a href="AD2.html#cb10-5" tabindex="-1"></a>dat<span class="sc">$</span>DayCollected<span class="ot">&lt;-</span><span class="fu">as.numeric</span>((dat<span class="sc">$</span>DayCollected))</span>
+<span id="cb10-6"><a href="AD2.html#cb10-6" tabindex="-1"></a>dat<span class="sc">$</span>ObservationCount<span class="ot">&lt;-</span><span class="fu">as.numeric</span>((dat<span class="sc">$</span>ObservationCount))</span></code></pre></div>
+</div>
+<div id="zero-filling-dataframe" class="section level3 hasAnchor" number="2.8.10">
+<h3><span class="header-section-number">2.8.10</span> Zero-filling dataframe<a href="AD2.html#zero-filling-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now that you have a complete dateframe you will notice that in the
+<code>ObervationCount</code> column there are no zero counts. This is because
+surveyors only count what is present at a site, as opposed to what is
+not present (i.e., zero counts). Properly zero-filling your dataframe is
+important for most research purposes. It tells you when a site was
+surveyed, but a species of interest was not detected.</p>
+<p>To property zero-fill a dataframe you will want to create an
+<code>events matrix</code> using the full dataset (i.e., one which covers the
+temporal and spatial scale of interest). This <code>event matrix</code> will tell
+us which sites were surveyed and when. Then we can use this matrix to
+add the zeros during a species specific analysis. We don’t add all the
+zeros to the occurrence dataset, because this would get very large.</p>
+<p><strong>Note: the creation of the events matrix assumes that at least one
+species was detected at each survey point. This assumption is nearly
+always true</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="AD2.html#cb11-1" tabindex="-1"></a><span class="co">#create the events matrix</span></span>
+<span id="cb11-2"><a href="AD2.html#cb11-2" tabindex="-1"></a>event<span class="ot">&lt;-</span><span class="cn">NULL</span></span>
+<span id="cb11-3"><a href="AD2.html#cb11-3" tabindex="-1"></a>events<span class="ot">&lt;-</span>dat <span class="sc">%&gt;%</span> <span class="fu">select</span>(YearCollected, MonthCollected, DayCollected, DecimalLatitude, DecimalLongitude, RouteIdentifier) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb11-4"><a href="AD2.html#cb11-4" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="AD2.html#cb11-5" tabindex="-1"></a><span class="co">#example of how to use the events matrix to zero-fill for Surf Scoter</span></span>
+<span id="cb11-6"><a href="AD2.html#cb11-6" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="AD2.html#cb11-7" tabindex="-1"></a>SUSC<span class="ot">&lt;-</span>dat <span class="sc">%&gt;%</span> <span class="fu">filter</span>(SpeciesCode<span class="sc">==</span><span class="st">&quot;SUSC&quot;</span>)</span>
+<span id="cb11-8"><a href="AD2.html#cb11-8" tabindex="-1"></a>SUSC<span class="ot">&lt;-</span><span class="fu">left_join</span>(events, SUSC, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;YearCollected&quot;</span>, <span class="st">&quot;MonthCollected&quot;</span>, <span class="st">&quot;DayCollected&quot;</span>, <span class="st">&quot;DecimalLatitude&quot;</span>, <span class="st">&quot;DecimalLongitude&quot;</span>, <span class="st">&quot;RouteIdentifier&quot;</span>))</span>
+<span id="cb11-9"><a href="AD2.html#cb11-9" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="AD2.html#cb11-10" tabindex="-1"></a>species<span class="ot">&lt;-</span><span class="st">&quot;SUSC&quot;</span></span>
+<span id="cb11-11"><a href="AD2.html#cb11-11" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="AD2.html#cb11-12" tabindex="-1"></a>SUSC<span class="ot">&lt;-</span>SUSC <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ObservationCount =</span> <span class="fu">replace</span>(ObservationCount, <span class="fu">is.na</span>(ObservationCount), <span class="dv">0</span>),</span>
+<span id="cb11-13"><a href="AD2.html#cb11-13" tabindex="-1"></a>               <span class="at">SpeciesCode =</span> species)</span></code></pre></div>
+</div>
+<div id="checking-and-removing-duplicates" class="section level3 hasAnchor" number="2.8.11">
+<h3><span class="header-section-number">2.8.11</span> Checking and removing duplicates<a href="AD2.html#checking-and-removing-duplicates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Because some people use eBird to submit there data for various programs,
+there is a potential for duplicates in the full dataset. The
+<code>events matrix</code> does not allow multiple observations/ reports on the
+same day at the same location (latitude &amp; longitude), so by merging your
+species specific table to the events matrix, you should eliminate
+duplicates. If you want to ensure there are no duplicates you can run
+the following sample code.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="AD2.html#cb12-1" tabindex="-1"></a>distinct<span class="ot">&lt;-</span>dat <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(YearCollected, MonthCollected, DayCollected, TimeCollected, DecimalLatitude, DecimalLongitude, SpeciesCode, ObservationCount, RouteIdentifier, Locality, <span class="at">.keep_all=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+<div id="assigning-survey-period" class="section level3 hasAnchor" number="2.8.12">
+<h3><span class="header-section-number">2.8.12</span> Assigning survey period<a href="AD2.html#assigning-survey-period" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Winter surveys more than often straddle two calendar years (e.g., start
+in October 2021 and end in April 2022). When doing an analysis you are
+often interested in ‘year’ as a covarite or random effect. We will call
+this data column survey <code>Period</code>, and will assign this the start year of
+the surveys.</p>
+<p>NOTE: The PSEMP dataset contains the <code>SurveyYear</code> which is the end year
+of the survey period. We removed this during data processing but will
+add it back here.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="AD2.html#cb13-1" tabindex="-1"></a>dat<span class="sc">$</span>Period <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(dat<span class="sc">$</span>MonthCollected <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">8</span><span class="sc">:</span><span class="dv">12</span>), dat<span class="sc">$</span>YearCollected, </span>
+<span id="cb13-2"><a href="AD2.html#cb13-2" tabindex="-1"></a>    dat<span class="sc">$</span>YearCollected<span class="dv">-1</span>) </span></code></pre></div>
+</div>
+<div id="remove-out-of-range-species-unsuitable-habitat" class="section level3 hasAnchor" number="2.8.13">
+<h3><span class="header-section-number">2.8.13</span> Remove out of range species/ unsuitable habitat<a href="AD2.html#remove-out-of-range-species-unsuitable-habitat" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Some surveys, like the CBC and eBird, are not specifically targeted
+towards sea ducks or other species of interest. We will therefore have
+surveys that are not of value to our assessment. There are several ways
+to filter these data, but what I find easy is identifying survey
+locations where an individual is not repeatably identified (e.g., &lt;=1),
+and remove these from the <code>events</code> list used for zero-filling.</p>
+<p>NOTE: I would work this into your data processing loop if doing this for
+many species</p>
+<p>Let’s use SUSC again as an example.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="AD2.html#cb14-1" tabindex="-1"></a>site.summ <span class="ot">&lt;-</span> <span class="fu">melt</span>(dat, <span class="at">id.var =</span> <span class="fu">c</span>(<span class="st">&quot;RouteIdentifier&quot;</span>, <span class="st">&quot;SpeciesCode&quot;</span>), <span class="at">measure.var =</span> <span class="st">&quot;ObservationCount&quot;</span>)</span>
+<span id="cb14-2"><a href="AD2.html#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="AD2.html#cb14-3" tabindex="-1"></a>site.summ <span class="ot">&lt;-</span> <span class="fu">cast</span>(site.summ, RouteIdentifier <span class="sc">+</span> SpeciesCode <span class="sc">~</span> variable, sum)</span>
+<span id="cb14-4"><a href="AD2.html#cb14-4" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="AD2.html#cb14-5" tabindex="-1"></a>site.sp.list <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">subset</span>(site.summ, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">&quot;RouteIdentifier&quot;</span>, <span class="st">&quot;SpeciesCode&quot;</span>), ObservationCount <span class="sc">&gt;</span> <span class="dv">1</span>))</span>
+<span id="cb14-6"><a href="AD2.html#cb14-6" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="AD2.html#cb14-7" tabindex="-1"></a>site.SUSC.list<span class="ot">&lt;-</span>site.sp.list <span class="sc">%&gt;%</span> <span class="fu">filter</span>(SpeciesCode<span class="sc">==</span><span class="st">&quot;SUSC&quot;</span>) <span class="co">#this will be your &#39;range&#39; list for SUSC. You can used this to remove out of range or rare records. </span></span>
+<span id="cb14-8"><a href="AD2.html#cb14-8" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="AD2.html#cb14-9" tabindex="-1"></a>test<span class="ot">&lt;-</span><span class="fu">left_join</span>(site.SUSC.list, SUSC, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;SpeciesCode&quot;</span>, <span class="st">&quot;RouteIdentifier&quot;</span>))</span></code></pre></div>
+</div>
+</div>
+<div id="additional-avian-data-resources" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Additional Avian Data Resources<a href="AD2.html#additional-avian-data-resources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dataset were excluded from individual summaries if they were determined
+to be out of scope for one or more of the following reasons:</p>
+<ol style="list-style-type: decimal">
+<li><p>The data are suitable for our assessment but are not yet available
+to the public.</p></li>
+<li><p>The primary focus was on pelagic seabirds, not seaducks. These
+datasets were also often collected outside the Salish Sea (our study
+area).</p></li>
+<li><p>The dataset was historical, meaning it was not readily accessible
+and/or lacked the necessary metadata.</p></li>
+<li><p>The surveys were narrowly scoped and species-specific.</p></li>
+</ol>
+<div id="canadian-pacific-vessel-based-survey" class="section level3 hasAnchor" number="2.9.1">
+<h3><span class="header-section-number">2.9.1</span> Canadian Pacific Vessel-Based Survey<a href="AD2.html#canadian-pacific-vessel-based-survey" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In 2020, Environment and Climate Change Canada - Canadian Wildlife
+Service (ECCC-CWS) started vessel-based line transect surveys to collect
+quantitative baseline data on pelagic seabirds (not necessarily focused
+on seaducks). These data are being collected to provide a fundamental
+resource for mapping the abundance and distribution of birds at sea.
+Surveys are to continue through 2024, after which the data should be
+made publicly available. The main contact for this dataset is
+<a href="mailto:Caroline.Fox@ec.gc.ca" class="email">Caroline.Fox@ec.gc.ca</a></p>
+</div>
+<div id="pelagic-seabird-atlas" class="section level3 hasAnchor" number="2.9.2">
+<h3><span class="header-section-number">2.9.2</span> Pelagic Seabird Atlas<a href="AD2.html#pelagic-seabird-atlas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <a href="https://open.canada.ca/data/en/dataset/18306535-8604-4c0c-9cc6-299a8a5ea318">Atlas of Pelagic
+Seabirds</a>
+off the West Coast of Canada presents maps that display the distribution
+of 48 species of seabirds. The rationale for developing this atlas was
+the recognized need for a product that could assist with: coastal zone
+and conservation area planning; emergency response to environmental
+emergencies; and identification of areas of potential interactions
+between seabirds and anthropogenic activities. In addition, the data
+used to develop the document provides a baseline to compare with future
+seabird distributions in order to measure the impacts of shifts in
+composition, abundance and/or distribution of prey, and climatic and
+oceanographic changes.</p>
+<p>Seabird surveys were conducted aboard commercial and Canadian federal
+government ‘ships-of-opportunity’ from 1982-1983 and 1991-2005 within
+the study area (45° N to 58° N and from the coast to 148° W). The
+average densities within 5’latitude by 5’ longitude grid cells are
+displayed seasonally. These data may be used to generate
+presence/absence and trends in and estimates of relative abundance.
+These data can also be used to examine patterns in temporal and spatial
+distribution. However, due to the opportunistic nature of the surveys,
+both in space and time, these data should not be used to determine
+absolute abundance.</p>
+<p>All survey metadata can be found
+<a href="https://data-donnees.ec.gc.ca/data/species/assess/pelagic-seabird-atlas-west-coast-of-canada/PelagicAtlas-metadata-2009.txt">here</a>.</p>
+</div>
+<div id="north-pacific-pelagic-seabird-database-nppsd" class="section level3 hasAnchor" number="2.9.3">
+<h3><span class="header-section-number">2.9.3</span> North Pacific Pelagic Seabird Database (NPPSD)<a href="AD2.html#north-pacific-pelagic-seabird-database-nppsd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The
+<a href="https://www.usgs.gov/data/north-pacific-pelagic-seabird-database-nppsd">NPPSD</a>
+was created in 2005 to consolidate data on the oceanic distribution of
+marine bird species in the North Pacific. Most of these data were
+collected using at-sea strip-transect surveys within defined areas and
+at known locations. The NPPSD also contains observations of other bird
+species and marine mammals. The original NPPSD combined data from 465
+surveys conducted between 1973 and 2002, primarily in waters adjacent to
+Alaska. These surveys included 61,195 sample transects with location,
+environment, and metadata information, and the data were organized in a
+flat-file format. It contains observations of 20,098,635 birds and
+365,227 marine mammals.</p>
+<p>The NPPSD database and is available on the USGS Alaska Science Center
+NPPSD web site. Supplementary materials include an updated set of
+standardized taxonomic codes, reference maps that show the spatial and
+temporal distribution of the survey efforts and a downloadable query
+tool.</p>
+<p>All survey metadata can be found
+<a href="https://alaska.usgs.gov/data/metadata/ecosystems/nppsd/NPPSD_metadata.html">here</a>.</p>
+</div>
+<div id="coastal-observation-and-seabird-survey-team-coasst" class="section level3 hasAnchor" number="2.9.4">
+<h3><span class="header-section-number">2.9.4</span> Coastal Observation and Seabird Survey Team (COASST)<a href="AD2.html#coastal-observation-and-seabird-survey-team-coasst" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Established in 1999, The <a href="https://coasst.org/">COASST</a> is a citizen
+science project housed at the University of Washington and focused on
+the beach environment of the northeast Pacific. Over 4,500 participants
+on more than 450 beaches spanning four states have contributed directly
+to monitoring their local marine resources and ecosystem health. Data
+collection happens on the outer Pacific Coast, not within the Salish
+Sea.</p>
+<p>All survey data can be explored
+<a href="http://3.223.50.225:3838/Explore-data/">here</a></p>
+</div>
+<div id="regional-population-monitoring-of-the-marbled-murrelet-wdfw" class="section level3 hasAnchor" number="2.9.5">
+<h3><span class="header-section-number">2.9.5</span> Regional Population Monitoring of the Marbled Murrelet (WDFW)<a href="AD2.html#regional-population-monitoring-of-the-marbled-murrelet-wdfw" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Washington Department of Fish and Wildlife monitors populations of
+Marble Murrelets. This monitoring plan is specifically designed to
+estimate marbled murrelet density, population size, and population trend
+in each of five geographic areas (conservation zones) between the
+northern tip of Washington state and San Francisco, California. Within
+each zone, the offshore boundary denoting the extent of the target
+population is defined. Observers in small boats followed a prescribed
+at-sea transect line and recorded perpendicular distances to all
+murrelets observed from mid-May to the end of July when murrelets
+detected on the water are most likely locally breeding birds. Distance
+sampling methods are used to compute density and population estimates
+for the target population each year.</p>
+<p>Details on the program and reports can be found
+<a href="https://wdfw.wa.gov/species-habitats/species/brachyramphus-marmoratus#resources">here</a>.</p>
+</div>
+<div id="cherry-point-aquatic-and-fidalgo-bay-aquatic-reserve-shore-based-monitoring-dnr---wa" class="section level3 hasAnchor" number="2.9.6">
+<h3><span class="header-section-number">2.9.6</span> Cherry Point Aquatic and Fidalgo Bay Aquatic Reserve shore-based monitoring (DNR - WA)<a href="AD2.html#cherry-point-aquatic-and-fidalgo-bay-aquatic-reserve-shore-based-monitoring-dnr---wa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This study used shore-based marine bird point counts to determine
+current abundance and evaluate long-term changesin abundance of several
+marine bird species within the Washington Department of Natural
+Resources’ Cherry Point Aquatic Reserve (CPAR) and Fidalgo Bay Aquatic
+Reserve (FBAR). This project originated at the CPAR in 2013 and began as
+a pilot project using the same protocols at Fidalgo Bay in 2017.
+Continued monitoring will allow statistical tests for better determining
+the abundance trends of marine birds in the CPAR and FBAR.</p>
+<p>Learn more about <a href="https://www.dnr.wa.gov/managed-lands/aquatic-reserves/cherry-point-aquatic-reserve">Cherry
+Point</a>
+and <a href="https://www.dnr.wa.gov/managed-lands/aquatic-reserves/fidalgo-bay-aquatic-reserve">Fidalgo Bay Aquatic
+Reserves</a></p>
+</div>
+<div id="additional-historical-datasets" class="section level3 hasAnchor" number="2.9.7">
+<h3><span class="header-section-number">2.9.7</span> Additional Historical Datasets<a href="AD2.html#additional-historical-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>Žydelis, R., W. S. Boyd, A. Breault, and T. M. Sullivan. 2005.
+Abundance and distribution of waterbirds on the west coast of Vancouver
+Island during spring 1999 and winter 2000. Technical Report Series No.
+437. Canadian Wildlife Service, Pacific and Yukon Region, British
+Columbia.</em></p>
+<ul>
+<li><p>Six aerial surveys of waterbirds were conducted on the west coast of
+Vancouver Island during the spring of 1999 andwinnerinter of 2000.
+Abundance was estimated in 274 pre-determined shoreline-based
+transects, each associated with a unique marine ecological unit
+(eco-unit).</p></li>
+<li><p>The replicated surveys of individual shoreline transects were
+processed to determine: 1) distribution and abundance of waterbirds
+on the near-shore portion of the west coast of Vancouver Island, 2)
+waterbird densities across marine ecological units and 3) seasonal
+variability in waterbird distribution and abundance</p></li>
+</ul>
+<p><em>Anderson, E.M., Bower, J.L., Nysewander, D.R., Evenson, J.R. &amp; Lovvorn,
+J.R. 2009. Changes in avifaunal abundance in a heavily used wintering
+and migration site in Puget Sound, Washington, during 1966–2007. Marine
+Ornithology 37: 19–27.</em></p>
+<ul>
+<li><p>Washington Department of Game (WDG—now the WDFW) conducted aerial
+surveys of waterfowl in Padilla Bay and other sites in Puget Sound
+from 1953 until at least 1976.</p></li>
+<li><p>US Fish and Wildlife Service (USFWS) has conducted aerial surveys of
+marine birds in Grays Harbor and at 64 sites in Puget Sound. These
+surveys occurred irregularly in various months and years, with
+surveys conducted in Padilla Bay from October to March of 1977–1986
+(22 surveys). These data were compiled by M.J. McMinn and W.H.
+Schaff of the Nisqually National Wildlife Refuge.</p></li>
+<li><p>Marine Ecosystems Analysis (MESA) Puget Sound surveys were conducted
+one to three times per month from January 1978 to December 1979 in
+the Strait of Juan de Fuca and northern Puget Sound (see Wahl et al.
+1981).</p></li>
+<li><p>Western Washington University survey replicated many of the MESA
+shore-based surveys in northern Puget Sound from September to
+mid-May 2003–2006 (Bower 2003).</p></li>
+</ul>
+<p><em>Bower, J. L. 2009. Changes in marine bird abundance in the Salish Sea:
+1975 to 2007. Marine Ornithology 37:9-17.</em></p>
+<ul>
+<li><p>Marine Ecosystems Analysis (MESA) Puget Sound Project conducted
+during 1978/79 (see Wahl et al. 1981 below).</p></li>
+<li><p><a href="#PSEMP5">Puget Sound Ambient Monitoring Program</a></p></li>
+<li><p>Western Washington University (WWU) or WWU/MESA
+comparison—replicating as closely as possible the substantial MESA
+data sets based upon shoreline and ferry counts conducted monthly
+from September to May, in 2003/04 and again in 2004/05 (Bower 2003)</p></li>
+</ul>
+<p><em>Nysewander, D.R., J.R. Evenson, B.L. Murphie, and T.A. Cyra. 2005.
+Report of marine bird and mammal component, Puget Sound Ambient
+Monitoring Program, for July 1992 to December 1999 period [Unpublished
+report]. Olympia, WA: Washington State Department of Fish and Wildlife,
+Wildlife Management Program. 181 pp. Available at:
+<a href="https://wdfw.wa.gov/publications/01135" class="uri">https://wdfw.wa.gov/publications/01135</a></em></p>
+<ul>
+<li><p>Both summer and winter aerial surveys were conducted each year
+between 1992 and 1999. These surveys sampled the entire marine
+shoreline of greater Puget Sound by two strata between 1993 and
+1997: nearshore (&lt; 20 meters [m]) and offshore (&gt; 20 m). They
+annually covered 13% to 15% of the nearshore and 3% to 5% of the
+offshore marine waters in Puget Sound up to the Canadian border and
+out to the west entrance to the Strait of Juan de Fuca.</p></li>
+<li><p>Comparable to the nearly identical winter aerial transects conducted
+during both 1978-79 MESA<br />
+and 1992-99 PSAMP efforts.</p></li>
+</ul>
+<p><em>Wal, T. R. 1981. Marine bird populations of the Strait of Juan de Fuca,
+Strait of Georgia, and adjacent waters in 1978 and 1979. National
+Oceanic and Atmospheric Administration; United States Environmental
+Protection Agency, Research and Development, Seattle, WA; Washington,
+D.C.; Springfield, VA. (known as the MESA surveys)</em></p>
+<ul>
+<li>Conducted from 1 January 1978 to 31 December 1979 in the Strait of
+Juan de Fuca north to the San Juan Islands and Point Roberts and
+west to Sidney, British Columbia. Major objectives were to determine
+the time of occurrence, distribution, abundance, and locations of
+important concentrations of marine birds. Data were obtained on
+breeding marine birds on 99 geographic units in American waters.</li>
+</ul>
+<p>Additional species-specific datasets are identified by the Puget Sound
+Partnership (2012)
+<a href="https://pspwa.app.box.com/s/4g77me8lrg3pqbrz6znrhqmwxs5gimbq">here</a></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="SD2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
