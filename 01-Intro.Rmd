@@ -24,6 +24,6 @@ This R user guide aims to fulfill one of the key project initiatives: to identif
 
 A great deal of time and effort have gone into gathering, compiling, and making the data presented in this guide accessible. Data users need to appropriately acknowledge the source of the information they are using. This also should include an acknowledgement of volunteer efforts in instances where data were collected by citizen-scientist.
 
-This project was a collaborative initiative between Birds Canada, Environment and Climate Change Canada, Ducks Unlimited Canada, Pacific Habitat Join Venture, Washington Department of Fish and Wildlife, and Audubon Washington. Funding for this project was provided by ... _others?_
+This project was a collaborative initiative between Birds Canada, Environment and Climate Change Canada, Ducks Unlimited Canada, Pacific Habitat Join Venture, Washington Department of Fish and Wildlife, and Audubon Washington. Funding for this project was provided by the U.S. Fish and Wildlife Service through Funding Opportunity F23AS00018.
 
 This R User Guide was written by Dr. Danielle Ethier and Dean Evans with Birds Canada. Any comments, edits or suggestions can be sent to [dethier@birdscanada.org](mailto:dethier@birdscanada.org). Your feedback is always welcome and appreciated!

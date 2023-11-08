@@ -1,7 +1,7 @@
 ---
 title: "Transboundary avian data for the Salish Sea"
 author: "Author: Danielle Ethier and Dean Evans"
-date: "Version 3: September 2023"
+date: "Version 4: November 2023"
 site: bookdown::bookdown_site
 documentclass: book
 biblio-style: apalike
