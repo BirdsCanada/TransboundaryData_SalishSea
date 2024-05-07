@@ -317,11 +317,11 @@ Survey**]((https:/seattleaudubon.org/wp-content/uploads/2021/01/PSSS_Protocol_20
 |---------------|---------------------------------------------------------|
 | Owner       | Seattle Audubon/ Puget Sound Bird Observatory                        |
 | Status      | Active                                                               |
-| Years       | 2009 - present                                                       |
+| Years       | 2008 - present                                                       |
 | Seasons     | Monthly survey, with a winter focus from Oct - April                 |
 | Sampling    | Coastal surveys at designated points                                 |
 | Data Access | Available by contacting data owner                                   |
-| Contact     | [joshm\@seattleaudubon.org](mailto:joshm@seattleaudubon.org){.email} |
+| Contact     | [t_ross@pugetsoundbirds.org](mailto:t_ross@pugetsoundbirds.org){.email} |
 
 ### Data Collection Protocol
 
